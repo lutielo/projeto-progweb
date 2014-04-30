@@ -1,8 +1,26 @@
 package br.unisul.progweb.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tipoUsuario")
 public class Perfil {
+
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	@Column(name="id_tipoUsuario")
 	private Integer id;
+	
+	@Column(name="de_tipoUsuario")
 	private Integer acesso;
+
+	public Perfil() {
+	}
 
 	public Integer getId() {
 		return id;
