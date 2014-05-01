@@ -19,7 +19,8 @@ public class UsuarioBean {
 	private Integer id;
 	
 	@Column(name="tipo_usuario")
-	private Perfil acesso;
+//	private Perfil acesso;
+	private Integer acesso;
 	
 	@Column(name="tx_nome")
 	private String nmCompleto;
@@ -55,13 +56,21 @@ public class UsuarioBean {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+//	public Perfil getNvlAcesso() {
+//		return acesso;
+//	}
+//
+//	public void setNvlAcesso(Perfil nvlAcesso) {
+//		this.acesso = nvlAcesso;
+//	}
 
-	public Perfil getNvlAcesso() {
+	public Integer getAcesso() {
 		return acesso;
 	}
 
-	public void setNvlAcesso(Perfil nvlAcesso) {
-		this.acesso = nvlAcesso;
+	public void setAcesso(Integer acesso) {
+		this.acesso = acesso;
 	}
 
 	public String getNmCompleto() {

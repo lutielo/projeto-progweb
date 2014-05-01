@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.unisul.progweb.dao.UsuarioDAO;
 import br.unisul.progweb.modelo.UsuarioBean;
 
-@WebServlet("/UsuarioBeanServlet")
+@WebServlet("/UsuarioServlet")
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
