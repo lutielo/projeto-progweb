@@ -7,12 +7,12 @@
 	<persistence-unit name="persist">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<!-- ADICIONAR CLASSES MAPEADAS -->
-		<!-- <class>br.unisul.bean.Event</class> -->
+		<class>br.unisul.progweb.bean.Event</class>
 		
 		<properties>
 			<!-- Database connection settings -->
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/jpa" />
+			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/trabalhofinal" />
 			<property name="hibernate.connection.username" value="postgres" />
 			<property name="hibernate.connection.password" value="postgres" />
 			
