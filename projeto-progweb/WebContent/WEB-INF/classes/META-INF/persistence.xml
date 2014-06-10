@@ -7,14 +7,22 @@
 	<persistence-unit name="persist">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<!-- ADICIONAR CLASSES MAPEADAS -->
-		<class>br.unisul.progweb.bean.Event</class>
+		<class>br.unisul.progweb.bean.Curso</class>
+		<class>br.unisul.progweb.bean.Cursoaluno</class>
+		<class>br.unisul.progweb.bean.CursoalunoId</class>
+		<class>br.unisul.progweb.bean.Cursoarquivo</class>
+		<class>br.unisul.progweb.bean.CursoarquivoId</class>
+		<class>br.unisul.progweb.bean.Perfil</class>
+		<class>br.unisul.progweb.bean.Perfilacesso</class>
+		<class>br.unisul.progweb.bean.PerfilacessoId</class>
+		<class>br.unisul.progweb.bean.Usuario</class>
 		
 		<properties>
 			<!-- Database connection settings -->
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/trabalhofinal" />
-			<property name="hibernate.connection.username" value="postgres" />
-			<property name="hibernate.connection.password" value="postgres" />
+			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/CursoOnLine" />
+			<property name="hibernate.connection.username" value="java" />
+			<property name="hibernate.connection.password" value="java" />
 			
 			<!-- JDBC connection pool (use the built-in) -->
 			<property name="hibernate.connection.pool_size" value="1" />
