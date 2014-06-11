@@ -28,6 +28,9 @@ public class PerfilAcessoManagerJPA extends HttpServlet {
 
 	private void processaRequisicao(HttpServletRequest request,	HttpServletResponse response) throws ServletException, IOException {
 
+		String usuario = request.getParameter("usuario");
+		String senha = request.getParameter("senha");
+		
 		Perfil myPerfil = new Perfil();
 		myPerfil.setCdperfil(3);
 		
