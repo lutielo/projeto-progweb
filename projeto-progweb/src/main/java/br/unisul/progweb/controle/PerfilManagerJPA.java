@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.unisul.progweb.bean.Perfil;
+import br.unisul.progweb.bean.Perfilacesso;
+import br.unisul.progweb.bean.PerfilacessoId;
 import br.unisul.progweb.dao.PerfilDAO;
 
 @WebServlet("/PerfilManagerJPA")
@@ -26,8 +28,14 @@ public class PerfilManagerJPA extends HttpServlet {
 	}
 
 	private void processaRequisicao(HttpServletRequest request,	HttpServletResponse response) throws ServletException, IOException {
+		
+//		PerfilacessoId perfilacessoId = new PerfilacessoId((short) 1, "/all");
+//		Perfilacesso perfilacesso = new Perfilacesso();
+//		perfilacesso.setId(perfilacessoId);
+		
 		Perfil myPerfil = new Perfil("Admin TESTE");
 		PerfilDAO perfilDAO = new PerfilDAO();
+//		myPerfil.setPerfilacessos(perfilacesso);
 
 		perfilDAO.inserir(myPerfil);
 
