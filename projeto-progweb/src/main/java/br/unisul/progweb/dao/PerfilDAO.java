@@ -44,5 +44,14 @@ public class PerfilDAO {
 			em.close();
 		}
 	}
-
+	
+	
+ 	public Perfil getPerfilEspecifico(Integer cdperfil) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			return em.createQuery("from Perfil where cdperfil = " + cdperfil, Perfil.class).getSingleResult();
+		} finally {
+			em.close();
+		}
+	}
 }

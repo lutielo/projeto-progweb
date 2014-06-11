@@ -40,9 +40,15 @@ public class PerfilManagerJPA extends HttpServlet {
 		perfilDAO.inserir(myPerfil);
 
 		List result = perfilDAO.getList();
+		System.out.println("TODOS");
 		for (Perfil perfil : (List<Perfil>) result) {
 			System.out.println("Perfil (" + perfil.getCdperfil() + " /" +  perfil.getDeperfil());
 		}
+		System.out.println("-----------------------");
+		
+		System.out.println("especifico com o codigo 3");
+		Perfil perfilTeste = perfilDAO.getPerfilEspecifico(3);
+		System.out.println("Perfil (" + perfilTeste.getCdperfil() + " /" +  perfilTeste.getDeperfil());
 	}
 
 }
