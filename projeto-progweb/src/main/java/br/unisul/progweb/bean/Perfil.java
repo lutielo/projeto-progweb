@@ -68,8 +68,8 @@ public class Perfil implements java.io.Serializable {
 		return this.perfilacessos;
 	}
 
-	public void setPerfilacessos(Perfilacesso perfilacesso) {
-		this.perfilacessos.add(perfilacesso);
+	public void setPerfilacessos(Set<Perfilacesso> perfilacessos) {
+			this.perfilacessos = perfilacessos;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "perfil")
