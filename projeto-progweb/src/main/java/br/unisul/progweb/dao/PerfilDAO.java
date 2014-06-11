@@ -54,4 +54,38 @@ public class PerfilDAO {
 			em.close();
 		}
 	}
+ 	
+	public void updatePerfil(Perfil perfil) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			EntityTransaction t = em.getTransaction();
+			try {
+				t.begin();
+				em.merge(perfil);
+				t.commit();
+			} finally {
+				if (t.isActive())
+					t.rollback();
+			}
+		} finally {
+			em.close();
+		}
+	}
+ 	
+	public void deletePerfil(Perfil perfil) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			EntityTransaction t = em.getTransaction();
+			try {
+				t.begin();
+				em.remove(perfil);
+				t.commit();
+			} finally {
+				if (t.isActive())
+					t.rollback();
+			}
+		} finally {
+			em.close();
+		}
+	}
 }
