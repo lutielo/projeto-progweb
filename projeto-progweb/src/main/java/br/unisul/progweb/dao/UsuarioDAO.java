@@ -5,16 +5,16 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
-import br.unisul.progweb.bean.Curso;
-import br.unisul.progweb.bean.Event;
 import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.persistence.PersistenceManager;
 
 public class UsuarioDAO {
-	
-	private EntityManagerFactory emf = PersistenceManager.getInstance().getEntityManagerFactory();
-	
+
+	private EntityManagerFactory emf = PersistenceManager.getInstance()
+			.getEntityManagerFactory();
+
 	public UsuarioDAO() {
 
 	}
@@ -36,10 +36,21 @@ public class UsuarioDAO {
 		}
 	}
 
+	public Usuario getUsuario(String login) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			String query = "from Usuario where delogin = :login";
+			return em.createQuery(query, Usuario.class).setParameter("login", login).getSingleResult();
+		} finally {
+			em.close();
+		}
+	}
+
 	public List getList() {
 		EntityManager em = emf.createEntityManager();
 		try {
-			return em.createQuery("from Usuario", Usuario.class).getResultList();
+			return em.createQuery("from Usuario", Usuario.class)
+					.getResultList();
 		} finally {
 			em.close();
 		}

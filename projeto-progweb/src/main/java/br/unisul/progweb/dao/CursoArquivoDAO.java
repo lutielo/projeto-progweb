@@ -6,26 +6,26 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
-import br.unisul.progweb.bean.Event;
+import br.unisul.progweb.bean.Cursoarquivo;
 import br.unisul.progweb.bean.Perfil;
+import br.unisul.progweb.bean.Perfilacesso;
 import br.unisul.progweb.persistence.PersistenceManager;
 
-public class PerfilDAO {
+public class CursoArquivoDAO {
+	
+	private EntityManagerFactory emf = PersistenceManager.getInstance().getEntityManagerFactory();
 
-	private EntityManagerFactory emf = PersistenceManager.getInstance()
-			.getEntityManagerFactory();
-
-	public PerfilDAO() {
+	public CursoArquivoDAO() {
 
 	}
 
-	public void inserir(Perfil perfil) {
+	public void inserir(Cursoarquivo cursoarquivo) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			EntityTransaction t = em.getTransaction();
 			try {
 				t.begin();
-				em.persist(perfil);
+				em.persist(cursoarquivo);
 				t.commit();
 			} finally {
 				if (t.isActive())
@@ -39,29 +39,28 @@ public class PerfilDAO {
 	public List getList() {
 		EntityManager em = emf.createEntityManager();
 		try {
-			return em.createQuery("from Perfil", Perfil.class).getResultList();
+			return em.createQuery("from Cursoarquivo", Perfilacesso.class).getResultList();
 		} finally {
 			em.close();
 		}
 	}
 	
-	
- 	public Perfil getPerfilEspecifico(Integer cdperfil) {
+	public List getArquivosDoCurso(Integer cdperfil) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			return em.createQuery("from Perfil where cdperfil = " + cdperfil, Perfil.class).getSingleResult();
+			return em.createQuery("from Cursoarquivo where cdcurso = " + cdperfil, Perfil.class).getResultList();
 		} finally {
 			em.close();
 		}
 	}
  	
-	public void updatePerfil(Perfil perfil) {
+	public void update(Cursoarquivo cursoarquivo) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			EntityTransaction t = em.getTransaction();
 			try {
 				t.begin();
-				em.merge(perfil);
+				em.merge(cursoarquivo);
 				t.commit();
 			} finally {
 				if (t.isActive())
@@ -72,13 +71,13 @@ public class PerfilDAO {
 		}
 	}
  	
-	public void deletePerfil(Perfil perfil) {
+	public void delete(Cursoarquivo cursoarquivo) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			EntityTransaction t = em.getTransaction();
 			try {
 				t.begin();
-				em.remove(perfil);
+				em.remove(cursoarquivo);
 				t.commit();
 			} finally {
 				if (t.isActive())

@@ -32,22 +32,16 @@ public class UsuarioManagerJPA extends HttpServlet {
 	}
 	
 	private void processaRequisicao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Perfil myPerfil = new Perfil();
-		myPerfil.setCdperfil(3);
-		
-		Perfilacesso perfilacesso = new Perfilacesso();
-		perfilacesso.setId(new PerfilacessoId((short) 3, "/all"));
-		perfilacesso.setPerfil(myPerfil);
-		
-		Usuario usuario = new Usuario();
-		usuario.setNmusuario("userTeste");
-		usuario.setPerfil(myPerfil);
-		usuario.setDelogin("teste");
-		usuario.setDesenha("teste");
-		usuario.setDeemail("teste@teste");
+		String login = request.getParameter("login");
+		String senha = request.getParameter("senha");
 
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		usuarioDAO.inserir(usuario);
+		Usuario usuario = usuarioDAO.getUsuario(login);
+		
+		
+		if(usuario.getDesenha().equals(senha)) {
+			System.out.println("Senha OK");
+		}
 		
 		List result = usuarioDAO.getList();
 		for (Event event : (List<Event>) result) {

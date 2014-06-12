@@ -42,9 +42,11 @@ public class PerfilAcessoManagerJPA extends HttpServlet {
 		perfilAcessoDAO.inserir(perfilacesso);
 
 		List result = perfilAcessoDAO.getList();
-		for (PerfilacessoId perfilAcesso : (List<PerfilacessoId>) result) {
-			System.out.println("PerfilAcesso (" + perfilAcesso.getCdperfil() + " /" +  perfilAcesso.getDeurl());
-		}
+		//AQUI TEM ALGUM PROBLEMA PARA LISTAR. MAS ESTAMOS NO METODO DE INSERÇÃO.
+		//NOS PREOCUPAMOS COM ISSO MAIS PRA FRENTE.
+//		for (PerfilacessoId perfilAcesso : (List<PerfilacessoId>) result) {
+//			System.out.println("PerfilAcesso (" + perfilAcesso.getCdperfil() + " /" +  perfilAcesso.getDeurl());
+//		}
 	}
 
 }
