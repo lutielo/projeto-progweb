@@ -4,21 +4,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html">
 <link href="css/style.css" type="text/css" rel="stylesheet" />
-<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css"
-	rel="stylesheet" />
+<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <title>Projeto Unisul</title>
 </head>
 <body>
 	<div id="container">
 		<div id="header">
-			<img src="images/Banner.jpg">
+			<img src="images/BannerV1.jpg">
 		</div>
 		<div class="navbar navbar-default">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-responsive-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">Brand</a>
 			</div>
@@ -26,8 +25,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Active</a></li>
 					<li><a href="#">Link</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Action</a></li>
 							<li><a href="#">Another action</a></li>
@@ -38,7 +36,7 @@
 							<li><a href="#">One more separated link</a></li>
 						</ul></li>
 				</ul>
-				<form name="loginForm" class="navbar-form navbar-right" action="PerfilAcessoManagerJPA" method="get">
+				<form name="loginForm" class="navbar-form navbar-right" action="UsuarioManagerJPA" method="get">
 					<ul class="nav navbar-nav">
 						<li><input type="text" name="login" placeholder="Login" class="form-control col-lg-8"></li>
 						<li class="divider">&nbsp;&nbsp;&nbsp;</li>

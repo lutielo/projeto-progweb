@@ -3,8 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html">
 <link href="css/style.css" type="text/css" rel="stylesheet" />
-<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css"
-	rel="stylesheet" />
+<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <title>Projeto Unisul</title>
 </head>
 <body>
@@ -28,7 +27,7 @@
 				    <tr>
 				      <th>#</th>
 				      <th>Nome</th>
-				      <th>Aperlido</th>
+				      <th>Apelido</th>
 				      <th>E-Mail</th>
 				      <th>Criação</th>
 				      <th>Último Login</th>

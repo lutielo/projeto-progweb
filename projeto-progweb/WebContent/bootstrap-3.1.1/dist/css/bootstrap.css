@@ -770,6 +770,12 @@ pre code {
   padding-left: 15px;
   padding-right: 15px;
 }
+.col-pq-1 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
 }
@@ -2083,6 +2089,7 @@ fieldset[disabled] .btn-default.active {
   color: #ffffff;
   background-color: #375a7f;
   border-color: #375a7f;
+  vertical-align:text-top;
 }
 .btn-primary:hover,
 .btn-primary:focus,
