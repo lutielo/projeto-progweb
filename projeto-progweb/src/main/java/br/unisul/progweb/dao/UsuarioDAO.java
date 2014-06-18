@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+import br.unisul.progweb.bean.Perfil;
 import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.persistence.PersistenceManager;
 
@@ -51,6 +52,23 @@ public class UsuarioDAO {
 		try {
 			return em.createQuery("from Usuario", Usuario.class)
 					.getResultList();
+		} finally {
+			em.close();
+		}
+	}
+	
+	public void update(Usuario usuario) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			EntityTransaction t = em.getTransaction();
+			try {
+				t.begin();
+				em.merge(usuario);
+				t.commit();
+			} finally {
+				if (t.isActive())
+					t.rollback();
+			}
 		} finally {
 			em.close();
 		}

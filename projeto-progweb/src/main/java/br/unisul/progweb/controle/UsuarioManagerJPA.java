@@ -17,6 +17,7 @@ import br.unisul.progweb.bean.Perfilacesso;
 import br.unisul.progweb.bean.PerfilacessoId;
 import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.CursoDAO;
+import br.unisul.progweb.dao.PerfilDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
 @WebServlet("/UsuarioManagerJPA")
@@ -32,20 +33,28 @@ public class UsuarioManagerJPA extends HttpServlet {
 	}
 	
 	private void processaRequisicao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nome = request.getParameter("nomecompleto");
+		String email = request.getParameter("email");
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
-
+		String cdPerfil = request.getParameter("perfil");
+		
+		PerfilDAO perfilDAO = new PerfilDAO();
+		Perfil perfil = perfilDAO.getPerfilEspecifico(Integer.parseInt(cdPerfil));
+		
+		Usuario usuario = new Usuario(perfil, nome, login, senha, email);
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		Usuario usuario = usuarioDAO.getUsuario(login);
 		
-		
-		if(usuario.getDesenha().equals(senha)) {
-			System.out.println("Senha OK");
+		if(usuario.getCdusuario() == null){
+			usuarioDAO.inserir(usuario);
+		} else {
+			usuarioDAO.update(usuario);
 		}
 		
-		List result = usuarioDAO.getList();
-		for (Event event : (List<Event>) result) {
-			System.out.println("Event (" + event.getDate() + ") : "	+ event.getTitle());
+		//Código do lutielo
+		Usuario usuarioLuti = usuarioDAO.getUsuario(login);
+		if(usuarioLuti.getDesenha().equals(senha)) {
+			System.out.println("Senha OK");
 		}
 	}
 }

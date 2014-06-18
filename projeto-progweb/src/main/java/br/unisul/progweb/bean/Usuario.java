@@ -8,6 +8,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,7 +24,7 @@ import javax.persistence.Table;
 @Table(name = "usuario", schema = "public")
 public class Usuario implements java.io.Serializable {
 
-	private int cdusuario;
+	private Integer cdusuario;
 	private Perfil perfil;
 	private String nmusuario;
 	private String delogin;
@@ -34,9 +36,8 @@ public class Usuario implements java.io.Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(int cdusuario, Perfil perfil, String nmusuario,
+	public Usuario(Perfil perfil, String nmusuario,
 			String delogin, String desenha, String deemail) {
-		this.cdusuario = cdusuario;
 		this.perfil = perfil;
 		this.nmusuario = nmusuario;
 		this.delogin = delogin;
@@ -59,11 +60,12 @@ public class Usuario implements java.io.Serializable {
 
 	@Id
 	@Column(name = "cdusuario", unique = true, nullable = false)
-	public int getCdusuario() {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getCdusuario() {
 		return this.cdusuario;
 	}
 
-	public void setCdusuario(int cdusuario) {
+	public void setCdusuario(Integer cdusuario) {
 		this.cdusuario = cdusuario;
 	}
 
