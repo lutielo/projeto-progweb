@@ -132,5 +132,4 @@ public class Usuario implements java.io.Serializable {
 	public void setCursos(Set<Curso> cursos) {
 		this.cursos = cursos;
 	}
-
 }

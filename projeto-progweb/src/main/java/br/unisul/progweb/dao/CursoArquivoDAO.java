@@ -7,8 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
 import br.unisul.progweb.bean.Cursoarquivo;
-import br.unisul.progweb.bean.Perfil;
-import br.unisul.progweb.bean.Perfilacesso;
 import br.unisul.progweb.persistence.PersistenceManager;
 
 public class CursoArquivoDAO {
@@ -16,10 +14,9 @@ public class CursoArquivoDAO {
 	private EntityManagerFactory emf = PersistenceManager.getInstance().getEntityManagerFactory();
 
 	public CursoArquivoDAO() {
-
 	}
 
-	public void inserir(Cursoarquivo cursoarquivo) {
+	public void insert(Cursoarquivo cursoarquivo) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			EntityTransaction t = em.getTransaction();
@@ -39,16 +36,19 @@ public class CursoArquivoDAO {
 	public List getList() {
 		EntityManager em = emf.createEntityManager();
 		try {
-			return em.createQuery("from Cursoarquivo", Perfilacesso.class).getResultList();
+			return em.createQuery("from Cursoarquivo", Cursoarquivo.class).getResultList();
 		} finally {
 			em.close();
 		}
 	}
 	
-	public List getArquivosDoCurso(Integer cdperfil) {
+	public List getArquivosDoCurso(Integer cdcurso) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			return em.createQuery("from Cursoarquivo where cdcurso = " + cdperfil, Perfil.class).getResultList();
+			//TODO TESTAR ESTE ORDER BY
+			String query = "from Cursoarquivo where cdcurso = :cdcurso";
+					   //+ "ORDER BY depatharquivo";
+			return em.createQuery(query, Cursoarquivo.class).setParameter("cdcurso", cdcurso).getResultList();
 		} finally {
 			em.close();
 		}

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.unisul.progweb.bean.Curso;
-import br.unisul.progweb.bean.Event;
 import br.unisul.progweb.dao.CursoDAO;
 
 @WebServlet("/CursoManagerJPA")
@@ -34,11 +33,11 @@ public class CursoManagerJPA extends HttpServlet {
 		curso.setDtfim(new Date());
 		CursoDAO cursoDAO = new CursoDAO();
 		
-		cursoDAO.inserir(curso);
+		cursoDAO.insert(curso);
 
 		List result = cursoDAO.getList();
-		for (Event event : (List<Event>) result) {
-			System.out.println("Event (" + event.getDate() + ") : "	+ event.getTitle());
+		for (Curso c : (List<Curso>) result) {
+			System.out.println("Event (" + c.getCdcurso() + ") : "	+ c.getDecurso());
 		}
 	}
 }

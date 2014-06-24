@@ -6,20 +6,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
-import br.unisul.progweb.bean.Event;
 import br.unisul.progweb.bean.Perfil;
 import br.unisul.progweb.persistence.PersistenceManager;
 
 public class PerfilDAO {
 
-	private EntityManagerFactory emf = PersistenceManager.getInstance()
-			.getEntityManagerFactory();
+	private EntityManagerFactory emf = PersistenceManager.getInstance().getEntityManagerFactory();
 
 	public PerfilDAO() {
-
 	}
 
-	public void inserir(Perfil perfil) {
+	public void insert(Perfil perfil) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			EntityTransaction t = em.getTransaction();
@@ -45,17 +42,17 @@ public class PerfilDAO {
 		}
 	}
 	
-	
- 	public Perfil getPerfilEspecifico(Integer cdperfil) {
+ 	public Perfil getSinglePerfil(Integer cdperfil) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			return em.createQuery("from Perfil where cdperfil = " + cdperfil, Perfil.class).getSingleResult();
+			String query = "from Perfil where cdperfil = :cdperfil";
+			return em.createQuery(query, Perfil.class).setParameter("cdperfil", cdperfil).getSingleResult();
 		} finally {
 			em.close();
 		}
 	}
  	
-	public void updatePerfil(Perfil perfil) {
+	public void update(Perfil perfil) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			EntityTransaction t = em.getTransaction();
@@ -72,7 +69,7 @@ public class PerfilDAO {
 		}
 	}
  	
-	public void deletePerfil(Perfil perfil) {
+	public void delete(Perfil perfil) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			EntityTransaction t = em.getTransaction();

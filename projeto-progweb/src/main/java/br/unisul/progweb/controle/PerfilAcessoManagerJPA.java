@@ -39,7 +39,7 @@ public class PerfilAcessoManagerJPA extends HttpServlet {
 		perfilacesso.setPerfil(myPerfil);
 		
 		PerfilAcessoDAO perfilAcessoDAO = new PerfilAcessoDAO();
-		perfilAcessoDAO.inserir(perfilacesso);
+		perfilAcessoDAO.insert(perfilacesso);
 
 		List result = perfilAcessoDAO.getList();
 		//AQUI TEM ALGUM PROBLEMA PARA LISTAR. MAS ESTAMOS NO METODO DE INSERÇÃO.

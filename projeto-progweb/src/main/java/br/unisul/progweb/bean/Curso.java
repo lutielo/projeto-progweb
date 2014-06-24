@@ -10,6 +10,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,7 +24,7 @@ import javax.persistence.TemporalType;
 @Table(name = "curso", schema = "public")
 public class Curso implements Serializable {
 
-	private int cdcurso;
+	private Integer cdcurso;
 	private Usuario usuario;
 	private String decurso;
 	private String deementa;
@@ -34,12 +36,12 @@ public class Curso implements Serializable {
 	public Curso() {
 	}
 
-	public Curso(int cdcurso, String decurso) {
+	public Curso(Integer cdcurso, String decurso) {
 		this.cdcurso = cdcurso;
 		this.decurso = decurso;
 	}
 
-	public Curso(int cdcurso, Usuario usuario, String decurso, String deementa,
+	public Curso(Integer cdcurso, Usuario usuario, String decurso, String deementa,
 			Date dtinicio, Date dtfim, Set<Cursoaluno> cursoalunos, Set<Cursoarquivo> cursoarquivos) {
 		this.cdcurso = cdcurso;
 		this.usuario = usuario;
@@ -53,11 +55,12 @@ public class Curso implements Serializable {
 
 	@Id
 	@Column(name = "cdcurso", unique = true, nullable = false)
-	public int getCdcurso() {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getCdcurso() {
 		return this.cdcurso;
 	}
 
-	public void setCdcurso(int cdcurso) {
+	public void setCdcurso(Integer cdcurso) {
 		this.cdcurso = cdcurso;
 	}
 
