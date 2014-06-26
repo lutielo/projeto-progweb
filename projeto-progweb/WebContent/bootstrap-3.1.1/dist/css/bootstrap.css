@@ -2089,7 +2089,8 @@ fieldset[disabled] .btn-default.active {
   color: #ffffff;
   background-color: #375a7f;
   border-color: #375a7f;
-  vertical-align:text-top;
+/*Lucas fez essa bagaça aqui */
+/*vertical-align:text-top; */
 }
 .btn-primary:hover,
 .btn-primary:focus,
