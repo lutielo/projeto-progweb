@@ -41,68 +41,55 @@
 		<div id="content">
 			<div id="left"></div>
 			<div id="center">
-				<form action="UsuarioManagerJPA" method="post">
-					<fieldset style="width: 600px">
-						<legend>
-							<b>Cadastro de usuário TABLE</b>
-						</legend>
-						<table>
-							<tr>
-								<td align="right"><label>Nome completo: </label><input type="text" name="nomecompleto" size="50" /></td>
-							</tr>
-							<tr><td></td></tr>
-							<tr>
-								<td align="right"><label>E-mail: </label><input type="email" name="email" size="50" /></td>
-							</tr>
-							<tr>
-								<td align="right"><label>Login: </label><input type="text" name="login" size="50" /></td>
-							</tr>
-							<tr>
-								<td align="right"><label>Senha: </label><input type="password" name="senha" size="50" /></td>
-							</tr>
-							<tr>
-								<td align="center">
-									<%if("trocar aqui por session.getAttribute(cadastroadm) ".equals("true")){  %>
-									<label>Perfil: </label>
-									<select name="perfil">
-										<option value="1">Admin</option>
-									  	<option value="2">Aluno</option>
-									  	<option value="3">Professor</option>
-									</select>
-									<%} else {%>
-									    <input type="hidden" name="perfil" value="2"/>
-									<%}%>
-								</td>
-							</tr>
-						</table>
+				<form class="form-horizontal" action="UsuarioManagerJPA" method="post">
+					<fieldset>
+						<legend>Cadastro de usuário</legend>
+						<div class="form-group">
+							<label for="inputNome" class="col-lg-2 control-label">Nome Completo</label>
+							<div class="col-lg-10">
+								<input type="text" name="nomecompleto" class="form-control" id="inputNome" placeholder="Fulano da Silva">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+							<div class="col-lg-10">
+								<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputLogin" class="col-lg-2 control-label">Login</label>
+							<div class="col-lg-10">
+								<input type="text" name="login" class="form-control" id="inputLogin" placeholder="Login">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputSenha" class="col-lg-2 control-label">Senha</label>
+							<div class="col-lg-10">
+								<input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Senha">
+							</div>
+						</div>
+						<%if("trocar aqui por session.getAttribute(cadastroadm)".equals("true")){  %>
+						<div class="form-group">
+							<label for="select" class="col-lg-2 control-label">Perfil</label>
+							<div class="col-lg-10">
+								<select class="form-control" name="perfil" id="perfil">
+									<option value="1">Admin</option>
+									<option value="2">Aluno</option>
+									<option value="3">Professor</option>
+								</select>
+							</div>
+						</div>
+						<%} else {%>
+						    <input type="hidden" name="perfil" value="2"/>
+						<%}%>
+						<div class="form-group">
+							<div class="col-lg-10 col-lg-offset-2">
+								<button class="btn btn-default" onclick="javascript:history.go(-1)">Voltar</button>
+								<button type="reset" class="btn btn-default">Limpar</button>
+								<button type="submit" class="btn btn-primary">Cadastrar</button>
+							</div>
+						</div>
 					</fieldset>
-					<br/>
-					<input type="submit" value="Cadastrar" /> 
-					<input type="reset" value="Limpar" />
-					<input type="button" value="Voltar" onclick="javascript:history.go(-1)" />
-				</form>
-				<br/><br/><br/><br/><br/><br/>
-				<form action="UsuarioManagerJPA" method="post">
-					<b>Cadastro de usuário TABLELESS</b><br/><br/>
-					Nome completo: <input type="text" name="nomecompleto" size="50" /><br/><br/>
-					E-mail: <input type="email" name="email" size="50" /><br/><br/>
-					Login: <input type="text" name="login" size="50" /><br/><br/>
-					Senha: <input type="password" name="senha" size="50" /><br/><br/>
-					<br/>
-					<%if("trocar aqui por session.getAttribute(cadastroadm)".equals("true")){  %>
-					<label>Perfil:</label>
-					<select name="perfil">
-						<option value="1">Admin</option>
-					  	<option value="2">Aluno</option>
-					  	<option value="3">Professor</option>
-					</select>
-					<%} else {%>
-					    <input type="hidden" name="perfil" value="2"/>
-					<%}%>
-					<br>
-					<input type="submit" value="Cadastrar" /> 
-					<input type="reset" value="Limpar" />
-					<input type="button" value="Voltar" onclick="javascript:history.go(-1)" />
 				</form>
 			</div>
 			<div id="right"></div>
