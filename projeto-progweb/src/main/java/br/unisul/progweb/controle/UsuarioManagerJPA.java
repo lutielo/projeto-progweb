@@ -45,7 +45,7 @@ public class UsuarioManagerJPA extends HttpServlet {
 		}
 		
 		//Código do lutielo
-		Usuario usuarioLuti = usuarioDAO.getSingleUsuario(login);
+		Usuario usuarioLuti = usuarioDAO.getSingleUsuarioByLogin(login);
 		if(usuarioLuti.getDesenha().equals(senha)) {
 			System.out.println("Senha OK");
 		}

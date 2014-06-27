@@ -43,11 +43,21 @@ public class UsuarioDAO {
 		}
 	}
 
-	public Usuario getSingleUsuario(String login) {
+	public Usuario getSingleUsuarioByLogin(String login) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			String query = "from Usuario where delogin = :login";
 			return em.createQuery(query, Usuario.class).setParameter("login", login).getSingleResult();
+		} finally {
+			em.close();
+		}
+	}
+	
+	public Usuario getSingleUsuarioById(Integer cdusuario) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			String query = "from Usuario where cdusuario = :cdusuario";
+			return em.createQuery(query, Usuario.class).setParameter("cdusuario", cdusuario).getSingleResult();
 		} finally {
 			em.close();
 		}
