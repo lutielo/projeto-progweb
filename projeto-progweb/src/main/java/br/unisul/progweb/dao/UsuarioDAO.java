@@ -86,7 +86,8 @@ public class UsuarioDAO {
 			EntityTransaction t = em.getTransaction();
 			try {
 				t.begin();
-				em.remove(usuario);
+				em.remove(em.getReference(Usuario.class, usuario.getCdusuario()));  
+//				em.remove(usuario);
 				t.commit();
 			} finally {
 				if (t.isActive())
