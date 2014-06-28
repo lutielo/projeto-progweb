@@ -1,4 +1,4 @@
-package br.unisul.progweb.servlet;
+package br.unisul.progweb.controle;
 
 import java.io.IOException;
 

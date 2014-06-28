@@ -9,68 +9,49 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<img src="images/BannerV1.jpg">
-		</div>
-		<div class="navbar navbar-default">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Brand</a>
-			</div>
-			<div class="navbar-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Active</a></li>
-					<li><a href="#">Link</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">Dropdown header</li>
-							<li><a href="#">Separated link</a></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul></li>
-				</ul>
-			</div>
-		</div>
+		<jsp:include page="header.jsp" />
+		
 		<div id="content">
-			<div id="left"></div>
+			<jsp:include page="left.jsp" />
 			<div id="center">
 				<form class="form-horizontal" action="UsuarioManagerJPA" method="post">
 					<fieldset>
-						<legend>Cadastro de usuário</legend>
+						<legend>${acao}</legend>
+						<c:if test="${not empty usuario.cdusuario}">
+							<div class="form-group">
+								<label for="inputCodigo" class="col-lg-2 control-label">Codigo:</label>
+								<div class="col-lg-10">
+									<input type="text" name="codigo" class="form-control" id="inputCodigo" value="${usuario.cdusuario}" readonly>
+								</div>
+							</div>
+						</c:if>
 						<div class="form-group">
-							<label for="inputNome" class="col-lg-2 control-label">Nome Completo</label>
+							<label for="inputNome" class="col-lg-2 control-label">Nome:</label>
 							<div class="col-lg-10">
-								<input type="text" name="nomecompleto" class="form-control" id="inputNome" placeholder="Fulano da Silva">
+								<input type="text" name="nomecompleto" class="form-control" id="inputNome" placeholder="Fulano da Silva" value="${usuario.nmusuario}">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+							<label for="inputEmail" class="col-lg-2 control-label">Email:</label>
 							<div class="col-lg-10">
-								<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+								<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="${usuario.deemail}">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputLogin" class="col-lg-2 control-label">Login</label>
+							<label for="inputLogin" class="col-lg-2 control-label">Login:</label>
 							<div class="col-lg-10">
-								<input type="text" name="login" class="form-control" id="inputLogin" placeholder="Login">
+								<input type="text" name="login" class="form-control" id="inputLogin" placeholder="Login" value="${usuario.delogin}">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputSenha" class="col-lg-2 control-label">Senha</label>
+							<label for="inputSenha" class="col-lg-2 control-label">Senha:</label>
 							<div class="col-lg-10">
-								<input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Senha">
+								<input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Senha" value="${usuario.desenha}">
 							</div>
 						</div>
 						<%if("trocar aqui por session.getAttribute(cadastroadm)".equals("true")){  %>
 						<div class="form-group">
-							<label for="select" class="col-lg-2 control-label">Perfil</label>
+							<label for="select" class="col-lg-2 control-label">Perfil:</label>
 							<div class="col-lg-10">
 								<select class="form-control" name="perfil" id="perfil">
 									<option value="1">Admin</option>
@@ -86,17 +67,16 @@
 							<div class="col-lg-10 col-lg-offset-2">
 								<button class="btn btn-default" onclick="javascript:history.go(-1)">Voltar</button>
 								<button type="reset" class="btn btn-default">Limpar</button>
-								<button type="submit" class="btn btn-primary">Cadastrar</button>
+								<button type="submit" class="btn btn-primary">Salvar</button>
 							</div>
 						</div>
 					</fieldset>
 				</form>
 			</div>
-			<div id="right"></div>
+			<jsp:include page="right.jsp" />
 		</div>
-		<div id="footer">
-			<p>Rodapé</p>
-		</div>
+		
+		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>

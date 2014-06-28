@@ -36,6 +36,16 @@ public class Usuario implements java.io.Serializable {
 	public Usuario() {
 	}
 
+	public Usuario(Integer cdusuario, Perfil perfil, String nmusuario,
+			String delogin, String desenha, String deemail) {
+		this.cdusuario = cdusuario;
+		this.perfil = perfil;
+		this.nmusuario = nmusuario;
+		this.delogin = delogin;
+		this.desenha = desenha;
+		this.deemail = deemail;
+	}
+	
 	public Usuario(Perfil perfil, String nmusuario,
 			String delogin, String desenha, String deemail) {
 		this.perfil = perfil;

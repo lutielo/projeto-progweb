@@ -26,6 +26,7 @@ public class UsuarioManagerJPA extends HttpServlet {
 	}
 	
 	private void processaRequisicao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String codigo = request.getParameter("codigo");
 		String nome = request.getParameter("nomecompleto");
 		String email = request.getParameter("email");
 		String login = request.getParameter("login");
@@ -35,12 +36,14 @@ public class UsuarioManagerJPA extends HttpServlet {
 		PerfilDAO perfilDAO = new PerfilDAO();
 		Perfil perfil = perfilDAO.getSinglePerfil(Integer.parseInt(cdPerfil));
 		
-		Usuario usuario = new Usuario(perfil, nome, login, senha, email);
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		
-		if(usuario.getCdusuario() == null){
+		if(codigo == null){
+			Usuario usuario = new Usuario(perfil, nome, login, senha, email);
 			usuarioDAO.insert(usuario);
 		} else {
+			Integer codigoInt = Integer.parseInt(codigo);
+			Usuario usuario = new Usuario(codigoInt, perfil, nome, login, senha, email);
 			usuarioDAO.update(usuario);
 		}
 		
@@ -49,5 +52,7 @@ public class UsuarioManagerJPA extends HttpServlet {
 		if(usuarioLuti.getDesenha().equals(senha)) {
 			System.out.println("Senha OK");
 		}
+		
+		response.sendRedirect("ListaUsuariosManager");
 	}
 }
