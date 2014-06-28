@@ -1,4 +1,4 @@
-package br.unisul.progweb.controle;
+package br.unisul.progweb.controle.usuario;
 
 import java.io.IOException;
 
@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.UsuarioDAO;
 
-@WebServlet("/CadastraUsuarioManager")
-public class CadastraUsuarioManager extends HttpServlet {
+@WebServlet("/AlteraUsuarioManager")
+public class AlteraUsuarioManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public CadastraUsuarioManager() {
+	public AlteraUsuarioManager() {
 		super();
 	}
 
@@ -29,9 +29,19 @@ public class CadastraUsuarioManager extends HttpServlet {
 	}
 
 	private void processaRequisicao(HttpServletRequest request,	HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("acao", " Cadastro de usuário");
+		String codigoString = request.getParameter("codigo");
+		UsuarioDAO usuarioDAO = null;
+		Usuario usuario = null;
 
-		RequestDispatcher view = request.getRequestDispatcher("cadastroUsuarios.jsp");
-		view.forward(request, response);
+		if (codigoString != null && !codigoString.equals("")) {
+			usuarioDAO = new UsuarioDAO();
+			Integer codigo = Integer.parseInt(codigoString);
+			usuario = usuarioDAO.getSingleUsuarioById(codigo);
+			request.setAttribute("usuario", usuario);
+			request.setAttribute("acao", "Alteração de usuário");
+
+			RequestDispatcher view = request.getRequestDispatcher("cadastroUsuarios.jsp");
+			view.forward(request, response);
+		}
 	}
 }

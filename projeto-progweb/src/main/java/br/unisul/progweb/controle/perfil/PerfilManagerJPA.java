@@ -1,4 +1,4 @@
-package br.unisul.progweb.controle;
+package br.unisul.progweb.controle.perfil;
 
 import java.io.IOException;
 import java.util.Date;

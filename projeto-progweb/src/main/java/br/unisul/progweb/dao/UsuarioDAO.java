@@ -41,7 +41,7 @@ public class UsuarioDAO {
 		try {
 			return em
 					.createQuery(
-							"SELECT u FROM Usuario u JOIN FETCH u.perfil p WHERE u.perfil.cdperfil = p.cdperfil",
+							"SELECT u FROM Usuario u JOIN FETCH u.perfil p WHERE u.perfil.cdperfil = p.cdperfil ORDER BY u.nmusuario",
 							Usuario.class).getResultList();
 		} finally {
 			em.close();

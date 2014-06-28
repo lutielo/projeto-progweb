@@ -1,4 +1,4 @@
-package br.unisul.progweb.controle;
+package br.unisul.progweb.controle.perfilacesso;
 
 import java.io.IOException;
 import java.util.List;

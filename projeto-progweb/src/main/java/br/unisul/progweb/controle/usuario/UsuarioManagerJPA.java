@@ -1,4 +1,4 @@
-package br.unisul.progweb.controle;
+package br.unisul.progweb.controle.usuario;
 
 import java.io.IOException;
 
