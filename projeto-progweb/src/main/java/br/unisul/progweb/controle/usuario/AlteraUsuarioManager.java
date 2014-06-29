@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.unisul.progweb.bean.Perfil;
 import br.unisul.progweb.bean.Usuario;
+import br.unisul.progweb.dao.PerfilDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
 @WebServlet("/AlteraUsuarioManager")
