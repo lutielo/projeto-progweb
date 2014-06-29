@@ -120,4 +120,15 @@ public class UsuarioDAO {
 			em.close();
 		}
 	}
+	
+	public List getProfessores() {
+		EntityManager em = emf.createEntityManager();
+		try {
+			return em.createQuery("SELECT u FROM Usuario u " +
+								  " JOIN FETCH u.perfil p WHERE u.perfil.cdperfil = 3 " +
+								  " ORDER BY u.nmusuario ", Usuario.class).getResultList();
+		} finally {
+			em.close();
+		}
+	}
 }
