@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
 import br.unisul.progweb.bean.Perfil;
+import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.persistence.PersistenceManager;
 
 public class PerfilDAO {
@@ -75,7 +76,7 @@ public class PerfilDAO {
 			EntityTransaction t = em.getTransaction();
 			try {
 				t.begin();
-				em.remove(perfil);
+				em.remove(em.getReference(Perfil.class, perfil.getCdperfil()));
 				t.commit();
 			} finally {
 				if (t.isActive())
