@@ -33,9 +33,9 @@ public class PesquisaCursoJPA extends HttpServlet {
 	}
 	
 	private void processaRequisicao(HttpServletRequest request,	HttpServletResponse response) throws ServletException, IOException {
-		String codigoString = request.getParameter("descrição");
+		String descricao = request.getParameter("descricao");
 		CursoDAO cursoDAO = new CursoDAO();
-		List<Curso> curso = cursoDAO.getList();
+		List<Curso> curso = cursoDAO.getListPesquisaCurso(descricao);
 
 		request.setAttribute("lista", curso);
 		
