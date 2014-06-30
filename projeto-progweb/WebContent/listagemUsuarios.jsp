@@ -14,32 +14,37 @@
 		<div id="content">
 			<jsp:include page="left.jsp" />
 			<div id="center">
-				<h1>Lista completa de usuários</h1>
-				<hr>
-				<table class="table table-striped table-hover ">
-				  <thead>
-					<tr>
-						<th width="60">Código</th>
-						<th>Nome</th>
-						<th>Login</th>
-						<th>Email</th>
-						<th>Perfil</th>
-					</tr>
-				  </thead>
-				  <tbody>
-					<c:forEach var="usuario" items="${listaUsuarios}">
-						<tr>
-							<td>${usuario.cdusuario}</td>
-							<td>${usuario.nmusuario}</td>
-							<td>${usuario.delogin}</td>
-							<td>${usuario.deemail}</td>
-							<td>${usuario.perfil.deperfil}</td>
-							<td align="center"><a href="AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-							<td align="center"><a href="DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
-						</tr>
-					</c:forEach>
-				  </tbody>
-				</table>
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<h1>Lista completa de usuários</h1>
+						<hr>
+						<table class="table table-striped table-hover ">
+						  <thead>
+							<tr>
+								<th width="60">Código</th>
+								<th>Nome</th>
+								<th>Login</th>
+								<th>Email</th>
+								<th>Perfil</th>
+								<th colspan="2">Ações</th>
+							</tr>
+						  </thead>
+						  <tbody>
+							<c:forEach var="usuario" items="${listaUsuarios}">
+								<tr>
+									<td>${usuario.cdusuario}</td>
+									<td>${usuario.nmusuario}</td>
+									<td>${usuario.delogin}</td>
+									<td>${usuario.deemail}</td>
+									<td>${usuario.perfil.deperfil}</td>
+									<td align="center"><a href="AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+									<td align="center"><a href="DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+								</tr>
+							</c:forEach>
+						  </tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 			<jsp:include page="right.jsp" />
 		</div>
