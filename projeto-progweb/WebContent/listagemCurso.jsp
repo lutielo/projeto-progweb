@@ -15,31 +15,35 @@
 		<div id="content">
 			<jsp:include page="left.jsp" />
 			<div id="center">
-				<h1>Lista completa de cursos</h1>
-				<hr>
-				<table class="table table-striped table-hover ">
-				  <thead>
-					<tr>
-						<th width="60">Código</th>
-						<th>Descrição</th>
-						<th>Data inicial</th>
-						<th>Data final</th>
-						<th colspan="2">Ações</th>
-					</tr>
-				  </thead>
-				  <tbody>
-					<c:forEach var="curso" items="${listaCursos}">
-						<tr>
-							<td>${curso.cdcurso}</td>
-							<td align="left"><a href="DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
-							<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
-							<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
-							<td align="center"><a href="AlteraCursoManager?codigo=${curso.cdcurso}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-							<td align="center"><a href="DeleteCursoManager?codigo=${curso.cdcurso}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
-						</tr>
-					</c:forEach>
-				  </tbody>
-				</table>
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<h1>Lista completa de cursos</h1>
+						<hr>
+						<table class="table table-striped table-hover ">
+						  <thead>
+							<tr>
+								<th width="60">Código</th>
+								<th>Descrição</th>
+								<th>Data inicial</th>
+								<th>Data final</th>
+								<th colspan="2">Ações</th>
+							</tr>
+						  </thead>
+						  <tbody>
+							<c:forEach var="curso" items="${listaCursos}">
+								<tr>
+									<td>${curso.cdcurso}</td>
+									<td align="left"><a href="DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
+									<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
+									<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
+									<td align="center"><a href="AlteraCursoManager?codigo=${curso.cdcurso}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+									<td align="center"><a href="DeleteCursoManager?codigo=${curso.cdcurso}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+								</tr>
+							</c:forEach>
+						  </tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 			<jsp:include page="right.jsp" />
 		</div>

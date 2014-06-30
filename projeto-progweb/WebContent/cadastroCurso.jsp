@@ -22,7 +22,7 @@
 								<c:if test="${not empty curso.cdcurso}">
 									<div class="form-group">
 										<label for="inputCodigo" class="col-lg-2 control-label">Codigo:</label>
-										<div class="col-lg-10">
+										<div class="col-lg-2">
 											<input type="text" name="codigo" class="form-control" id="inputCodigo" value="${curso.cdcurso}" readonly>
 										</div>
 									</div>
@@ -51,14 +51,14 @@
 									</div>
 								</div>
 								<div class="form-group">
+									
 									<label for="inputDataInicio" class="col-lg-2 control-label">Data início:</label>
-									<div class="col-lg-10">
+									<div class="col-lg-4">
 										<input type="date" name="dataInicio" class="form-control" id="inputDataInicio" value="${curso.dtinicio}">
 									</div>
-								</div>
-								<div class="form-group">
+									
 									<label for="inputDataFim" class="col-lg-2 control-label">Data fim:</label>
-									<div class="col-lg-10">
+									<div class="col-lg-4">
 										<input type="date" name="dataFim" class="form-control" id="inputDataFim" value="${curso.dtfim}">
 									</div>
 								</div>
