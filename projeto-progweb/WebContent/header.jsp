@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div id="header">
 	<img src="images/BannerV1.jpg">
 </div>
@@ -6,6 +7,17 @@
 		<ul class="nav navbar-nav">
 			<li><a class="active" href="#">Inicial</a></li>
 		</ul>
+		<c:if test="${empty usuario}">
+		<form name="loginForm" class="navbar-form navbar-right" action="PerfilAcessoManagerJPA" method="get">
+			<ul class="nav navbar-nav">
+				<li><input type="text" name="login" placeholder="Login" class="form-control col-lg-8"></li>
+				<li class="divider">&nbsp;&nbsp;&nbsp;</li>
+				<li><input type="password" name="senha" placeholder="Senha" class="form-control col-lg-8"></li>
+				<li class="divider">&nbsp;&nbsp;&nbsp;</li>
+				<li><input type="submit" value="Entrar" class="btn btn-primary" /></li>
+			</ul>
+		</form>
+		</c:if>
 	</div>
 </div>
 
