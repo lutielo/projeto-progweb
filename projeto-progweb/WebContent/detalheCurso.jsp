@@ -34,6 +34,10 @@
 						<h3 align="left">Ementa:</h3>
 						<p>${curso.deementa}
 					</div>
+					<form class="form-horizontal" action="AlteraCursoManager?codigo=${curso.cdcurso}" method="post">
+						<button class="btn btn-default" formaction="ListaCursoManager">Voltar</button>
+						<button type="submit" class="btn btn-primary">Editar</button>
+					</form>
 				</div>
 			</div>
 			<jsp:include page="right.jsp" />
