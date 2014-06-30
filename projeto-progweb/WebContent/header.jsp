@@ -5,7 +5,7 @@
 <div class="navbar navbar-default">
 	<div class="navbar-collapse collapse navbar-responsive-collapse">
 		<ul class="nav navbar-nav">
-			<li><a class="active" href="#">Inicial</a></li>
+			<li><a href="lsitaCursosDisponiveis.jsp">Cursos Disponíveis</a></li>
 		</ul>
 		<c:if test="${empty usuario}">
 		<form name="loginForm" class="navbar-form navbar-right" action="PerfilAcessoManagerJPA" method="get">
@@ -17,6 +17,16 @@
 				<li><input type="submit" value="Entrar" class="btn btn-primary" /></li>
 			</ul>
 		</form>
+			<form class="navbar-form navbar-left"  action="PesquisaCursoJPA" method="post">
+			     <fieldset>
+                        <input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Qual curso você deseja?"">
+				     <div class="form-group">
+				 	    <div class="col-lg-10 col-lg-offset-2">
+						    <button type="submit" class="btn btn-primary">Pesquisar</button>
+					    </div>
+					</div>
+			    </fieldset>
+            </form>
 		</c:if>
 	</div>
 </div>

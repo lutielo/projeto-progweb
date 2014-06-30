@@ -104,7 +104,7 @@ public class CursoDAO {
 	public List getListCursoEmAndamento(Date dtinicio, Date dtfim) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			String sql = "from Curso where dtinicio >= :dtinicio and dtfim <= :dtfim";
+			String sql = "from Curso where dtinicio <= :dtinicio and dtfim >= :dtfim";
 			return em.createQuery(sql, Curso.class)
 					.setParameter("dtinicio", dtinicio)
 					.setParameter("dtfim", dtfim).getResultList();
@@ -117,7 +117,7 @@ public class CursoDAO {
 			Integer cdusuarioprof) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			String sql = "from Curso where dtinicio >= :dtinicio and dtfim <= :dtfim and cdusuarioprof = :cdusuarioprof";
+			String sql = "from Curso where dtinicio <= :dtinicio and dtfim >= :dtfim and cdusuarioprof = :cdusuarioprof";
 			return em.createQuery(sql, Curso.class)
 					.setParameter("dtinicio", dtinicio)
 					.setParameter("dtfim", dtfim)
@@ -136,7 +136,7 @@ public class CursoDAO {
 			Short cdusuario) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			String sql = "SELECT c from Curso c JOIN FETCH c.cursoalunos ca where c.dtinicio >= :dtinicio and c.dtfim <= :dtfim and ca.id.cdusuario = :cdusuario";
+			String sql = "SELECT c from Curso c JOIN FETCH c.cursoalunos ca where c.dtinicio <= :dtinicio and c.dtfim >= :dtfim and ca.id.cdusuario = :cdusuario";
 			return em.createQuery(sql, Curso.class)
 					.setParameter("dtinicio", dtinicio)
 					.setParameter("dtfim", dtfim)
