@@ -6,9 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
-import br.unisul.progweb.bean.Curso;
 import br.unisul.progweb.bean.Cursoaluno;
-import br.unisul.progweb.bean.Perfilacesso;
+import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.persistence.PersistenceManager;
 
 public class CursoAlunoDAO {
@@ -47,8 +46,14 @@ public class CursoAlunoDAO {
 	public List getAlunosDoCurso(Integer cdcurso) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			String query = "from Cursoaluno where cdcurso = :cdcurso";
-			return em.createQuery(query, Cursoaluno.class).setParameter("cdcurso", cdcurso).getResultList();
+			String query = "SELECT u "
+					+ " FROM Usuario u "
+					+ " JOIN FETCH u.cursoalunos as ca"
+					+ "	JOIN FETCH u.perfil "
+					+ "	WHERE ca.curso.cdcurso = :cdcurso";
+
+			return em.createQuery(query, Usuario.class)
+					.setParameter("cdcurso", cdcurso).getResultList();
 		} finally {
 			em.close();
 		}

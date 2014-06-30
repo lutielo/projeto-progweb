@@ -15,7 +15,7 @@
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">
-						<h1>Lista de usuários</h1>
+						<h1>Lista de alunos de ${curso}</h1>
 						<hr>
 						<table class="table table-striped table-hover ">
 						  <thead>
