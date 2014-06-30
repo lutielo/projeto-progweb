@@ -36,11 +36,6 @@ public class Curso implements Serializable {
 	public Curso() {
 	}
 
-	public Curso(Integer cdcurso, String decurso) {
-		this.cdcurso = cdcurso;
-		this.decurso = decurso;
-	}
-
 	public Curso(Integer cdcurso, Usuario usuario, String decurso, String deementa,
 			Date dtinicio, Date dtfim, Set<Cursoaluno> cursoalunos, Set<Cursoarquivo> cursoarquivos) {
 		this.cdcurso = cdcurso;
@@ -53,6 +48,23 @@ public class Curso implements Serializable {
 		this.cursoarquivos = cursoarquivos;
 	}
 
+	public Curso(Integer cdcurso, Usuario usuario, String decurso, String deementa, Date dtinicio, Date dtfim) {
+		this.cdcurso = cdcurso;
+		this.usuario = usuario;
+		this.decurso = decurso;
+		this.deementa = deementa;
+		this.dtinicio = dtinicio;
+		this.dtfim = dtfim;
+	}
+	
+	public Curso(Usuario usuario, String decurso, String deementa, Date dtinicio, Date dtfim) {
+		this.usuario = usuario;
+		this.decurso = decurso;
+		this.deementa = deementa;
+		this.dtinicio = dtinicio;
+		this.dtfim = dtfim;
+	}
+	
 	@Id
 	@Column(name = "cdcurso", unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -83,7 +95,7 @@ public class Curso implements Serializable {
 		this.decurso = decurso;
 	}
 
-	@Column(name = "deementa")
+	@Column(name = "deementa", columnDefinition="TEXT", nullable = false)
 	public String getDeementa() {
 		return this.deementa;
 	}

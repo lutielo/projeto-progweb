@@ -79,7 +79,7 @@ public class CursoDAO {
 			EntityTransaction t = em.getTransaction();
 			try {
 				t.begin();
-				em.remove(curso);
+				em.remove(em.getReference(Curso.class, curso.getCdcurso()));
 				t.commit();
 			} finally {
 				if (t.isActive())
