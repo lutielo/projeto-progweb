@@ -164,6 +164,7 @@ public class CursoDAO {
 		try {
 			String sql = "from Curso";
 			String condicoes = " where ";
+			String sqlfinal;
 
 			if (decurso != null) {
 				condicoes = condicoes + " upper(decurso) like :decurso ";
@@ -184,7 +185,13 @@ public class CursoDAO {
 				condicoes = condicoes + " and cdusuarioprof = :cdusuarioprof ";
 			}
 			System.out.println(sql + condicoes);
-			TypedQuery<Curso> query = em.createQuery(sql + condicoes,
+			
+			if(condicoes.equals(" where ")){
+				sqlfinal = sql;
+			}else{	
+				sqlfinal = sql + condicoes;
+			}
+			TypedQuery<Curso> query = em.createQuery(sqlfinal,
 					Curso.class);
 
 			if (decurso != null) {
