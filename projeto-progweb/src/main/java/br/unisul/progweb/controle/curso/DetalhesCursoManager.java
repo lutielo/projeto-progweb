@@ -1,6 +1,8 @@
 package br.unisul.progweb.controle.curso;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.unisul.progweb.bean.Curso;
+import br.unisul.progweb.bean.Cursoarquivo;
 import br.unisul.progweb.bean.Usuario;
+import br.unisul.progweb.dao.CursoArquivoDAO;
 import br.unisul.progweb.dao.CursoDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
@@ -45,6 +49,17 @@ public class DetalhesCursoManager extends HttpServlet {
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
 			Usuario professor = usuarioDAO.getSingleUsuarioById(curso.getUsuario().getCdusuario());
 			request.setAttribute("professor", professor);
+			
+			CursoArquivoDAO cursoArquivoDAO = new CursoArquivoDAO();
+			List<Cursoarquivo> listaCaminhosDosArquivosDoCurso = cursoArquivoDAO.getArquivosDoCurso(codigo);
+			
+			List<File> listaFileArquivos = new ArrayList<File>();
+			
+			for (Cursoarquivo arquivo : listaCaminhosDosArquivosDoCurso) {
+				File file = new File(arquivo.getId().getDepatharquivo());
+				listaFileArquivos.add(file);
+			}
+			request.setAttribute("listaFileArquivos", listaFileArquivos);
 			
 			RequestDispatcher view = request.getRequestDispatcher("detalheCurso.jsp");
 			view.forward(request, response);
