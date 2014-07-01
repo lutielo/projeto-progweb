@@ -41,7 +41,7 @@ public class PesquisaAvancadaCursoJPA extends HttpServlet {
 		Date dataInicioFormatada = FuncoesData.formataData(request.getParameter("dataInicio"));
 		Date dataFimFormatada = FuncoesData.formataData(request.getParameter("dataFim"));
 		Integer professor = null;
-		if(cdProfessor!=null){
+		if((cdProfessor!=null)&&(!cdProfessor.equals(""))){
 			professor = Integer.parseInt(cdProfessor);
 		}
 		
