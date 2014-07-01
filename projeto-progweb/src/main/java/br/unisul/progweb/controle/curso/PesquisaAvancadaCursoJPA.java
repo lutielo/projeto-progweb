@@ -35,7 +35,6 @@ public class PesquisaAvancadaCursoJPA extends HttpServlet {
 	}
 	
 	private void processaRequisicao(HttpServletRequest request,	HttpServletResponse response) throws ServletException, IOException {
-		;
 		String deCurso = request.getParameter("descricao");
 		String cdProfessor = request.getParameter("professor");
 		Date dataInicioFormatada = FuncoesData.formataData(request.getParameter("dataInicio"));
@@ -43,6 +42,9 @@ public class PesquisaAvancadaCursoJPA extends HttpServlet {
 		Integer professor = null;
 		if((cdProfessor!=null)&&(!cdProfessor.equals(""))){
 			professor = Integer.parseInt(cdProfessor);
+		}
+		if(deCurso.equals("")){
+			deCurso = null;
 		}
 		
 		System.out.println(deCurso);
