@@ -51,6 +51,29 @@
 					
 					<div class="col-lg-15">
 						<div class="well bs-component">
+							<h1>Aulas</h1>
+							<hr>
+							<table class="table table-striped table-hover ">
+							  <thead>
+								<tr>
+									<th>Descrição</th>
+									<th>Download</th>
+								</tr>
+							  </thead>
+							  <tbody>
+								<c:forEach var="aula" items="${listaFileArquivos}">
+									<tr>
+										<td>${aula.name}</td>
+										<td align="center"><a href="DownloadFileServlet?filename=${aula}"><img src="images/Download.png" alt="Excluir" height="20" width="20"></a></td>
+									</tr>
+								</c:forEach>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+					
+					<div class="col-lg-15">
+						<div class="well bs-component">
 							<form class="form-horizontal" action="Upload?codigo=${curso.cdcurso}" method="post" name="form" enctype="multipart/form-data">
 						        <fieldset>
 									<legend>Uploads de arquivos para o curso</legend>

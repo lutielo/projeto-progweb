@@ -13,23 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/DownloadFileServlet")
 public class DownloadFileServlet extends HttpServlet {
-	//ESTE SERVLET FAZ O DOWNLOAD DE UM ARQUIVO QUE ESTA NA MAQUINA LOCAL 
-	//POR EXEMPLO "c:/Arquivos"
-	
 	//localhost:8080/testeUpDownloadArquivo/DownloadFileServlet?filename=nomeArquivo
-	//localhost:8080/testeUpDownloadArquivo/DownloadFileServlet?filename=teste1.txt
-	final String FILE_LOCATION = "C:/CursosProgWeb/TESTE PASTA NO C/";
+	
+	final String FILE_LOCATION = "C:/CursosProgWeb/";
 	final String[][] contentTypes = {{"xml", "text/xml"}, {"pdf", "application/pdf"}, {"mp3","audio/mpeg"}};
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Object requestObject = request.getParameter("filename");
 		if (requestObject != null) {
-			String fileName = (String) requestObject;
-			String contentType = getContentType(fileName.split("\\.")[1]);
-			File file = new File(FILE_LOCATION + "/" + fileName);
-			response.setContentType(contentType);
-			response.addHeader("Content-Disposition", "attachment; filename=" + fileName);
+			String fileCaminho = (String) requestObject;
+			File file = new File(fileCaminho);
+//			String contentType = getContentType(fileName.split("\\.")[1]);
+//			File file = new File(FILE_LOCATION + "/" + fileName);
+//			File file = new File(fileName);
+			response.setContentType(file.getName());
+			response.addHeader("Content-Disposition", "attachment; filename=" + file.getName());
 			response.setContentLength((int) file.length());
 			
 			ServletOutputStream servletOutputStream = response.getOutputStream();
