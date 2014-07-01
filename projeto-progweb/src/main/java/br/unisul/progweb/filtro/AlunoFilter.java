@@ -15,10 +15,10 @@ import javax.servlet.http.HttpSession;
 
 import br.unisul.progweb.bean.Usuario;
 
-@WebFilter(filterName = "AdminFilter", urlPatterns = "/admin/*")
-public class AdminFilter implements Filter {
+@WebFilter(filterName = "AlunoFilter", urlPatterns = "/aluno/*")
+public class AlunoFilter implements Filter {
 
-	public AdminFilter() {
+	public AlunoFilter() {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -27,7 +27,7 @@ public class AdminFilter implements Filter {
 		HttpSession session = req.getSession();
 		
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		if(1 == usuario.getPerfil().getCdperfil()) {
+		if((1 == usuario.getPerfil().getCdperfil())|| (2 == usuario.getPerfil().getCdperfil()) || (3 == usuario.getPerfil().getCdperfil())) {
 			chain.doFilter(request, response);
 		} else {
 			session.setAttribute("msg","Você não tem permissão apra visualização ou não está logado!");
