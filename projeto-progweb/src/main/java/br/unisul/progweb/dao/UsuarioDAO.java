@@ -51,9 +51,17 @@ public class UsuarioDAO {
 	public Usuario getSingleUsuarioByLogin(String login) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			String query = "from Usuario where delogin = :login";
-			return em.createQuery(query, Usuario.class)
-					.setParameter("login", login).getSingleResult();
+
+			String query = "from Usuario where upper(delogin) = :login";
+			Usuario resultado = null;
+			try {
+				resultado = em.createQuery(query, Usuario.class)
+					.setParameter("login", login.toUpperCase())
+					.getSingleResult();
+			} catch (Exception e) {
+
+			}
+			return resultado;
 		} finally {
 			em.close();
 		}
@@ -63,8 +71,14 @@ public class UsuarioDAO {
 		EntityManager em = emf.createEntityManager();
 		try {
 			String query = "from Usuario where cdusuario = :cdusuario";
-			return em.createQuery(query, Usuario.class)
-					.setParameter("cdusuario", cdusuario).getSingleResult();
+			Usuario resultado = null;
+			try {
+				resultado = em.createQuery(query, Usuario.class)
+						.setParameter("cdusuario", cdusuario).getSingleResult();
+			} catch (Exception e) {
+
+			}
+			return resultado;
 		} finally {
 			em.close();
 		}
@@ -103,7 +117,7 @@ public class UsuarioDAO {
 			em.close();
 		}
 	}
-	
+
 	public void alter(Usuario usuario) {
 		EntityManager em = emf.createEntityManager();
 		try {
@@ -120,13 +134,16 @@ public class UsuarioDAO {
 			em.close();
 		}
 	}
-	
+
 	public List getProfessores() {
 		EntityManager em = emf.createEntityManager();
 		try {
-			return em.createQuery("SELECT u FROM Usuario u " +
-								  " JOIN FETCH u.perfil p WHERE u.perfil.cdperfil = 3 " +
-								  " ORDER BY u.nmusuario ", Usuario.class).getResultList();
+			return em
+					.createQuery(
+							"SELECT u FROM Usuario u "
+									+ " JOIN FETCH u.perfil p WHERE u.perfil.cdperfil = 3 "
+									+ " ORDER BY u.nmusuario ", Usuario.class)
+					.getResultList();
 		} finally {
 			em.close();
 		}

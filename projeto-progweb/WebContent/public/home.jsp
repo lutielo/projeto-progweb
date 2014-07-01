@@ -30,7 +30,7 @@
 				</ul>
 				
 				<c:if test="${empty sessionScope.usuario}">
-					<form name="loginForm" action="../PerfilAcessoManagerJPA" method="get" class="navbar-form navbar-right">
+					<form name="loginForm" action="../LoginUsuario" method="POST" class="navbar-form navbar-right">
 						<ul class="nav navbar-nav">
 							<li><input type="text" name="login" placeholder="Login" class="form-control col-lg-8"></li>
 							<li class="divider">&nbsp;&nbsp;&nbsp;</li>
@@ -50,7 +50,7 @@
 				<c:if test="${not empty sessionScope.usuario}">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="divider">&nbsp;&nbsp;&nbsp;</li>
-						<li><a href="${pageContext.request.contextPath}/LogoutUsuario">Logout</a></li>
+						<li><a href="../LogoutUsuario">Logout</a></li>
 						<li class="divider">&nbsp;&nbsp;&nbsp;</li>
 					</ul>
 				</c:if>
