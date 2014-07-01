@@ -156,4 +156,33 @@ public class CursoDAO {
 			em.close();
 		}
 	}
+	
+	public List getListPesquisaCursoAvancada(String decurso, Date dtinicio, Date dtfim, Integer cdusuarioprof) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			String sql = "from Curso";
+			String condicoes = "where";
+			
+			if(decurso!=null){
+				condicoes = condicoes + "upper(decurso) like :decurso";
+			}
+			
+			if(condicoes.equals("where")&&(dtinicio!=null)&&(dtfim!=null)){
+				condicoes = condicoes + " dtinicio between :dtinicio and dtfim";
+			}else if((dtinicio!=null)&&(dtfim!=null)){
+				condicoes = condicoes + "and dtinicio between :dtinicio and dtfim";
+			}
+			
+			if(decurso!=null&&condicoes.equals("where")){
+				condicoes = condicoes + "cdusuarioprof :=cdusuarioprof";
+			}else if(decurso!=null){
+				condicoes = condicoes + "and cdusuarioprof :=cdusuarioprof";
+			}
+			
+		    return em.createQuery(sql, Curso.class)
+					.setParameter("decurso", "%"+ decurso.toUpperCase() + "%").getResultList();
+		} finally {
+			em.close();
+		}
+	}
 }
