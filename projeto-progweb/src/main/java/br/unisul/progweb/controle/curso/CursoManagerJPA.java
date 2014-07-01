@@ -48,16 +48,16 @@ public class CursoManagerJPA extends HttpServlet {
 			System.out.println("codigo == null");
 			Curso curso = new Curso(professor, deCurso, deEmenta, dataInicioFormatada, dataFimFormatada);
 			cursoDAO.insert(curso);
+			criaPastaCurso(deCurso);
 		} else {
 			System.out.println("else");
 			Integer codigoInt = Integer.parseInt(codigo);
-			Curso curso = new Curso(codigoInt, professor, deCurso, deEmenta, dataInicioFormatada, dataFimFormatada);
-			cursoDAO.update(curso);
+			Curso cursoTela = new Curso(codigoInt, professor, deCurso, deEmenta, dataInicioFormatada, dataFimFormatada);
+			Curso cursoBanco = cursoDAO.getSingleCurso(codigoInt);
+			cursoDAO.update(cursoTela);
+			
+			alteraNomePasta(cursoTela, cursoBanco);
 		}
-		
-		//TODO CRIAR PASTA NO PROJETO COM NOME DO CURSO 
-		//E EDITAR O NOME QUANDO FOR ALTERADO O NOME DO CURSO
-		criaPastaCurso(deCurso);
 		
 		response.sendRedirect("ListaCursoManager");	
 		
@@ -69,16 +69,27 @@ public class CursoManagerJPA extends HttpServlet {
 		//}
 	}
 
+	private void alteraNomePasta(Curso cursoTela, Curso cursoBanco) {
+		if(!cursoBanco.getDecurso().equals(cursoTela.getDecurso())){
+			File pastaCursoTela = new File("C:/CursosProgWeb/"+cursoTela.getDecurso()); 
+			File pastaASerAlterada = new File("C:/CursosProgWeb/"+cursoBanco.getDecurso());
+			if (pastaASerAlterada.exists()){
+				pastaASerAlterada.renameTo(pastaCursoTela);
+			} else {
+				pastaCursoTela.mkdir();
+			}
+			System.out.println("Nome da pasta alterado :" +pastaASerAlterada.getAbsolutePath());
+		}
+	}
+
 	private void criaPastaCurso(String deCurso) {
-		//System.getProperty("user.dir") 
-		String caminhoAtual = new File("").getAbsolutePath();  
-		File pastaRaiz = new File("Cursos"); 
+		File pastaRaiz = new File("C:/CursosProgWeb"); 
 		if (!pastaRaiz.exists()){ 
 			pastaRaiz.mkdir(); 
 		}
 		System.out.println("Pasta existe :" + pastaRaiz.getAbsolutePath());
 		
-		File novaSubPasta = new File("Cursos/"+deCurso); 
+		File novaSubPasta = new File("C:/CursosProgWeb/"+deCurso); 
 		if (!novaSubPasta.exists()){
 			novaSubPasta.mkdir();
 		}
