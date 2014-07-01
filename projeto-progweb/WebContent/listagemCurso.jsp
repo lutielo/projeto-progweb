@@ -26,8 +26,8 @@
 								<th>Descrição</th>
 								<th>Data inicial</th>
 								<th>Data final</th>
-								<th>Alunos</th>
-								<th colspan="2">Ações</th>
+								<th width="60">Alunos</th>
+								<th colspan="3">Ações</th>
 							</tr>
 						  </thead>
 						  <tbody>
@@ -38,6 +38,7 @@
 									<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
 									<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
 									<td align="center"><a href="PesquisaCursoAluno?codigo=${curso.cdcurso}"><img src="images/List-32.png" alt="Listar alunos" height="20" width="20"></a></td>
+									<td align="center"><a href="MailToAlunosCurso?codigo=${curso.cdcurso}"><img src="images/Mail-32.png" alt="Mail" height="20" width="20"></a></td>
 									<td align="center"><a href="AlteraCursoManager?codigo=${curso.cdcurso}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
 									<td align="center"><a href="DeleteCursoManager?codigo=${curso.cdcurso}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
 								</tr>
