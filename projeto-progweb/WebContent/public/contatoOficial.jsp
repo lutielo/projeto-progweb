@@ -100,10 +100,10 @@
 						<h2 align="left">Contato</h2>
 						<div class="col-xs-15"><hr></div>
 						<p>Para entrar em contato preencha o formulário abaixo
-						ou envie um e-mail para contato@inplac.com.br<br><br>
+						ou envie um e-mail para contato@contato.com.br<br><br>
 						<h5 style="color:red">ESTE FORMULÁRIO NÃO ESTÁ FUNCIONANDO POIS NÃO TEMOS UM SERVIDOR DE EMAILS</h5><br>
 						<form class="form-horizontal" name="formulario" action="http://scripts.redehost.com.br/formmail.aspx" method="post">
-							<input type=hidden name="destino" value="teste@hotmail.com">
+							<input type=hidden name="destino" value="contato@contato.com">
 							<input type=hidden name="enviado" value="http://www.seudominio.xxx.yy/enviado.htm">
 							
 							<div class="form-group">
