@@ -6,9 +6,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 import br.unisul.progweb.bean.Curso;
-import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.persistence.PersistenceManager;
 
 public class CursoDAO {
@@ -145,13 +145,69 @@ public class CursoDAO {
 			em.close();
 		}
 	}
-	
+
 	public List getListPesquisaCurso(String decurso) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			String sql = "from Curso where upper(decurso) like :decurso";
 			return em.createQuery(sql, Curso.class)
-					.setParameter("decurso", "%"+ decurso.toUpperCase() + "%").getResultList();
+					.setParameter("decurso", "%" + decurso.toUpperCase() + "%")
+					.getResultList();
+		} finally {
+			em.close();
+		}
+	}
+
+	public List getListPesquisaCursoAvancada(String decurso, Date dtinicio,
+			Date dtfim, Integer cdusuarioprof) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			String sql = "from Curso";
+			String condicoes = " where ";
+			String sqlfinal;
+
+			if (decurso != null) {
+				condicoes = condicoes + " upper(decurso) like :decurso ";
+			}
+
+			if (condicoes.equals(" where ") && (dtinicio != null)
+					&& (dtfim != null)) {
+				condicoes = condicoes
+						+ " dtinicio between :dtinicio and :dtfim ";
+			} else if ((dtinicio != null) && (dtfim != null)) {
+				condicoes = condicoes
+						+ "and dtinicio between :dtinicio and :dtfim ";
+			}
+
+			if (cdusuarioprof != null && condicoes.equals(" where ")) {
+				condicoes = condicoes + " cdusuarioprof = :cdusuarioprof ";
+			} else if (cdusuarioprof != null) {
+				condicoes = condicoes + " and cdusuarioprof = :cdusuarioprof ";
+			}
+			System.out.println(sql + condicoes);
+			
+			if(condicoes.equals(" where ")){
+				sqlfinal = sql;
+			}else{	
+				sqlfinal = sql + condicoes;
+			}
+			TypedQuery<Curso> query = em.createQuery(sqlfinal,
+					Curso.class);
+
+			if (decurso != null) {
+				query.setParameter("decurso", "%" + decurso.toUpperCase() + "%");
+			}
+			if ((dtinicio != null) && (dtfim != null)) {
+				query.setParameter("dtinicio", dtinicio);
+				query.setParameter("dtfim", dtfim);
+			}
+			
+			if (cdusuarioprof != null){
+				query.setParameter("cdusuarioprof", cdusuarioprof);
+			}
+			
+
+			return query.getResultList();
 		} finally {
 			em.close();
 		}
