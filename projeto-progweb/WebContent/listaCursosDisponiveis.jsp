@@ -26,7 +26,7 @@
 				<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
 					<tr>
 						<td align="center"><a
-							href="DetalhesCurso?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
+							href="DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
 						<td>${curso.dtinicio}</td>
 						<td>${curso.dtfim}</td>
 					</tr>
