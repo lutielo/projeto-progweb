@@ -46,12 +46,7 @@ public class PesquisaAvancadaCursoJPA extends HttpServlet {
 		if(deCurso.equals("")){
 			deCurso = null;
 		}
-		
-		System.out.println(deCurso);
-		System.out.println(cdProfessor);
-		System.out.println(dataInicioFormatada);
-		System.out.println(dataFimFormatada);
-		
+
 		CursoDAO cursoDAO = new CursoDAO();
 		List<Curso> curso = cursoDAO.getListPesquisaCursoAvancada(deCurso, dataInicioFormatada, dataFimFormatada, professor);
 

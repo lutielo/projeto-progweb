@@ -2,9 +2,6 @@ package br.unisul.progweb.controle.curso;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -17,6 +14,7 @@ import br.unisul.progweb.bean.Curso;
 import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.CursoDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
+import br.unisul.progweb.util.FuncoesData;
 
 @WebServlet("/CursoManagerJPA")
 public class CursoManagerJPA extends HttpServlet {
@@ -34,8 +32,8 @@ public class CursoManagerJPA extends HttpServlet {
 		String codigo = request.getParameter("codigo");
 		String deCurso = request.getParameter("descricao");
 		String cdProfessor = request.getParameter("professor");
-		Date dataInicioFormatada = formataData(request.getParameter("dataInicio"));
-		Date dataFimFormatada = formataData(request.getParameter("dataFim"));
+		Date dataInicioFormatada = FuncoesData.formataData(request.getParameter("dataInicio"));
+		Date dataFimFormatada = FuncoesData.formataData(request.getParameter("dataFim"));
 		String deEmenta = request.getParameter("ementa");
 		
 		System.out.println(codigo+ " / " +deCurso+ " / " +cdProfessor+ " / " +dataInicioFormatada+ " / " +dataFimFormatada+ " / " +deEmenta);
@@ -60,13 +58,6 @@ public class CursoManagerJPA extends HttpServlet {
 		}
 		
 		response.sendRedirect("ListaCursoManager");	
-		
-		//rapha
-		//List result = cursoDAO.getListCursoEmAndamentoPorAluno(new Date(),new Date(), (short)3);
-		//List result = cursoDAO.getListPesquisaCurso("al");
-		//for (Curso c : (List<Curso>) result) {
-		//	System.out.println("Event (" + c.getCdcurso() + ") : "	+ c.getDecurso());
-		//}
 	}
 
 	private void alteraNomePasta(Curso cursoTela, Curso cursoBanco) {
@@ -96,15 +87,4 @@ public class CursoManagerJPA extends HttpServlet {
 		System.out.println("Pasta existe :" +novaSubPasta.getAbsolutePath());
 	}
 
-	private Date formataData(String data) {
-		DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-		Date dataFormatada = null;
-		try {
-			dataFormatada = fmt.parse(data);
-		} catch (ParseException e) {
-			System.err.println("QUEBROU TENTANDO FORMATAR");
-			e.printStackTrace();
-		}
-		return dataFormatada;
-	}
 }
