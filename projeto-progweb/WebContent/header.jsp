@@ -19,7 +19,7 @@
 		</form>
 			<form class="navbar-form navbar-left"  action="PesquisaCursoJPA" method="post">
 			     <fieldset>
-                        <input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Qual curso você deseja?"">
+                        <input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Qual curso você deseja?">
 				     <div class="form-group">
 				 	    <div class="col-lg-10 col-lg-offset-2">
 						    <button type="submit" class="btn btn-primary">Pesquisar</button>
