@@ -11,10 +11,10 @@
 <body>
 
 	<div id="container">
-		<jsp:include page="header.jsp" />
+<!-- INSERIR AQUI -->
 
 		<div id="content">
-			<jsp:include page="left.jsp" />
+<!-- INSERIR AQUI -->
 			<div id="center">
 				<h1>Envio de e-mail</h1>
 				<hr>
@@ -33,9 +33,9 @@
 					</tbody>
 				</table>
 			</div>
-			<jsp:include page="right.jsp" />
+<!-- INSERIR AQUI -->
 		</div>
-		<jsp:include page="footer.jsp" />
+<!-- INSERIR AQUI -->
 	</div>
 </body>
 </html>

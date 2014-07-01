@@ -9,10 +9,12 @@
 </head>
 <body>
 	<div id="container">
-		<jsp:include page="header.jsp" />
-		
+<!-- 	INCLUIR AQUI -->
+		<div id="header">
+			<img src="images/BannerV1.jpg">
+		</div>
 		<div id="content">
-			<jsp:include page="left.jsp" />
+<!-- 	INCLUIR AQUI -->
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">
@@ -30,28 +32,28 @@
 								<div class="form-group">
 									<label for="inputNome" class="col-lg-2 control-label">Nome:</label>
 									<div class="col-lg-10">
-										<input type="text" name="nomecompleto" class="form-control" id="inputNome" placeholder="Fulano da Silva" value="${usuario.nmusuario}">
+										<input type="text" name="nomecompleto" class="form-control" id="inputNome" placeholder="Fulano da Silva" value="${usuario.nmusuario}" autofocus required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Email:</label>
 									<div class="col-lg-10">
-										<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="${usuario.deemail}">
+										<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="${usuario.deemail}" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputLogin" class="col-lg-2 control-label">Login:</label>
 									<div class="col-lg-10">
-										<input type="text" name="login" class="form-control" id="inputLogin" placeholder="Login" value="${usuario.delogin}">
+										<input type="text" name="login" class="form-control" id="inputLogin" placeholder="Login" value="${usuario.delogin}" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputSenha" class="col-lg-2 control-label">Senha:</label>
 									<div class="col-lg-10">
-										<input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Senha" value="${usuario.desenha}">
+										<input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Senha" value="${usuario.desenha}" required>
 									</div>
 								</div>
-								<%if("trocar aqui por session.getAttribute(cadastroadm)".equals("true")){  %>
+								<%if("trocar aqui por session.getAttribute(usuario.perfil.deperfil)".equals("administrador")){  %>
 								<div class="form-group">
 									<label for="select" class="col-lg-2 control-label">Perfil:</label>
 									<div class="col-lg-10">
@@ -77,10 +79,9 @@
 					</div>
 				</div>
 			</div>
-			<jsp:include page="right.jsp" />
+<!-- 	INCLUIR AQUI -->
 		</div>
-		
-		<jsp:include page="footer.jsp" />
+<!-- 	INCLUIR AQUI -->
 	</div>
 </body>
 </html>

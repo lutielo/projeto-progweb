@@ -9,10 +9,9 @@
 </head>
 <body>
 	<div id="container">
-		<jsp:include page="header.jsp" />
-		
+<!-- INSERIR AQUI -->
 		<div id="content">
-			<jsp:include page="left.jsp" />
+<!-- INSERIR AQUI -->
 			<div id="center">
 				 <form class="navbar-form navbar-left"  action="PesquisaCursoJPA" method="post">
 				     <fieldset>
@@ -25,10 +24,9 @@
 				    </fieldset>
                 </form>
 			</div>
-			<jsp:include page="right.jsp" />
+<!-- INSERIR AQUI -->
 		</div>
-		
-		<jsp:include page="footer.jsp" />
+<!-- INSERIR AQUI -->
 	</div>
 </body>
 </html>

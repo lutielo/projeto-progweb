@@ -10,10 +10,10 @@
 <body>
 
 	<div id="container">
-		<jsp:include page="header.jsp" />
+<!-- 	INCLUIR AQUI -->
 		
 		<div id="content">
-			<jsp:include page="left.jsp" />
+<!-- 	INCLUIR AQUI -->
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">
@@ -39,8 +39,11 @@
 									<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
 									<td align="center"><a href="PesquisaCursoAluno?codigo=${curso.cdcurso}"><img src="images/List-32.png" alt="Listar alunos" height="20" width="20"></a></td>
 									<td align="center"><a href="MailToAlunosCurso?codigo=${curso.cdcurso}"><img src="images/Mail-32.png" alt="Mail" height="20" width="20"></a></td>
-									<td align="center"><a href="AlteraCursoManager?codigo=${curso.cdcurso}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-									<td align="center"><a href="DeleteCursoManager?codigo=${curso.cdcurso}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+									
+									<c:if test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
+										<td align="center"><a href="AlteraCursoManager?codigo=${curso.cdcurso}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+										<td align="center"><a href="DeleteCursoManager?codigo=${curso.cdcurso}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+									</c:if>
 								</tr>
 							</c:forEach>
 						  </tbody>
@@ -48,9 +51,9 @@
 					</div>
 				</div>
 			</div>
-			<jsp:include page="right.jsp" />
+<!-- 	INCLUIR AQUI -->
 		</div>
-		<jsp:include page="footer.jsp" />
+<!-- 	INCLUIR AQUI -->
 	</div>
 </body>
 </html>

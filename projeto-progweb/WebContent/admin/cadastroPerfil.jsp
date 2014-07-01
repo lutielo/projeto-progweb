@@ -9,10 +9,10 @@
 </head>
 <body>
 	<div id="container">
-		<jsp:include page="header.jsp" />
+<!-- 	INCLUIR HEADER AQUI -->
 		
 		<div id="content">
-			<jsp:include page="left.jsp" />
+<!-- 	INCLUIR LEFT AQUI -->
 			<div id="center">
 				<form class="form-horizontal" action="PerfilManagerJPA" method="post">
 					<fieldset>
@@ -41,10 +41,10 @@
 					</fieldset>
 				</form>
 			</div>
-			<jsp:include page="right.jsp" />
+<!-- 	INCLUIR RIGHT AQUI -->
 		</div>
 		
-		<jsp:include page="footer.jsp" />
+<!-- 	INCLUIR FOOTER AQUI -->
 	</div>
 </body>
 </html>

@@ -29,7 +29,7 @@ public class CadastraUsuarioManager extends HttpServlet {
 	}
 
 	private void processaRequisicao(HttpServletRequest request,	HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("acao", " Cadastro de usuário");
+		request.setAttribute("acao", "Cadastro de usuário");
 
 		RequestDispatcher view = request.getRequestDispatcher("cadastroUsuarios.jsp");
 		view.forward(request, response);

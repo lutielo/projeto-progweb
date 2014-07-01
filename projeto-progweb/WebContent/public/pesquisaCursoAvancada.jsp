@@ -9,10 +9,10 @@
 </head>
 <body>
 	<div id="container">
-		<jsp:include page="header.jsp" />
+<!-- 	INCLUIR AQUI -->
 		
 		<div id="content">
-			<jsp:include page="left.jsp" />
+<!-- 	INCLUIR AQUI -->
 			<div id="center">
 						<form class="form-horizontal" action="PesquisaAvancadaCursoJPA" method="post">
 							<fieldset>
@@ -60,10 +60,10 @@
 							</fieldset>
 						</form>			
 			</div>
-			<jsp:include page="right.jsp" />
+<!-- 	INCLUIR AQUI -->
 		</div>
 		
-		<jsp:include page="footer.jsp" />
+<!-- 	INCLUIR AQUI -->
 	</div>
 </body>
 </html>

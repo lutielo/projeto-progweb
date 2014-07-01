@@ -10,10 +10,10 @@
 <body>
 
 	<div id="container">
-		<jsp:include page="header.jsp" />
+<%-- 		<jsp:include page="header.jsp" /> --%>
 		
 		<div id="content">
-			<jsp:include page="left.jsp" />
+<%-- 			<jsp:include page="left.jsp" /> --%>
 			<div id="center">
 				<c:if test="${enviou == true}">
 					<div class="alert alert-dismissable alert-success">
@@ -90,9 +90,9 @@
 					</form>
 				</div>
 			</div>
-			<jsp:include page="right.jsp" />
+<%-- 			<jsp:include page="right.jsp" /> --%>
 		</div>
-		<jsp:include page="footer.jsp" />
+<%-- 		<jsp:include page="footer.jsp" /> --%>
 	</div>
 </body>
 </html>

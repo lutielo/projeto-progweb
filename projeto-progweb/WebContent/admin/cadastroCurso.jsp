@@ -9,10 +9,9 @@
 </head>
 <body>
 	<div id="container">
-		<jsp:include page="header.jsp" />
-		
+<!-- 	INCLUIR HEADER AQUI -->
 		<div id="content">
-			<jsp:include page="left.jsp" />
+<!-- 	INCLUIR LEFT AQUI -->
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">
@@ -80,10 +79,10 @@
 					</div>
 				</div>
 			</div>
-			<jsp:include page="right.jsp" />
+<!-- 	INCLUIR RIGHT AQUI -->
 		</div>
 		
-		<jsp:include page="footer.jsp" />
+<!-- 	INCLUIR FOOTER AQUI -->
 	</div>
 </body>
 </html>

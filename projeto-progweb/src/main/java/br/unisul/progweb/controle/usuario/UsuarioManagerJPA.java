@@ -24,7 +24,7 @@ public class UsuarioManagerJPA extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processaRequisicao(request, response);
 	}
-	
+
 	private void processaRequisicao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String codigo = request.getParameter("codigo");
 		String nome = request.getParameter("nomecompleto");
@@ -32,27 +32,24 @@ public class UsuarioManagerJPA extends HttpServlet {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String cdPerfil = request.getParameter("perfil");
-		
+
 		PerfilDAO perfilDAO = new PerfilDAO();
 		Perfil perfil = perfilDAO.getSinglePerfil(Integer.parseInt(cdPerfil));
-		
+
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		
-		if(codigo == null){
+		if (codigo == null) {
 			Usuario usuario = new Usuario(perfil, nome, login, senha, email);
 			usuarioDAO.insert(usuario);
+			if (request.getSession().getAttribute("usuario") == null) {
+				request.getSession().setAttribute("usuario", usuario);
+			}
 		} else {
 			Integer codigoInt = Integer.parseInt(codigo);
 			Usuario usuario = new Usuario(codigoInt, perfil, nome, login, senha, email);
 			usuarioDAO.update(usuario);
+			request.getSession().setAttribute("usuario", usuario);
 		}
-		
-		//Código do lutielo
-		Usuario usuarioLuti = usuarioDAO.getSingleUsuarioByLogin(login);
-		if(usuarioLuti.getDesenha().equals(senha)) {
-			System.out.println("Senha OK");
-		}
-		
-		response.sendRedirect("ListaUsuariosManager");
+
+		response.sendRedirect("home.jsp");
 	}
 }

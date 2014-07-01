@@ -4,40 +4,40 @@
 <meta http-equiv="Content-Type" content="text/html">
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
-<title>Resultados da pesquisa por cursos</title>
+<title>Listagem de perfil</title>
 </head>
 <body>
 
 	<div id="container">
-		<jsp:include page="header.jsp" />
+<!-- 	INCLUIR AQUI -->
 		
 		<div id="content">
-			<jsp:include page="left.jsp" />
+<!-- 	INCLUIR AQUI -->
 			<div id="center">
-				<h1>Resultados da pesquisa por cursos</h1>
+				<h1>Lista completa de perfil</h1>
 				<hr>
 				<table class="table table-striped table-hover ">
 				  <thead>
 					<tr>
+						<th width="60">Código</th>
 						<th>Descrição</th>
-						<th>Data inicial</th>
-						<th>Data final</th>
 					</tr>
 				  </thead>
 				  <tbody>
-					<c:forEach var="curso" items="${lista}">
+					<c:forEach var="perfil" items="${lista}">
 						<tr>
-							<td align="center"><a href="DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
-							<td>${curso.dtinicio}</td>
-							<td>${curso.dtfim}</td>
+							<td>${perfil.cdperfil}</td>
+							<td>${perfil.deperfil}</td>
+							<td align="center"><a href="AlteraPerfilManager?codigo=${perfil.cdperfil}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+							<td align="center"><a href="DeletePerfilManager?codigo=${perfil.cdperfil}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
 						</tr>
 					</c:forEach>
 				  </tbody>
 				</table>
 			</div>
-			<jsp:include page="right.jsp" />
+<!-- 	INCLUIR AQUI -->
 		</div>
-		<jsp:include page="footer.jsp" />
+<!-- 	INCLUIR AQUI -->
 	</div>
 </body>
 </html>
