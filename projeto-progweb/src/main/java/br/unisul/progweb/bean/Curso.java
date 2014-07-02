@@ -1,6 +1,5 @@
 package br.unisul.progweb.bean;
 
-// Generated 03/06/2014 21:49:58 by Hibernate Tools 3.4.0.CR1
 
 import java.io.File;
 import java.io.Serializable;
