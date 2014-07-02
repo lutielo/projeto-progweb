@@ -11,7 +11,24 @@
 	<div id="container">
 		<div id="header">
 			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
-		</div>
+		</div>	
+		<c:choose>
+ 			<c:when test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
+	   	 		<jsp:include page="${pageContext.request.contextPath}/../admin/menuAdmin.jsp" />
+	   		</c:when>
+	
+		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'professor'}">
+		   		<jsp:include page="${pageContext.request.contextPath}/../professor/menuProfessor.jsp" />
+		    </c:when>
+		    
+		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'aluno'}">
+		  		<jsp:include page="${pageContext.request.contextPath}/../aluno/menuAluno.jsp" />
+		    </c:when>
+		    
+   		    <c:when test="${empty sessionScope.usuario}">
+		  		<jsp:include page="${pageContext.request.contextPath}/../public/menuPublic.jsp" />
+		    </c:when>
+		</c:choose>
 		<div id="content">
 		<div id="left"></div>
 			<div id="center">
@@ -71,7 +88,7 @@
 								</div>
 								<div class="form-group">
 									<div class="col-lg-10 col-lg-offset-2">
-										<button class="btn btn-default" onclick="javascript:history.go(-1)">Voltar</button>
+										<button class="btn btn-default"  formaction="${pageContext.request.contextPath}/ListaCursoManager">Voltar</button>
 										<button type="reset" class="btn btn-default">Limpar</button>
 										<button type="submit" class="btn btn-primary">Salvar</button>
 									</div>

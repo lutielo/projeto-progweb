@@ -16,7 +16,7 @@ import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.CursoAlunoDAO;
 import br.unisul.progweb.dao.CursoDAO;
 
-@WebServlet("/PesquisaCursoAluno")
+@WebServlet("/PesquisaMeusCursos")
 public class PesquisaMeusCursos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

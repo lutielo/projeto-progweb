@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
@@ -9,10 +8,30 @@
 </head>
 <body>
 	<div id="container">
-<!-- 	INCLUIR HEADER AQUI -->
+		<div id="header">
+			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
+		</div>
+		
+		<c:choose>
+ 			<c:when test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
+	   	 		<jsp:include page="${pageContext.request.contextPath}/../admin/menuAdmin.jsp" />
+	   		</c:when>
+	
+		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'professor'}">
+		   		<jsp:include page="${pageContext.request.contextPath}/../professor/menuProfessor.jsp" />
+		    </c:when>
+		    
+		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'aluno'}">
+		  		<jsp:include page="${pageContext.request.contextPath}/../aluno/menuAluno.jsp" />
+		    </c:when>
+		    
+   		    <c:when test="${empty sessionScope.usuario}">
+		  		<jsp:include page="${pageContext.request.contextPath}/../public/menuPublic.jsp" />
+		    </c:when>
+		</c:choose>
 		
 		<div id="content">
-<!-- 	INCLUIR LEFT AQUI -->
+			<jsp:include page="${pageContext.request.contextPath}/../admin/menuAdmin.jsp" />
 			<div id="center">
 				<form class="form-horizontal" action="PerfilManagerJPA" method="post">
 					<fieldset>

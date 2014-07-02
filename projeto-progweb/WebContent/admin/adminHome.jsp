@@ -19,6 +19,26 @@
 		<div id="header">
 			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
 		</div>
+		
+		<c:choose>
+ 			<c:when test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
+	   	 		<jsp:include page="${pageContext.request.contextPath}/../admin/menuAdmin.jsp" />
+	   		</c:when>
+	
+		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'professor'}">
+		   		<jsp:include page="${pageContext.request.contextPath}/../professor/menuProfessor.jsp" />
+		    </c:when>
+		    
+		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'aluno'}">
+		  		<jsp:include page="${pageContext.request.contextPath}/../aluno/menuAluno.jsp" />
+		    </c:when>
+		    
+   		    <c:when test="${empty sessionScope.usuario}">
+		  		<jsp:include page="${pageContext.request.contextPath}/../public/menuPublic.jsp" />
+		    </c:when>
+		</c:choose>
+		
+		
 		<div class="navbar navbar-default">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -91,7 +111,7 @@
 					<tbody>
 						<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
 							<tr>
-								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
+								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCurso?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
 								<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
 								<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
 							</tr>
