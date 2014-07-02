@@ -43,7 +43,7 @@ public class MailToAlunosCurso extends HttpServlet {
 		
 		request.setAttribute("mails", mailAlunos);
 		
-		RequestDispatcher view = request.getRequestDispatcher("confirmaEnvioMail.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("public/confirmaEnvioMail.jsp");
 		view.forward(request, response);
 	}
 

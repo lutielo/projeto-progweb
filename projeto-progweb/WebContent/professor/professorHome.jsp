@@ -26,7 +26,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/public/home.jsp">Inicial</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/professor/professorHome.jsp">Inicial</a>
 			</div>
 			
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
@@ -72,9 +72,71 @@
 			</div>
 		</div>
 		<div id="content">
-			<div id="left"></div>
-			<div id="center">
+			<div id="left">
 				<jsp:useBean id="lista" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" />
+				<h6 align="left">Cursos Disponiveis :</h6>
+				<ul>
+					<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
+						<li type="square"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></li>
+					</c:forEach>
+				</ul>
+				<br><br>
+				<h6 align="left">Cursos em Andamento :</h6>
+				<ul>
+					<c:forEach var="curso" items="${lista.listCursoEmAndamento}">
+						<li type="square"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></li>
+					</c:forEach>
+				</ul>
+
+				<br><br>
+				<h6 align="left">Pesquisa de Cursos :</h6>
+				<form class="form-horizontal" action="${pageContext.request.contextPath}/PesquisaAvancadaCursoJPA" method="post">
+					<fieldset>
+						<div class="form-group">
+							<label for="inputDescricao">Descrição:</label><br><br>
+							<div class="col-lg-10">
+								<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Programação WEB" value="${curso.decurso}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputProfessor">Professor:</label><br><br>
+							<div class="col-lg-10">
+								<select class="form-control" name="professor" id="professor">
+									<option value="" selected>-- Selecione --</option>
+									<c:forEach var="professor" items="${listaProfessores}">
+										<c:set var = "codigoProfessorAtual" value="${curso.usuario.cdusuario}"/>
+										<c:if test="${professor.cdusuario == codigoProfessorAtual}">
+											<option value="${professor.cdusuario}" selected>${professor.nmusuario}</option>
+										</c:if>
+										<c:if test="${professor.cdusuario != codigoProfessorAtual}">
+											<option value="${professor.cdusuario}">${professor.nmusuario}</option>
+										</c:if>
+									</c:forEach>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							
+							<label for="inputDataInicio" class="col-lg-1 control-label">Data início:</label>
+							<div class="col-lg-4">
+								<input type="date" name="dataInicio" class="form-control" id="inputDataInicio" value="${curso.dtinicio}">
+							</div>
+							
+							<label for="inputDataFim" class="col-lg-1 control-label">até:</label>
+							<div class="col-lg-4">
+								<input type="date" name="dataFim" class="form-control" id="inputDataFim" value="${curso.dtfim}">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-10 col-lg-offset-2">
+								<button type="submit" class="btn btn-primary">Pesquisar</button>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<div id="center">
+<%-- 				<jsp:useBean id="lista" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" /> --%>
 				<h1>Cursos disponíveis</h1>
 				<hr>
 				<table class="table table-striped table-hover">
@@ -88,7 +150,7 @@
 					<tbody>
 						<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
 							<tr>
-								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCurso?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
+								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
 								<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
 								<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
 							</tr>

@@ -32,7 +32,7 @@ public class ProfessorFilter implements Filter {
 				chain.doFilter(request, response);
 			}
 		} else {
-			session.setAttribute("msg","Você não tem permissão apra visualização ou não está logado! Você não está logado no sistema!");
+			session.setAttribute("msg","Você não tem permissão para visualização ou não está logado! Você não está logado no sistema!");
 
 			((HttpServletResponse)response).sendRedirect("../public/home.jsp");
 		}
