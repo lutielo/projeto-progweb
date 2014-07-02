@@ -2,8 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
-<link href="css/style.css" type="text/css" rel="stylesheet" />
-<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/css/style.css" type="text/css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <title>Cadastro de perfil</title>
 </head>
 <body>
@@ -31,9 +31,8 @@
 		</c:choose>
 		
 		<div id="content">
-			<jsp:include page="${pageContext.request.contextPath}/../admin/menuAdmin.jsp" />
 			<div id="center">
-				<form class="form-horizontal" action="PerfilManagerJPA" method="post">
+				<form class="form-horizontal" action="${pageContext.request.contextPath}/PerfilManagerJPA" method="post">
 					<fieldset>
 						<legend>${acao}</legend>
 						<c:if test="${not empty perfil.cdperfil}">
@@ -52,7 +51,6 @@
 						</div>						
 						<div class="form-group">
 							<div class="col-lg-10 col-lg-offset-2">
-								<button class="btn btn-default" onclick="javascript:history.go(-1)">Voltar</button>
 								<button type="reset" class="btn btn-default">Limpar</button>
 								<button type="submit" class="btn btn-primary">Salvar</button>
 							</div>

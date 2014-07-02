@@ -14,10 +14,14 @@
 	<div class="navbar-collapse collapse navbar-responsive-collapse">
 		<ul class="nav navbar-nav">
 <%-- 			<c:if test="${sessionScope.usuario.perfil.cdperfil == 1}"> --%>
+			<ul class="nav navbar-nav navbar-right">
 				<li><a href="${pageContext.request.contextPath}/CadastraUsuarioManager">Cadastro de Usuários</a></li>
-				<li><a href="${pageContext.request.contextPath}/CadastraCursoManager">Cadastro de Cursos</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/cadastroPerfil.jsp">Cadastro de Perfis</a></li>
+				<li><a href="${pageContext.request.contextPath}/ListaCursoManager">Cadastro de Cursos</a></li>
 				<li><a href="${pageContext.request.contextPath}/ListaUsuariosManager">Listagem de Usuários</a></li>
+				<li><a href="${pageContext.request.contextPath}/ListaPerfilManager">Listagem de Perfis</a></li>
 				<li><a href="${pageContext.request.contextPath}/ListaCursoManager">Listagem de Cursos</a></li>
+			</ul>
 <%-- 			</c:if> --%>
 		</ul>
 		
