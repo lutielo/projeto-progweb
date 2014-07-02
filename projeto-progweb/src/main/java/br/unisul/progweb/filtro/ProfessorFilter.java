@@ -27,13 +27,19 @@ public class ProfessorFilter implements Filter {
 		HttpSession session = req.getSession();
 		
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		if((1 == usuario.getPerfil().getCdperfil())|| (3 == usuario.getPerfil().getCdperfil())) {
-			chain.doFilter(request, response);
+		if(usuario != null) {
+			if(isAdminOUProfessor(usuario)) {
+				chain.doFilter(request, response);
+			}
 		} else {
-			session.setAttribute("msg","Você não tem permissão apra visualização ou não está logado!Você não está logado no sistema!");
+			session.setAttribute("msg","Você não tem permissão apra visualização ou não está logado! Você não está logado no sistema!");
 
-            ((HttpServletResponse)response).sendRedirect("../home.jsp");
+			((HttpServletResponse)response).sendRedirect("../public/home.jsp");
 		}
+	}
+
+	private boolean isAdminOUProfessor(Usuario usuario) {
+		return (1 == usuario.getPerfil().getCdperfil()) || (3 == usuario.getPerfil().getCdperfil());
 	}
 
 	public void destroy() {

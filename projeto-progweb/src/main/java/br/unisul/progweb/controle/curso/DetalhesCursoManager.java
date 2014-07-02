@@ -61,7 +61,7 @@ public class DetalhesCursoManager extends HttpServlet {
 			}
 			request.setAttribute("listaFileArquivos", listaFileArquivos);
 			
-			RequestDispatcher view = request.getRequestDispatcher("professor/detalheCurso.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("public/detalheCurso.jsp");
 			view.forward(request, response);
 		}
 	}
