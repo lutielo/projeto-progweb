@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import br.unisul.progweb.bean.Usuario;
 
-@WebFilter(filterName = "AdminFilter", urlPatterns = "/admin/*")
+@WebFilter(filterName = "ProfessorFilter", urlPatterns = "/professor/*")
 public class ProfessorFilter implements Filter {
 
 	public ProfessorFilter() {
