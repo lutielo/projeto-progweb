@@ -8,7 +8,6 @@
 	rel="stylesheet" />
 </head>
 <body>
-	<jsp:useBean id="listaCursos" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" />
 	<div id="center">
 		<h1>Cursos em andamento por aluno</h1>
 		<hr>
@@ -21,7 +20,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="curso" items="${lista.listCursoEmAndamentoPorAluno}">
+				<c:forEach var="curso" items="${listaCursos}">
 					<tr>
 						<td align="center"><a
 							href="DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
