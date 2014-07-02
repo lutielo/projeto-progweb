@@ -39,7 +39,7 @@ public class AlteraUsuarioManager extends HttpServlet {
 			usuarioDAO = new UsuarioDAO();
 			Integer codigo = Integer.parseInt(codigoString);
 			usuario = usuarioDAO.getSingleUsuarioById(codigo);
-			request.setAttribute("usuario", usuario);
+			request.setAttribute("usuarioASerEditado", usuario);
 			request.setAttribute("acao", "Alteração de usuário");
 
 			RequestDispatcher view = request.getRequestDispatcher("public/cadastroUsuarios.jsp");

@@ -19,36 +19,36 @@
 						<form class="form-horizontal" action="${pageContext.request.contextPath}/UsuarioManagerJPA" method="post">
 							<fieldset>
 								<legend>${acao}</legend>
-								<c:if test="${not empty usuario.cdusuario}">
+								<c:if test="${not empty usuarioASerEditado.cdusuario}">
 									<div class="form-group">
 										<label for="inputCodigo" class="col-lg-2 control-label">Codigo:</label>
 										<div class="col-lg-2">
-											<input type="text" name="codigo" class="form-control" id="inputCodigo" value="${usuario.cdusuario}" readonly>
+											<input type="text" name="codigo" class="form-control" id="inputCodigo" value="${usuarioASerEditado.cdusuario}" readonly>
 										</div>
 									</div>
 								</c:if>
 								<div class="form-group">
 									<label for="inputNome" class="col-lg-2 control-label">Nome:</label>
 									<div class="col-lg-10">
-										<input type="text" name="nomecompleto" class="form-control" id="inputNome" placeholder="Fulano da Silva" value="${usuario.nmusuario}" autofocus required>
+										<input type="text" name="nomecompleto" class="form-control" id="inputNome" placeholder="Fulano da Silva" value="${usuarioASerEditado.nmusuario}" autofocus required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Email:</label>
 									<div class="col-lg-10">
-										<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="${usuario.deemail}" required>
+										<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="${usuarioASerEditado.deemail}" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputLogin" class="col-lg-2 control-label">Login:</label>
 									<div class="col-lg-10">
-										<input type="text" name="login" class="form-control" id="inputLogin" placeholder="Login" value="${usuario.delogin}" required>
+										<input type="text" name="login" class="form-control" id="inputLogin" placeholder="Login" value="${usuarioASerEditado.delogin}" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputSenha" class="col-lg-2 control-label">Senha:</label>
 									<div class="col-lg-10">
-										<input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Senha" value="${usuario.desenha}" required>
+										<input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Senha" value="${usuarioASerEditado.desenha}" required>
 									</div>
 								</div>
 								<c:choose>
@@ -58,7 +58,7 @@
 											<div class="col-lg-10">
 												<select class="form-control" name="perfil" id="perfil">
 													<option value="1">Admin</option>
-													<option value="2">Aluno</option>
+													<option value="2" selected>Aluno</option>
 													<option value="3">Professor</option>
 												</select>
 											</div>

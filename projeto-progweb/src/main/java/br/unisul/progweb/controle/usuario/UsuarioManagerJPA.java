@@ -47,7 +47,9 @@ public class UsuarioManagerJPA extends HttpServlet {
 			Integer codigoInt = Integer.parseInt(codigo);
 			Usuario usuario = new Usuario(codigoInt, perfil, nome, login, senha, email);
 			usuarioDAO.update(usuario);
-			request.getSession().setAttribute("usuario", usuario);
+			if (request.getSession().getAttribute("usuario") == null) {
+				request.getSession().setAttribute("usuario", usuario);
+			}
 		}
 		request.getSession().setAttribute("msg", "Cadastro efetuado com sucesso");
 		response.sendRedirect("public/home.jsp");
