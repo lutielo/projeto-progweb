@@ -42,35 +42,8 @@
 				Para listar os cursos ao qual você ministra no momento <a href="${pageContext.request.contextPath}/CursosDoProfessorManager?usuario=${sessionScope.usuario}">clique aqui</a>
 				
 				
-				<br><br><br><br><br>
-				<h5 align="left">Para pesquisa avançada:</h5>
-				<form class="form-horizontal" action="PesquisaAvancadaCursoJPA" method="post">
-					<fieldset>
-						<div class="form-group">
-							<label for="inputDescricao" class="col-lg-2 control-label">Descrição:</label>
-							<div class="col-lg-10">
-								<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Programação WEB" value="${curso.decurso}">
-							</div>
-						</div>
-						<div class="form-group">
-							
-							<label for="inputDataInicio" class="col-lg-2 control-label">Data início:</label>
-							<div class="col-lg-4">
-								<input type="date" name="dataInicio" class="form-control" id="inputDataInicio" value="${curso.dtinicio}">
-							</div>
-							
-							<label for="inputDataFim" class="col-lg-2 control-label">até:</label>
-							<div class="col-lg-4">
-								<input type="date" name="dataFim" class="form-control" id="inputDataFim" value="${curso.dtfim}">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-lg-10 col-lg-offset-2">
-								<button type="submit" class="btn btn-primary">Pesquisar</button>
-							</div>
-						</div>
-					</fieldset>
-				</form>
+				<br><br><br>
+				Para pesquisa avançada <a href="${pageContext.request.contextPath}/IniciarPesquisaAvancadaCursoJPA">clique aqui</a>
 			</div>
 		<div id="right"></div>
 	</div>
