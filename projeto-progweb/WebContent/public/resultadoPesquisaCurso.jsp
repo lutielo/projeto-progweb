@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"   pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
 <link href="css/style.css" type="text/css" rel="stylesheet" />
@@ -91,8 +92,8 @@
 					<c:forEach var="curso" items="${lista}">
 						<tr>
 							<td align="center"><a href="DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
-							<td>${curso.dtinicio}</td>
-							<td>${curso.dtfim}</td>
+							<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
+							<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
 						</tr>
 					</c:forEach>
 				  </tbody>

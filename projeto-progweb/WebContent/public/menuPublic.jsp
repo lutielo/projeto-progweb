@@ -6,13 +6,13 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="home.jsp">Inicial</a>
+		<a class="navbar-brand" href="${pageContext.request.contextPath}/public/home.jsp">Inicial</a>
 	</div>
 	
 	<div class="navbar-collapse collapse navbar-responsive-collapse">
 		<ul class="nav navbar-nav">
-			<li><a href="sobre.jsp">Sobre</a></li>
-			<li><a href="contato.jsp">Contato</a></li>
+			<li><a href="${pageContext.request.contextPath}/public/sobre.jsp">Sobre</a></li>
+			<li><a href="${pageContext.request.contextPath}/public/contato.jsp">Contato</a></li>
 		</ul>
 		
 		<c:if test="${empty sessionScope.usuario}">

@@ -36,42 +36,30 @@
 						<li type="square"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></li>
 					</c:forEach>
 				</ul>
-
-				<br><br>
-				<h6 align="left">Pesquisa de Cursos :</h6>
-				<form class="form-horizontal" action="${pageContext.request.contextPath}/PesquisaAvancadaCursoJPA" method="post">
+			</div>
+			<div id="center">
+				Bem vindo professor ${sessionScope.usuario.nmusuario},<br>
+				Para listar os cursos ao qual você ministra no momento <a href="${pageContext.request.contextPath}/CursosDoProfessorManager?usuario=${sessionScope.usuario}">clique aqui</a>
+				
+				
+				<br><br><br><br><br>
+				<h5 align="left">Para pesquisa avançada:</h5>
+				<form class="form-horizontal" action="PesquisaAvancadaCursoJPA" method="post">
 					<fieldset>
 						<div class="form-group">
-							<label for="inputDescricao">Descrição:</label><br><br>
+							<label for="inputDescricao" class="col-lg-2 control-label">Descrição:</label>
 							<div class="col-lg-10">
 								<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Programação WEB" value="${curso.decurso}">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputProfessor">Professor:</label><br><br>
-							<div class="col-lg-10">
-								<select class="form-control" name="professor" id="professor">
-									<option value="" selected>-- Selecione --</option>
-									<c:forEach var="professor" items="${listaProfessores}">
-										<c:set var = "codigoProfessorAtual" value="${curso.usuario.cdusuario}"/>
-										<c:if test="${professor.cdusuario == codigoProfessorAtual}">
-											<option value="${professor.cdusuario}" selected>${professor.nmusuario}</option>
-										</c:if>
-										<c:if test="${professor.cdusuario != codigoProfessorAtual}">
-											<option value="${professor.cdusuario}">${professor.nmusuario}</option>
-										</c:if>
-									</c:forEach>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
 							
-							<label for="inputDataInicio" class="col-lg-1 control-label">Data início:</label>
+							<label for="inputDataInicio" class="col-lg-2 control-label">Data início:</label>
 							<div class="col-lg-4">
 								<input type="date" name="dataInicio" class="form-control" id="inputDataInicio" value="${curso.dtinicio}">
 							</div>
 							
-							<label for="inputDataFim" class="col-lg-1 control-label">até:</label>
+							<label for="inputDataFim" class="col-lg-2 control-label">até:</label>
 							<div class="col-lg-4">
 								<input type="date" name="dataFim" class="form-control" id="inputDataFim" value="${curso.dtfim}">
 							</div>
@@ -83,29 +71,6 @@
 						</div>
 					</fieldset>
 				</form>
-			</div>
-			<div id="center">
-<%-- 				<jsp:useBean id="lista" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" /> --%>
-				<h1>Cursos disponíveis</h1>
-				<hr>
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>Descrição</th>
-							<th>Data inicial</th>
-							<th>Data final</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
-							<tr>
-								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
-								<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
-								<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
 			</div>
 		<div id="right"></div>
 	</div>

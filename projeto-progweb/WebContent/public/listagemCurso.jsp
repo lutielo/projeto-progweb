@@ -19,7 +19,7 @@
 		<div id="header">
 			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
 		</div>
-		<jsp:include page="${pageContext.request.contextPath}/../admin/menuAdmin.jsp" />
+		<jsp:include page="${pageContext.request.contextPath}/../public/menuPublic.jsp" />
 		<div id="content">
 			<div id="left"></div>
 			<div id="center">

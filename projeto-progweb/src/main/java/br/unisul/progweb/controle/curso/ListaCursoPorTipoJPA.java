@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import br.unisul.progweb.bean.Curso;
+import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.CursoDAO;
 
 public class ListaCursoPorTipoJPA {
@@ -24,11 +25,10 @@ public class ListaCursoPorTipoJPA {
 		return cursoDAO.getListCursoEmAndamento(new Date(), new Date());
 	}
 	
-	public List<Curso> getListCursoEmAndamentoPorProfessor() {
+	public List<Curso> getListCursoEmAndamentoPorProfessor(Usuario usuario) {
 		//alterar aqui para pegar session.getatribute obtendo o cdusuario
 		CursoDAO cursoDAO = new CursoDAO();
-		return cursoDAO.getListCursoEmAndamentoPorProfessor(new Date(),
-				new Date(), 6);
+		return cursoDAO.getListCursoEmAndamentoPorProfessor(new Date(),	new Date(), usuario.getCdusuario());
 	}
 	
 	public List<Curso> getListCursoEmAndamentoPorAluno() {
