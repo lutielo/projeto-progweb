@@ -38,7 +38,7 @@ public class CadastraCursoManager extends HttpServlet {
 
 		request.setAttribute("listaProfessores", listaProfessores);
 
-		RequestDispatcher view = request.getRequestDispatcher("cadastroCurso.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("admin/cadastroCurso.jsp");
 		view.forward(request, response);
 	}
 }

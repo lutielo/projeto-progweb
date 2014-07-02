@@ -52,7 +52,9 @@ public class UsuarioDAO {
 		EntityManager em = emf.createEntityManager();
 		try {
 
-			String query = "from Usuario where upper(delogin) = :login";
+			String query = "FROM Usuario u "
+						 + " JOIN FETCH u.perfil "
+						 + " WHERE UPPER(delogin) = :login";
 			Usuario resultado = null;
 			try {
 				resultado = em.createQuery(query, Usuario.class)

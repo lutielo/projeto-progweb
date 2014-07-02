@@ -1,15 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
 <link href="../css/style.css" type="text/css" rel="stylesheet" />
-<link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css"
-	rel="stylesheet" />
+<link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+
+<c:choose>
+    <c:when test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
+    <meta http-equiv="refresh" content="0; url=http://localhost:8080/projeto-progweb/admin/adminHome.jsp" />
+    </c:when>
+
+    <c:when test="${sessionScope.usuario.perfil.deperfil == 'professor'}">
+    <meta http-equiv="refresh" content="0; url=http://localhost:8080/projeto-progweb/professor/professorHome.jsp" />
+    </c:when>
+    
+    <c:when test="${sessionScope.usuario.perfil.deperfil == 'aluno'}">
+    <meta http-equiv="refresh" content="0; url=http://localhost:8080/projeto-progweb/aluno/alunoHome.jsp" />
+    </c:when>
+</c:choose>
+
 <title>Projeto Unisul</title>
 </head>
 <body>
 	<div id="container">
+		<c:if test="${not empty sessionScope.msg}">
+			<div class="alert alert-dismissable alert-info">
+	  			<button type="button" class="close" data-dismiss="alert">×</button>
+	  			<strong>${sessionScope.msg}</strong>
+				<%session.setAttribute("msg", null);%>
+			</div>
+		</c:if>
 		<div id="header">
 			<img src="../images/BannerV1.jpg">
 		</div>

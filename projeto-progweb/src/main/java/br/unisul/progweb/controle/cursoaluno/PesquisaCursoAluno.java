@@ -44,7 +44,7 @@ public class PesquisaCursoAluno extends HttpServlet {
 		request.setAttribute("listaUsuarios", listaUsuarios);
 		request.setAttribute("curso", curso.getDecurso());
 		
-		RequestDispatcher view = request.getRequestDispatcher("listagemUsuariosPorCurso.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("professor/listagemUsuariosPorCurso.jsp");
 		view.forward(request, response);
 	}
 }

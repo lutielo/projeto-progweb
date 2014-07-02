@@ -49,7 +49,7 @@ public class UsuarioManagerJPA extends HttpServlet {
 			usuarioDAO.update(usuario);
 			request.getSession().setAttribute("usuario", usuario);
 		}
-
-		response.sendRedirect("home.jsp");
+		request.getSession().setAttribute("msg", "Cadastro efetuado com sucesso");
+		response.sendRedirect("public/home.jsp");
 	}
 }

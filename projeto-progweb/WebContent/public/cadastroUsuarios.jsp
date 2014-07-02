@@ -1,24 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
-<link href="css/style.css" type="text/css" rel="stylesheet" />
-<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/css/style.css" type="text/css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <title>Projeto Unisul</title>
 </head>
 <body>
 	<div id="container">
-<!-- 	INCLUIR AQUI -->
 		<div id="header">
-			<img src="images/BannerV1.jpg">
+			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
 		</div>
 		<div id="content">
-<!-- 	INCLUIR AQUI -->
+			<div id="left"></div>
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">
-						<form class="form-horizontal" action="UsuarioManagerJPA" method="post">
+						<form class="form-horizontal" action="${pageContext.request.contextPath}/UsuarioManagerJPA" method="post">
 							<fieldset>
 								<legend>${acao}</legend>
 								<c:if test="${not empty usuario.cdusuario}">
@@ -53,23 +51,26 @@
 										<input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Senha" value="${usuario.desenha}" required>
 									</div>
 								</div>
-								<%if("trocar aqui por session.getAttribute(usuario.perfil.deperfil)".equals("administrador")){  %>
-								<div class="form-group">
-									<label for="select" class="col-lg-2 control-label">Perfil:</label>
-									<div class="col-lg-10">
-										<select class="form-control" name="perfil" id="perfil">
-											<option value="1">Admin</option>
-											<option value="2">Aluno</option>
-											<option value="3">Professor</option>
-										</select>
-									</div>
-								</div>
-								<%} else {%>
-								    <input type="hidden" name="perfil" value="2"/>
-								<%}%>
+								<c:choose>
+									<c:when test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
+										<div class="form-group">
+											<label for="select" class="col-lg-2 control-label">Perfil:</label>
+											<div class="col-lg-10">
+												<select class="form-control" name="perfil" id="perfil">
+													<option value="1">Admin</option>
+													<option value="2">Aluno</option>
+													<option value="3">Professor</option>
+												</select>
+											</div>
+										</div>
+									</c:when>
+									<c:otherwise>						
+									    <input type="hidden" name="perfil" value="2"/>
+								    </c:otherwise>
+							    </c:choose>		
 								<div class="form-group">
 									<div class="col-lg-10 col-lg-offset-2">
-										<button class="btn btn-default" onclick="javascript:history.go(-1)">Voltar</button>
+										<button class="btn btn-default" formaction="${pageContext.request.contextPath}/public/home.jsp">Voltar</button>
 										<button type="reset" class="btn btn-default">Limpar</button>
 										<button type="submit" class="btn btn-primary">Salvar</button>
 									</div>
@@ -79,9 +80,9 @@
 					</div>
 				</div>
 			</div>
-<!-- 	INCLUIR AQUI -->
+			<div id="right"></div>
 		</div>
-<!-- 	INCLUIR AQUI -->
+		<div id="footer"></div>
 	</div>
 </body>
 </html>

@@ -3,15 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
-<link href="css/style.css" type="text/css" rel="stylesheet" />
-<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/css/style.css" type="text/css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <title>Projeto Unisul</title>
 </head>
 <body>
 	<div id="container">
-<!-- 	INCLUIR HEADER AQUI -->
+		<div id="header">
+			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
+		</div>
 		<div id="content">
-<!-- 	INCLUIR LEFT AQUI -->
+		<div id="left"></div>
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">
@@ -79,10 +81,9 @@
 					</div>
 				</div>
 			</div>
-<!-- 	INCLUIR RIGHT AQUI -->
-		</div>
-		
-<!-- 	INCLUIR FOOTER AQUI -->
+		<div id="right"></div>
 	</div>
+	<div id="footer"></div>
+</div>
 </body>
 </html>
