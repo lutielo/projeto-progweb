@@ -91,7 +91,7 @@
 					<tbody>
 						<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
 							<tr>
-								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCurso?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
+								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
 								<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
 								<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
 							</tr>
