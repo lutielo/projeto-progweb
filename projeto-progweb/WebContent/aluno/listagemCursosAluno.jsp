@@ -8,7 +8,7 @@
 	rel="stylesheet" />
 </head>
 <body>
-	<jsp:useBean id="lista" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" />
+	<jsp:useBean id="listaCursos" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" />
 	<div id="center">
 		<h1>Cursos em andamento por aluno</h1>
 		<hr>

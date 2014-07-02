@@ -41,7 +41,7 @@ public class PesquisaMeusCursos extends HttpServlet {
 		
 		request.setAttribute("listaCursos", listaCursos);
 		
-		RequestDispatcher view = request.getRequestDispatcher("professor/listagemUsuariosPorCurso.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("aluno/listagemCursosAluno.jsp");
 		view.forward(request, response);
 	}
 }
