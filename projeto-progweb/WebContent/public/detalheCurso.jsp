@@ -112,7 +112,7 @@
 								</fieldset>
 							</form>
 						</div>
-					
+						
 						<div class="col-lg-15">
 							<div class="well bs-component">
 								<h1>Aulas</h1>
@@ -135,23 +135,27 @@
 								</table>
 							</div>
 						</div>
-					
-						<div class="col-lg-15">
-							<div class="well bs-component">
-								<form class="form-horizontal" action="Upload?codigo=${curso.cdcurso}" method="post" name="form" enctype="multipart/form-data">
-							        <fieldset>
-										<legend>Uploads de arquivos para o curso</legend>
-								        Upload: <input type="file" name="arquivo" /><br />
-								        <input type="submit" class="btn btn-primary" name="enviar" value="Enviar" />
-				        			</fieldset>
-								</form>
+						
+						<c:if test="${(sessionScope.usuario.perfil.deperfil == 'professor') or (sessionScope.usuario.perfil.deperfil == 'administrador')}">
+							<div class="col-lg-15">
+								<div class="well bs-component">
+									<form class="form-horizontal" action="Upload?codigo=${curso.cdcurso}" method="post" name="form" enctype="multipart/form-data">
+								        <fieldset>
+											<legend>Uploads de arquivos para o curso</legend>
+									        Upload: <input type="file" name="arquivo" /><br />
+									        <input type="submit" class="btn btn-primary" name="enviar" value="Enviar" />
+					        			</fieldset>
+									</form>
+								</div>
 							</div>
-						</div>
-					
-						<form class="form-horizontal" action="AlteraCursoManager?codigo=${curso.cdcurso}" method="post">
-							<button class="btn btn-default" formaction="ListaCursoManager">Voltar</button>
-							<button type="submit" class="btn btn-primary">Editar</button>
-						</form>
+						</c:if>
+						
+						<c:if test="${(sessionScope.usuario.perfil.deperfil == 'professor') or (sessionScope.usuario.perfil.deperfil == 'administrador')}">
+							<form class="form-horizontal" action="AlteraCursoManager?codigo=${curso.cdcurso}" method="post">
+								<button class="btn btn-default" formaction="ListaCursoManager">Voltar</button>
+								<button type="submit" class="btn btn-primary">Editar</button>
+							</form>
+						</c:if>
 					</div>
 				</div>
 			<div id="right"></div>
