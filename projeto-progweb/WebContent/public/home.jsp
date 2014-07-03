@@ -3,22 +3,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
+<script src="../bootstrap-3.1.1/dist/js/jquery.min.js"></script>
 <link href="../css/style.css" type="text/css" rel="stylesheet" />
 <link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
-
-<c:choose>
-    <c:when test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
-    <meta http-equiv="refresh" content="0; url=http://localhost:8080/projeto-progweb/admin/adminHome.jsp" />
-    </c:when>
-
-    <c:when test="${sessionScope.usuario.perfil.deperfil == 'professor'}">
-    <meta http-equiv="refresh" content="0; url=http://localhost:8080/projeto-progweb/professor/professorHome.jsp" />
-    </c:when>
-    
-    <c:when test="${sessionScope.usuario.perfil.deperfil == 'aluno'}">
-    <meta http-equiv="refresh" content="0; url=http://localhost:8080/projeto-progweb/aluno/alunoHome.jsp" />
-    </c:when>
-</c:choose>
+<script src="../bootstrap-3.1.1/dist/js/bootstrap.js" type="text/javascript"></script>
 
 <title>Projeto Unisul</title>
 </head>
@@ -34,25 +22,7 @@
 		<div id="header">
 			<img src="../images/BannerV1.jpg">
 		</div>
-		
-		<c:choose>
- 			<c:when test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
-	   	 		<jsp:include page="${pageContext.request.contextPath}/../admin/menuAdmin.jsp" />
-	   		</c:when>
-	
-		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'professor'}">
-		   		<jsp:include page="${pageContext.request.contextPath}/../professor/menuProfessor.jsp" />
-		    </c:when>
-		    
-		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'aluno'}">
-		  		<jsp:include page="${pageContext.request.contextPath}/../aluno/menuAluno.jsp" />
-		    </c:when>
-		    
-   		    <c:when test="${empty sessionScope.usuario}">
-		  		<jsp:include page="${pageContext.request.contextPath}/../public/menuPublic.jsp" />
-		    </c:when>
-		</c:choose>
-
+		<jsp:include page="${pageContext.request.contextPath}/../public/menuOficial.jsp" />
 		<div id="content">
 			<div id="left"></div>
 			<div id="center">
