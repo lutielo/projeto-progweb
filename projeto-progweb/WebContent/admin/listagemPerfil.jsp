@@ -47,8 +47,8 @@
 						<tr>
 							<td>${perfil.cdperfil}</td>
 							<td>${perfil.deperfil}</td>
-							<td align="center"><a href="${pageContext.request.contextPath}/AlteraPerfilManager?codigo=${perfil.cdperfil}"><img src="${pageContext.request.contextPath}/images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-							<td align="center"><a href="${pageContext.request.contextPath}/DeletePerfilManager?codigo=${perfil.cdperfil}"><img src="${pageContext.request.contextPath}/images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+							<td align="center"><a href="${pageContext.request.contextPath}/admin/AlteraPerfilManager?codigo=${perfil.cdperfil}"><img src="${pageContext.request.contextPath}/images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+							<td align="center"><a href="${pageContext.request.contextPath}/admin/DeletePerfilManager?codigo=${perfil.cdperfil}"><img src="${pageContext.request.contextPath}/images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
 						</tr>
 					</c:forEach>
 				  </tbody>

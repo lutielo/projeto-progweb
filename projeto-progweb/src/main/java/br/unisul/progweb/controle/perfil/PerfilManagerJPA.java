@@ -17,7 +17,7 @@ import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.PerfilDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
-@WebServlet("/PerfilManagerJPA")
+@WebServlet("/admin/PerfilManagerJPA")
 public class PerfilManagerJPA extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -48,7 +48,7 @@ public class PerfilManagerJPA extends HttpServlet {
 			Perfil perfil = new Perfil(codigoInt, descricao);
 			perfilDAO.update(perfil);
 		}
-		response.sendRedirect("ListaPerfilManager");
+		response.sendRedirect("/admin/ListaPerfilManager");
 
 }
 

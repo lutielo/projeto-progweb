@@ -20,7 +20,7 @@ import br.unisul.progweb.dao.CursoArquivoDAO;
 import br.unisul.progweb.dao.CursoDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
-@WebServlet("/CadastraAlunoNoCursoManager")
+@WebServlet("/aluno/CadastraAlunoNoCursoManager")
 public class CadastraAlunoNoCursoManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

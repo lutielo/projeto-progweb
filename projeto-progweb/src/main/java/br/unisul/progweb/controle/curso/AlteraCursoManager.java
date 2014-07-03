@@ -15,7 +15,7 @@ import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.CursoDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
-@WebServlet("/AlteraCursoManager")
+@WebServlet("/admin/AlteraCursoManager")
 public class AlteraCursoManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -19,7 +19,7 @@ import br.unisul.progweb.dao.CursoArquivoDAO;
 import br.unisul.progweb.dao.CursoDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
-@WebServlet("/CursosDoProfessorManager")
+@WebServlet("/professor/CursosDoProfessorManager")
 public class CursosDoProfessorManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

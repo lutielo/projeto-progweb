@@ -27,12 +27,17 @@ public class AdminFilter implements Filter {
 		HttpSession session = req.getSession();
 		
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		if(usuario != null && 1 == usuario.getPerfil().getCdperfil()) {
-			chain.doFilter(request, response);
-		} else {
-			session.setAttribute("msg","Você não tem permissão apra visualização ou não está logado!");
+		if(usuario != null){
+			if( 1 == usuario.getPerfil().getCdperfil()) {
+				chain.doFilter(request, response);
+			} else {
+				session.setAttribute("msg","Você não tem permissão para visualização!");
 
-            ((HttpServletResponse)response).sendRedirect("../public/home.jsp");
+				((HttpServletResponse)response).sendRedirect("../public/home.jsp");
+			}
+		} else {
+			session.setAttribute("msg","Você não está logado!");
+			((HttpServletResponse)response).sendRedirect("../public/home.jsp");
 		}
 	}
 

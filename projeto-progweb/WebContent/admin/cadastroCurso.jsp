@@ -34,7 +34,7 @@
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">
-						<form class="form-horizontal" action="CursoManagerJPA" method="post">
+						<form class="form-horizontal" action="/admin/CursoManagerJPA" method="post">
 							<fieldset>
 								<legend>${acao}</legend>
 								<c:if test="${not empty curso.cdcurso}">

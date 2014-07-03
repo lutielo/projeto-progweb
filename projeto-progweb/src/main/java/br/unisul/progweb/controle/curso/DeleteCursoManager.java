@@ -15,7 +15,7 @@ import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.CursoDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
-@WebServlet("/DeleteCursoManager")
+@WebServlet("/admin/DeleteCursoManager")
 public class DeleteCursoManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

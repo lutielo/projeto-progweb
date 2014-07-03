@@ -33,7 +33,7 @@
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="${pageContext.request.contextPath}/CadastraUsuarioManager">Cadastro de Usuários</a></li>
-					<li><a href="${pageContext.request.contextPath}/CadastraCursoManager">Cadastro de Cursos</a></li>
+					<li><a href="${pageContext.request.contextPath}/admin/CadastraCursoManager">Cadastro de Cursos</a></li>
 					<li><a href="${pageContext.request.contextPath}/ListaUsuarioManager">Listagem de Usuários</a></li>
 					<li><a href="${pageContext.request.contextPath}/ListaCursoManager">Listagem de Cursos</a></li>
 				</ul>
@@ -102,7 +102,7 @@
 							<h3 align="left">Ementa:</h3>
 							<p>${curso.deementa}
 							
-							<form class="form-horizontal" action="${pageContext.request.contextPath}/CadastraAlunoNoCursoManager?codigoAluno=${sessionScope.usuario.cdusuario}&codigoCurso=${curso.cdcurso}" method="post">
+							<form class="form-horizontal" action="${pageContext.request.contextPath}/aluno/CadastraAlunoNoCursoManager?codigoAluno=${sessionScope.usuario.cdusuario}&codigoCurso=${curso.cdcurso}" method="post">
 								<fieldset>
 									<div class="form-group">
 										<div class="col-lg-2">
@@ -151,7 +151,7 @@
 						</c:if>
 						
 						<c:if test="${(sessionScope.usuario.perfil.deperfil == 'professor') or (sessionScope.usuario.perfil.deperfil == 'administrador')}">
-							<form class="form-horizontal" action="AlteraCursoManager?codigo=${curso.cdcurso}" method="post">
+							<form class="form-horizontal" action="admin/AlteraCursoManager?codigo=${curso.cdcurso}" method="post">
 								<button class="btn btn-default" formaction="ListaCursoManager">Voltar</button>
 								<button type="submit" class="btn btn-primary">Editar</button>
 							</form>

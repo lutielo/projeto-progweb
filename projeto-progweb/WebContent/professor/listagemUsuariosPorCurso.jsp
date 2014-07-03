@@ -61,8 +61,8 @@
 									<td>${usuario.delogin}</td>
 									<td>${usuario.deemail}</td>
 									<td>${usuario.perfil.deperfil}</td>
-									<td align="center"><a href="AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-									<td align="center"><a href="DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+									<td align="center"><a href="/admin/AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+									<td align="center"><a href="/admin/DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
 								</tr>
 							</c:forEach>
 						  </tbody>

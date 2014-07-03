@@ -32,7 +32,7 @@
 		
 		<div id="content">
 			<div id="center">
-				<form class="form-horizontal" action="${pageContext.request.contextPath}/PerfilManagerJPA" method="post">
+				<form class="form-horizontal" action="${pageContext.request.contextPath}/admin/PerfilManagerJPA" method="post">
 					<fieldset>
 						<legend>${acao}</legend>
 						<c:if test="${not empty perfil.cdperfil}">

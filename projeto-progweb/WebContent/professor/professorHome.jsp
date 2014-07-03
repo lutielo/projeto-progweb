@@ -39,7 +39,7 @@
 			</div>
 			<div id="center">
 				Bem vindo professor ${sessionScope.usuario.nmusuario},<br>
-				Para listar os cursos ao qual você ministra no momento <a href="${pageContext.request.contextPath}/CursosDoProfessorManager?usuario=${sessionScope.usuario}">clique aqui</a>
+				Para listar os cursos ao qual você ministra no momento <a href="${pageContext.request.contextPath}/professor/CursosDoProfessorManager?usuario=${sessionScope.usuario}">clique aqui</a>
 				
 				
 				<br><br><br>

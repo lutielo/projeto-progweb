@@ -16,7 +16,7 @@ import br.unisul.progweb.dao.CursoDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 import br.unisul.progweb.util.FuncoesData;
 
-@WebServlet("/CursoManagerJPA")
+@WebServlet("/admin/CursoManagerJPA")
 public class CursoManagerJPA extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -63,8 +63,8 @@
 									<td>${usuario.delogin}</td>
 									<td>${usuario.deemail}</td>
 									<td>${usuario.perfil.deperfil}</td>
-									<td align="center"><a href="${pageContext.request.contextPath}/AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="${pageContext.request.contextPath}/images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-									<td align="center"><a href="${pageContext.request.contextPath}/DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="${pageContext.request.contextPath}/images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+									<td align="center"><a href="${pageContext.request.contextPath}/admin/AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="${pageContext.request.contextPath}/images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+									<td align="center"><a href="${pageContext.request.contextPath}/admin/DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="${pageContext.request.contextPath}/images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
 								</tr>
 							</c:forEach>
 						  </tbody>

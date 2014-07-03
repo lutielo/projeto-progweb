@@ -12,10 +12,7 @@ import br.unisul.progweb.bean.Perfil;
 import br.unisul.progweb.dao.PerfilDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
-/**
- * Servlet implementation class DeletePerfilManager
- */
-@WebServlet("/DeletePerfilManager")
+@WebServlet("/admin/DeletePerfilManager")
 public class DeletePerfilManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,7 +38,7 @@ public class DeletePerfilManager extends HttpServlet {
 			Integer codigo = Integer.parseInt(codigoString);
 			perfil = perfilDAO.getSinglePerfil(codigo);
 			perfilDAO.delete(perfil);
-			response.sendRedirect("ListaPerfilManager");
+			response.sendRedirect("/admin/ListaPerfilManager");
 		}
 	}
 }

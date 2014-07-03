@@ -11,7 +11,7 @@
 			
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="${pageContext.request.contextPath}/PesquisaMeusCursos?aluno=${usuario.cdusuario}">Meus Cursos</a></li>
+					<li><a href="${pageContext.request.contextPath}/aluno/PesquisaMeusCursos?aluno=${usuario.cdusuario}">Meus Cursos</a></li>
 				</ul>
 				<form class="navbar-form navbar-left" action="${pageContext.request.contextPath}/PesquisaCursoJPA" method="POST">
 					<fieldset>

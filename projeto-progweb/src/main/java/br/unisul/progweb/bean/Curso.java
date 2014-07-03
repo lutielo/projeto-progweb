@@ -67,7 +67,7 @@ public class Curso implements Serializable {
 	
 	@Id
 	@Column(name = "cdcurso", unique = true, nullable = false)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getCdcurso() {
 		return this.cdcurso;
 	}

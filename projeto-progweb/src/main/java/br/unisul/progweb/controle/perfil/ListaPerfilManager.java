@@ -18,7 +18,7 @@ import br.unisul.progweb.dao.UsuarioDAO;
 /**
  * Servlet implementation class ListaPerfilManager
  */
-@WebServlet("/ListaPerfilManager")
+@WebServlet("/admin/ListaPerfilManager")
 public class ListaPerfilManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.UsuarioDAO;
 
-@WebServlet("/DeleteUsuarioManager")
+@WebServlet("/admin/DeleteUsuarioManager")
 public class DeleteUsuarioManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
