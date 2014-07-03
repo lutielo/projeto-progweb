@@ -33,7 +33,7 @@ public class AlunoFilter implements Filter {
 				chain.doFilter(request, response);
 			} else {
 				session.setAttribute("msg",
-						"Você não tem permissão apra visualização ou não está logado!");
+						"Você não tem permissão para visualização ou não está logado!");
 
 				((HttpServletResponse) response).sendRedirect("../public/home.jsp");
 			}

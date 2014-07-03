@@ -43,8 +43,7 @@ public class LoginUsuario extends HttpServlet {
 		
 		if((usuarioObj!=null)&&(usuarioObj.getDesenha().equals(senha))){
 			session.setAttribute("usuario", usuarioObj);
-			RequestDispatcher rd = req.getRequestDispatcher(getPaginaPorCodigoDePerfil(usuarioObj));
-			rd.forward(request, response);
+			((HttpServletResponse)response).sendRedirect(getPaginaPorCodigoDePerfil(usuarioObj));
 		}else{
 			session.setAttribute("msg","Usuario ou senha incorretos.");
 			((HttpServletResponse)response).sendRedirect("public/home.jsp");
