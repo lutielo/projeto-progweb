@@ -3,15 +3,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
-<link href="css/style.css" type="text/css" rel="stylesheet" />
-<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="../css/style.css" type="text/css" rel="stylesheet" />
+<link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <title>Pesquisa curso</title>
 </head>
 <body>
 	<div id="container">
-<!-- INSERIR AQUI -->
+		<c:if test="${not empty sessionScope.msg}">
+			<div class="alert alert-dismissable alert-info">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<strong>${sessionScope.msg}</strong>
+				<%
+					session.setAttribute("msg", null);
+				%>
+			</div>
+		</c:if>
+		<div id="header">
+			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
+		</div>
+		<jsp:include page="${pageContext.request.contextPath}/../professor/menuProfessor.jsp"/>
 		<div id="content">
-<!-- INSERIR AQUI -->
+		<div id="left"></div>
 			<div id="center">
 				 <form class="navbar-form navbar-left"  action="PesquisaCursoJPA" method="post">
 				     <fieldset>
@@ -24,9 +36,9 @@
 				    </fieldset>
                 </form>
 			</div>
-<!-- INSERIR AQUI -->
+			<div id="right"></div>
 		</div>
-<!-- INSERIR AQUI -->
+		<div id="footer"></div>
 	</div>
 </body>
 </html>
