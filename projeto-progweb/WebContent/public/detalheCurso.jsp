@@ -151,7 +151,7 @@
 						</c:if>
 						
 						<c:if test="${(sessionScope.usuario.perfil.deperfil == 'professor') or (sessionScope.usuario.perfil.deperfil == 'administrador')}">
-							<form class="form-horizontal" action="admin/AlteraCursoManager?codigo=${curso.cdcurso}" method="post">
+							<form class="form-horizontal" action="/admin/AlteraCursoManager?codigo=${curso.cdcurso}" method="post">
 								<button class="btn btn-default" formaction="ListaCursoManager">Voltar</button>
 								<button type="submit" class="btn btn-primary">Editar</button>
 							</form>

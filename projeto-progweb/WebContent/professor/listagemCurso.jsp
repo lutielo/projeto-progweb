@@ -3,8 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
-<link href="css/style.css" type="text/css" rel="stylesheet" />
-<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="../css/style.css" type="text/css" rel="stylesheet" />
+<link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <title>Projeto Unisul</title>
 </head>
 <body>
@@ -46,11 +46,11 @@
 									<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
 									<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
 									<td align="center"><a href="${pageContext.request.contextPath}/PesquisaCursoAluno?codigo=${curso.cdcurso}"><img src="images/List-32.png" alt="Listar alunos" height="20" width="20"></a></td>
-									<td align="center"><a href="${pageContext.request.contextPath}/professor/MailToAlunosCurso?codigo=${curso.cdcurso}"><img src="images/Mail-32.png" alt="Mail" height="20" width="20"></a></td>
+									<td align="center"><a href="${pageContext.request.contextPath}/MailToAlunosCurso?codigo=${curso.cdcurso}"><img src="images/Mail-32.png" alt="Mail" height="20" width="20"></a></td>
 									
 									<c:if test="${sessionScope.usuario.perfil.cdperfil == 1}">
-										<td align="center"><a href="${pageContext.request.contextPath}/admin/AlteraCursoManager?codigo=${curso.cdcurso}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-										<td align="center"><a href="${pageContext.request.contextPath}/admin/DeleteCursoManager?codigo=${curso.cdcurso}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+										<td align="center"><a href="/admin/AlteraCursoManager?codigo=${curso.cdcurso}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+										<td align="center"><a href="/admin/DeleteCursoManager?codigo=${curso.cdcurso}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
 									</c:if>
 								</tr>
 							</c:forEach>

@@ -30,12 +30,17 @@ public class ProfessorFilter implements Filter {
 		if(usuario != null) {
 			if(isAdminOUProfessor(usuario)) {
 				chain.doFilter(request, response);
+			}else {
+				session.setAttribute("msg",
+						"Você não tem permissão apra visualização ou não está logado!");
+
+				((HttpServletResponse) response).sendRedirect("../public/home.jsp");
 			}
 		} else {
-			session.setAttribute("msg","Você não tem permissão para visualização ou não está logado! Você não está logado no sistema!");
-
-			((HttpServletResponse)response).sendRedirect("../public/home.jsp");
+			 session.setAttribute("msg", "Você não está logado!");
+			((HttpServletResponse) response).sendRedirect("../public/home.jsp");
 		}
+		
 	}
 
 	private boolean isAdminOUProfessor(Usuario usuario) {

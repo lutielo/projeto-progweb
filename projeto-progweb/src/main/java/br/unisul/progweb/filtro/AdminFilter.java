@@ -28,7 +28,7 @@ public class AdminFilter implements Filter {
 		
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		if(usuario != null){
-			if( 1 == usuario.getPerfil().getCdperfil()) {
+			if(isAdmin(usuario)) {
 				chain.doFilter(request, response);
 			} else {
 				session.setAttribute("msg","Você não tem permissão para visualização!");
@@ -39,6 +39,10 @@ public class AdminFilter implements Filter {
 			session.setAttribute("msg","Você não está logado!");
 			((HttpServletResponse)response).sendRedirect("../public/home.jsp");
 		}
+	}
+	
+	private boolean isAdmin(Usuario usuario) {
+		return (1 == usuario.getPerfil().getCdperfil());
 	}
 
 	public void destroy() {

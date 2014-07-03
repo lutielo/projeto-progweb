@@ -15,7 +15,7 @@ import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.CursoDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
 
-@WebServlet("/ListaCursoManager")
+@WebServlet("/professor/ListaCursoManager")
 public class ListaCursoManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,7 +37,7 @@ public class ListaCursoManager extends HttpServlet {
 
 		request.setAttribute("listaCursos", listaCursos);
 		
-		RequestDispatcher view = request.getRequestDispatcher("public/listagemCurso.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("professor/listagemCurso.jsp");
 		view.forward(request, response);
 	}
 }
