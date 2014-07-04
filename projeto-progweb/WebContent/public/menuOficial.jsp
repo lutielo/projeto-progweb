@@ -22,10 +22,10 @@
 				</li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Em andamento</a></li>
-						<li><a href="#">Disponíveis</a></li>
-						<li><a href="#">Pesquisa</a></li>
-						<li><a href="#">Pesquisa avançada</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/listaCursosEmAndamento.jsp">Em andamento</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/listaCursosDisponiveis.jsp">Disponíveis</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/PesquisaCurso.jsp">Pesquisa</a></li>
+						<li><a href="${pageContext.request.contextPath}/IniciarPesquisaAvancadaCursoJPA">Pesquisa avançada</a></li>
 					</ul>
 				</li>
 			</c:if>
@@ -41,10 +41,10 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Meus cursos</a></li>
-						<li><a href="#">Em andamento</a></li>
-						<li><a href="#">Disponíveis</a></li>
-						<li><a href="#">Pesquisa</a></li>
-						<li><a href="#">Pesquisa avançada</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/listaCursosEmAndamento.jsp">Em andamento</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/listaCursosDisponiveis.jsp">Disponíveis</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/PesquisaCurso.jsp">Pesquisa</a></li>
+						<li><a href="${pageContext.request.contextPath}/IniciarPesquisaAvancadaCursoJPA">Pesquisa avançada</a></li>
 					</ul>
 				</li>
 			</c:if>
@@ -55,10 +55,10 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Meus cursos</a></li>
-						<li><a href="#">Em andamento</a></li>
-						<li><a href="#">Disponíveis</a></li>
-						<li><a href="#">Pesquisa</a></li>
-						<li><a href="#">Pesquisa avançada</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/listaCursosEmAndamento.jsp">Em andamento</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/listaCursosDisponiveis.jsp">Disponíveis</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/PesquisaCurso.jsp">Pesquisa</a></li>
+						<li><a href="${pageContext.request.contextPath}/IniciarPesquisaAvancadaCursoJPA">Pesquisa avançada</a></li>
 					</ul>
 				</li>
 			</c:if>
@@ -68,10 +68,10 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/public/home.jsp">Inicial</a>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Em andamento</a></li>
-						<li><a href="#">Disponíveis</a></li>
-						<li><a href="#">Pesquisa</a></li>
-						<li><a href="#">Pesquisa avançada</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/listaCursosEmAndamento.jsp">Em andamento</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/listaCursosDisponiveis.jsp">Disponíveis</a></li>
+						<li><a href="${pageContext.request.contextPath}/public/PesquisaCurso.jsp">Pesquisa</a></li>
+						<li><a href="${pageContext.request.contextPath}/IniciarPesquisaAvancadaCursoJPA">Pesquisa avançada</a></li>
 					</ul>
 				</li>
 			</c:if>
