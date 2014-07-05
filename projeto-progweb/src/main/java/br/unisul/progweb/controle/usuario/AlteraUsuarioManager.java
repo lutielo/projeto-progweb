@@ -42,7 +42,7 @@ public class AlteraUsuarioManager extends HttpServlet {
 			request.setAttribute("usuarioASerEditado", usuario);
 			request.setAttribute("acao", "Alteração de usuário");
 
-			RequestDispatcher view = request.getRequestDispatcher("public/cadastroUsuarios.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("../public/cadastroUsuarios.jsp");
 			view.forward(request, response);
 		}
 	}

@@ -57,7 +57,7 @@ public class CursoManagerJPA extends HttpServlet {
 			alteraNomePasta(cursoTela, cursoBanco);
 		}
 		request.getSession().setAttribute("msg", "Curso cadastrado com sucesso");
-		response.sendRedirect("public/home.jsp");	
+		response.sendRedirect("../public/home.jsp");	
 	}
 
 	private void alteraNomePasta(Curso cursoTela, Curso cursoBanco) {

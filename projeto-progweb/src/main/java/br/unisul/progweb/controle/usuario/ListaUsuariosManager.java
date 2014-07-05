@@ -36,7 +36,7 @@ public class ListaUsuariosManager extends HttpServlet {
 
 		request.setAttribute("listaUsuarios", listaUsuarios);
 		
-		RequestDispatcher view = request.getRequestDispatcher("admin/listagemUsuarios.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("listagemUsuarios.jsp");
 		view.forward(request, response);
 	}
 }

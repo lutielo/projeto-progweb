@@ -42,7 +42,7 @@ public class ListaPerfilManager extends HttpServlet {
 
 		request.setAttribute("lista", lista);
 		
-		RequestDispatcher view = request.getRequestDispatcher("admin/listagemPerfil.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("listagemPerfil.jsp");
 		view.forward(request, response);
 	}
 
