@@ -3,9 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
-<link href="css/style.css" type="text/css" rel="stylesheet" />
-<link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css"
-	rel="stylesheet" />
+<script src="../bootstrap-3.1.1/dist/js/jquery.min.js"></script>
+<link href="../css/style.css" type="text/css" rel="stylesheet" />
+<link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<script src="../bootstrap-3.1.1/dist/js/bootstrap.js" type="text/javascript"></script>
 </head>
 <body>
 	<jsp:useBean id="lista"

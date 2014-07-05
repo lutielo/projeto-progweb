@@ -3,8 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html">
-<link href="${pageContext.request.contextPath}/css/style.css" type="text/css" rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<script src="../bootstrap-3.1.1/dist/js/jquery.min.js"></script>
+<link href="../css/style.css" type="text/css" rel="stylesheet" />
+<link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<script src="../bootstrap-3.1.1/dist/js/bootstrap.js" type="text/javascript"></script>
 <title>Projeto Unisul</title>
 </head>
 <body>
@@ -12,23 +14,7 @@
 		<div id="header">
 			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
 		</div>	
-		<c:choose>
- 			<c:when test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
-	   	 		<jsp:include page="${pageContext.request.contextPath}/../admin/menuAdmin.jsp" />
-	   		</c:when>
-	
-		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'professor'}">
-		   		<jsp:include page="${pageContext.request.contextPath}/../professor/menuProfessor.jsp" />
-		    </c:when>
-		    
-		    <c:when test="${sessionScope.usuario.perfil.deperfil == 'aluno'}">
-		  		<jsp:include page="${pageContext.request.contextPath}/../aluno/menuAluno.jsp" />
-		    </c:when>
-		    
-   		    <c:when test="${empty sessionScope.usuario}">
-		  		<jsp:include page="${pageContext.request.contextPath}/../public/menuPublic.jsp" />
-		    </c:when>
-		</c:choose>
+		<jsp:include page="${pageContext.request.contextPath}/../public/menuOficial.jsp" />
 		<div id="content">
 		<div id="left"></div>
 			<div id="center">
