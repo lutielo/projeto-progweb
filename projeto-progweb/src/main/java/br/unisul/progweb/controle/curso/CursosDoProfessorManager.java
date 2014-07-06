@@ -45,7 +45,7 @@ public class CursosDoProfessorManager extends HttpServlet {
 		
 		request.setAttribute("listaCursos", listaCursos);
 		
-		RequestDispatcher view = request.getRequestDispatcher("../public/listagemCurso.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("listagemCurso.jsp");
 		view.forward(request, response);
 	}
 }

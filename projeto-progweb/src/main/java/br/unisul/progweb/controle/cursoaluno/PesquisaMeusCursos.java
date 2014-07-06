@@ -33,7 +33,7 @@ public class PesquisaMeusCursos extends HttpServlet {
 	}
 	
 	private void processaRequisicao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int cdUsuario = Integer.parseInt(request.getParameter("aluno"));
+		int cdUsuario = Integer.parseInt(request.getParameter("codigo"));
 
 		CursoAlunoDAO cursoAlunoDAO = new CursoAlunoDAO();
 		
@@ -41,7 +41,7 @@ public class PesquisaMeusCursos extends HttpServlet {
 		
 		request.setAttribute("listaCursos", listaCursos);
 		
-		RequestDispatcher view = request.getRequestDispatcher("aluno/listagemCursosAluno.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("listagemCursosAluno.jsp");
 		view.forward(request, response);
 	}
 }
