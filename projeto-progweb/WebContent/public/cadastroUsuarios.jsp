@@ -21,7 +21,7 @@
 					<div class="well bs-component">
 						<form class="form-horizontal" action="${pageContext.request.contextPath}/UsuarioManagerJPA" method="post">
 							<fieldset>
-								<legend>${acao}</legend>
+								<legend>${sessionScope.acao}</legend>
 								<c:if test="${not empty usuarioASerEditado.cdusuario}">
 									<div class="form-group">
 										<label for="inputCodigo" class="col-lg-2 control-label">Codigo:</label>

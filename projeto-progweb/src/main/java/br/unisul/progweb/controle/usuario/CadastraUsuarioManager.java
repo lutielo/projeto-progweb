@@ -29,9 +29,8 @@ public class CadastraUsuarioManager extends HttpServlet {
 	}
 
 	private void processaRequisicao(HttpServletRequest request,	HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("acao", "Cadastro de usuário");
-
-		RequestDispatcher view = request.getRequestDispatcher("public/cadastroUsuarios.jsp");
-		view.forward(request, response);
+		request.getSession().setAttribute("acao", "Cadastro de usuário");
+		
+		response.sendRedirect("public/cadastroUsuarios.jsp");
 	}
 }
