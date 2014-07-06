@@ -8,16 +8,16 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/admin/adminHome.jsp"">Inicial</a>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Usuário</a></li>
-						<li><a href="#">Curso</a></li>
-						<li><a href="#">Perfil</a></li>
+						<li><a href="${pageContext.request.contextPath}/CadastraUsuarioManager">Usuário</a></li>
+						<li><a href="${pageContext.request.contextPath}/admin/CadastraCursoManager">Curso</a></li>
+						<li><a href="${pageContext.request.contextPath}/admin/cadastroPerfil.jsp">Perfil</a></li>
 					</ul>
 				</li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Listagens <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Usuários</a></li>
-						<li><a href="#">Cursos</a></li>
-						<li><a href="#">Perfis</a></li>
+						<li><a href="${pageContext.request.contextPath}/admin/ListaUsuariosManager">Usuários</a></li>
+						<li><a href="${pageContext.request.contextPath}/professor/ListaCursoManager">Cursos</a></li>
+						<li><a href="${pageContext.request.contextPath}/admin/ListaPerfilManager">Perfis</a></li>
 					</ul>
 				</li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
@@ -35,12 +35,12 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/professor/professorHome.jsp"">Inicial</a>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Listagens <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Cursos</a></li>
+						<li><a href="${pageContext.request.contextPath}/professor/ListaCursoManager">Cursos</a></li>
 					</ul>
 				</li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Meus cursos</a></li>
+						<li><a href="${pageContext.request.contextPath}/professor/CursosDoProfessorManager?usuario=${sessionScope.usuario}">Meus cursos</a></li>
 						<li><a href="${pageContext.request.contextPath}/public/listaCursosEmAndamento.jsp">Em andamento</a></li>
 						<li><a href="${pageContext.request.contextPath}/public/listaCursosDisponiveis.jsp">Disponíveis</a></li>
 						<li><a href="${pageContext.request.contextPath}/public/PesquisaCurso.jsp">Pesquisa</a></li>
@@ -54,7 +54,7 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/aluno/alunoHome.jsp"">Inicial</a>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Meus cursos</a></li>
+						<li><a href="${pageContext.request.contextPath}/aluno/PesquisaMeusCursos?codigo=${sessionScope.usuario.cdusuario}">Meus cursos</a></li>
 						<li><a href="${pageContext.request.contextPath}/public/listaCursosEmAndamento.jsp">Em andamento</a></li>
 						<li><a href="${pageContext.request.contextPath}/public/listaCursosDisponiveis.jsp">Disponíveis</a></li>
 						<li><a href="${pageContext.request.contextPath}/public/PesquisaCurso.jsp">Pesquisa</a></li>
@@ -84,17 +84,23 @@
 		<c:if test="${empty sessionScope.usuario}">
 			<form name="loginForm" action="../LoginUsuario" method="POST" class="navbar-form navbar-right">
 				<ul class="nav navbar-nav">
-					<li><input type="text" name="login" placeholder="Login" class="form-control col-lg-8"></li>
+					<li>
+						<input type="text" name="login" placeholder="Login" class="form-control col-lg-8">
+					</li>
 					<li class="divider">&nbsp;&nbsp;&nbsp;</li>
-					<li><input type="password" name="senha" placeholder="Senha" class="form-control col-lg-8"></li>
+					<li>
+						<input type="password" name="senha" placeholder="Senha" class="form-control col-lg-8">
+					</li>
 					<li class="divider">&nbsp;&nbsp;&nbsp;</li>
-					<li><input type="submit" value="Entrar" class="btn btn-primary" /></li>
+					<li>
+						<input type="submit" value="Entrar" class="btn btn-primary" />
+					</li>
 				</ul>
 			</form>
 			
 			<ul class="nav navbar-nav navbar-right">
 				<li class="divider">&nbsp;&nbsp;&nbsp;</li>
-				<li><a href="cadastroUsuarios.jsp">Criar conta</a></li>
+				<li><a href="${pageContext.request.contextPath}/CadastraUsuarioManager">Criar conta</a></li>
 				<li class="divider">&nbsp;&nbsp;&nbsp;</li>	
 			</ul>
 		</c:if>
