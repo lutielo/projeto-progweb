@@ -16,37 +16,41 @@
 		<jsp:include page="${pageContext.request.contextPath}/../public/menuOficial.jsp" />
 		
 		<div id="content">
+			<div id="left"></div>
 			<div id="center">
-				<form class="form-horizontal" action="${pageContext.request.contextPath}/admin/PerfilManagerJPA" method="post">
-					<fieldset>
-						<legend>${acao}</legend>
-						<c:if test="${not empty perfil.cdperfil}">
-							<div class="form-group">
-								<label for="inputCodigo" class="col-lg-2 control-label">Codigo:</label>
-								<div class="col-lg-10">
-									<input type="text" name="codigo" class="form-control" id="inputCodigo" value="${perfil.cdperfil}" readonly>
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<form class="form-horizontal" action="${pageContext.request.contextPath}/admin/PerfilManagerJPA" method="post">
+							<fieldset>
+								<legend>Cadastro de perfil</legend>
+								<c:if test="${not empty perfil.cdperfil}">
+									<div class="form-group">
+										<label for="inputCodigo" class="col-lg-2 control-label">Codigo:</label>
+										<div class="col-lg-10">
+											<input type="text" name="codigo" class="form-control" id="inputCodigo" value="${perfil.cdperfil}" readonly>
+										</div>
+									</div>
+								</c:if>
+								<div class="form-group">
+									<label for="inputDescricao" class="col-lg-2 control-label">Descrição:</label>
+									<div class="col-lg-10">
+										<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="admin" value="${perfil.deperfil}">
+									</div>
+								</div>						
+								<div class="form-group">
+									<div class="col-lg-10 col-lg-offset-2">
+										<button type="reset" class="btn btn-default">Limpar</button>
+										<button type="submit" class="btn btn-primary">Salvar</button>
+									</div>
 								</div>
-							</div>
-						</c:if>
-						<div class="form-group">
-							<label for="inputDescricao" class="col-lg-2 control-label">Descrição:</label>
-							<div class="col-lg-10">
-								<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="admin" value="${perfil.deperfil}">
-							</div>
-						</div>						
-						<div class="form-group">
-							<div class="col-lg-10 col-lg-offset-2">
-								<button type="reset" class="btn btn-default">Limpar</button>
-								<button type="submit" class="btn btn-primary">Salvar</button>
-							</div>
-						</div>
-					</fieldset>
-				</form>
+							</fieldset>
+						</form>
+					</div>
+				</div>	
 			</div>
-<!-- 	INCLUIR RIGHT AQUI -->
+			<div id="right"></div>
 		</div>
-		
-<!-- 	INCLUIR FOOTER AQUI -->
+		<div id="footer"></div>
 	</div>
 </body>
 </html>
