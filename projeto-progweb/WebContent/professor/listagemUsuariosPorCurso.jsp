@@ -10,8 +10,19 @@
 </head>
 <body>
 	<div id="container">
-<jsp:include page="${pageContext.request.contextPath}/../public/menuOficial.jsp" />
-			
+		<c:if test="${not empty sessionScope.msg}">
+			<div class="alert alert-dismissable alert-info">
+	  			<button type="button" class="close" data-dismiss="alert">×</button>
+	  			<strong>${sessionScope.msg}</strong>
+				<%session.setAttribute("msg", null);%>
+			</div>
+		</c:if>
+		<div id="header">
+			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
+		</div>
+		<jsp:include page="${pageContext.request.contextPath}/../public/menuOficial.jsp" />
+		<div id="content">
+			<div id="left"></div>
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">

@@ -10,6 +10,13 @@
 </head>
 <body>
 	<div id="container">
+		<c:if test="${not empty sessionScope.msg}">
+			<div class="alert alert-dismissable alert-info">
+	  			<button type="button" class="close" data-dismiss="alert">×</button>
+	  			<strong>${sessionScope.msg}</strong>
+				<%session.setAttribute("msg", null);%>
+			</div>
+		</c:if>
 		<div id="header">
 			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
 		</div>
