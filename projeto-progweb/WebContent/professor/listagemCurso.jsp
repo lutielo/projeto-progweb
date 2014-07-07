@@ -38,7 +38,12 @@
 								<th>Data inicial</th>
 								<th>Data final</th>
 								<th width="60">Alunos</th>
-								<th width="90" colspan="3">Ações</th>
+								<c:if test="${sessionScope.usuario.perfil.cdperfil == 1 || sessionScope.usuario.perfil.cdperfil == 3}">
+									<th width="30">Ações</th>
+								</c:if>
+								<c:if test="${sessionScope.usuario.perfil.cdperfil == 1}">
+									<th width="90" colspan="3">Ações</th>
+								</c:if>
 							</tr>
 						  </thead>
 						  <tbody>
@@ -52,6 +57,8 @@
 									
 									<c:if test="${sessionScope.usuario.perfil.cdperfil == 1 || sessionScope.usuario.perfil.cdperfil == 3}">
 										<td width="30" align="center"><a href="${pageContext.request.contextPath}/EnviaEmail?codigo=${curso.cdcurso}"><img src="../images/Mail-32.png" alt="Mail" height="20" width="20"></a></td>
+									</c:if>
+									<c:if test="${sessionScope.usuario.perfil.cdperfil == 1}">
 										<td width="30" align="center"><a href="/admin/AlteraCursoManager?codigo=${curso.cdcurso}"><img src="../images/Edit.png" alt="Editar" height="20" width="20"></a></td>
 										<td width="30" align="center"><a href="/admin/DeleteCursoManager?codigo=${curso.cdcurso}"><img src="../images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
 									</c:if>
