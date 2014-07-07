@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.unisul.progweb.bean.Curso;
 import br.unisul.progweb.bean.Cursoaluno;
@@ -59,6 +60,12 @@ public class CadastraAlunoNoCursoManager extends HttpServlet {
 		
 		cursoAlunoDAO.insert(cursoaluno);
 		
-		response.sendRedirect("DetalhesCursoManager?codigo="+codigoCursoInt);
+		HttpServletRequest req = (HttpServletRequest) request;
+		HttpSession session = req.getSession();
+		Usuario usuarioObj = usuarioDAO.getSingleUsuarioByLogin(usuario.getDelogin());
+		session.setAttribute("usuario", usuarioObj);
+		
+		session.setAttribute("msg","Usuário cadastrado no curso com sucesso.");	
+		((HttpServletResponse)response).sendRedirect("../DetalhesCursoManager?codigo="+codigoCursoInt);
 	}
 }
