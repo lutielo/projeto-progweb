@@ -73,7 +73,11 @@ public class UsuarioDAO {
 	public Usuario getSingleUsuarioById(Integer cdusuario) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			String query = "from Usuario where cdusuario = :cdusuario";
+			String query = "FROM Usuario u "
+					 + " JOIN FETCH u.perfil "
+					 + " LEFT JOIN FETCH u.cursoalunos"
+					 + " WHERE u.cdusuario = :cdusuario";
+
 			Usuario resultado = null;
 			try {
 				resultado = em.createQuery(query, Usuario.class)

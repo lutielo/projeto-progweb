@@ -68,14 +68,12 @@
 									<h3 align="left">Ementa:</h3>
 									<p>${curso.deementa}
 
-										<c:set var="contains" value="false" />
-										<c:forEach var="cursoalunos"
-											items="${sessionScope.usuario.cursoalunos}">
-											<c:if test="${cursoaluno.curso == curso.cdcurso}">
-												<c:set var="contains" value="true" scope="request" />
+										<c:forEach var="cursoaluno" items="${sessionScope.usuario.cursoalunos}">
+											<c:if test="${cursoaluno.curso.cdcurso eq curso.cdcurso}">
+												<c:set var="contains" value="true" />
 											</c:if>
 										</c:forEach>
-
+										
 										<c:if test="${!contains and (not empty sessionScope.usuario) and (sessionScope.usuario.perfil.deperfil eq 'aluno')}">
 											<form class="form-horizontal"
 												action="${pageContext.request.contextPath}/aluno/CadastraAlunoNoCursoManager?codigoAluno=${sessionScope.usuario.cdusuario}&codigoCurso=${curso.cdcurso}"
