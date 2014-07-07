@@ -48,7 +48,7 @@
 									<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
 									<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
 									<td align="center"><a href="${pageContext.request.contextPath}/PesquisaCursoAluno?codigo=${curso.cdcurso}"><img src="../images/List-32.png" alt="Listar alunos" height="20" width="20"></a></td>
-									<td align="center"><a href="${pageContext.request.contextPath}/MailToAlunosCurso?codigo=${curso.cdcurso}"><img src="../images/Mail-32.png" alt="Mail" height="20" width="20"></a></td>
+									<td align="center"><a href="${pageContext.request.contextPath}/EnviaEmail?codigo=${curso.cdcurso}"><img src="../images/Mail-32.png" alt="Mail" height="20" width="20"></a></td>
 									
 									<c:if test="${sessionScope.usuario.perfil.cdperfil == 1}">
 										<td align="center"><a href="/admin/AlteraCursoManager?codigo=${curso.cdcurso}"><img src="../images/Edit.png" alt="Editar" height="20" width="20"></a></td>
