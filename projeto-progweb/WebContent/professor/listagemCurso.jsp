@@ -28,7 +28,7 @@
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">
-						<h1>Lista completa de cursos</h1>
+						<h1 align="left">Lista completa de cursos</h1>
 						<hr>
 						<table class="table table-striped table-hover ">
 						  <thead>
@@ -38,7 +38,7 @@
 								<th>Data inicial</th>
 								<th>Data final</th>
 								<th width="60">Alunos</th>
-								<th colspan="3">Ações</th>
+								<th width="90" colspan="3">Ações</th>
 							</tr>
 						  </thead>
 						  <tbody>
@@ -49,11 +49,11 @@
 									<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
 									<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
 									<td align="center"><a href="${pageContext.request.contextPath}/PesquisaCursoAluno?codigo=${curso.cdcurso}"><img src="../images/List-32.png" alt="Listar alunos" height="20" width="20"></a></td>
-									<td align="center"><a href="${pageContext.request.contextPath}/EnviaEmail?codigo=${curso.cdcurso}"><img src="../images/Mail-32.png" alt="Mail" height="20" width="20"></a></td>
 									
-									<c:if test="${sessionScope.usuario.perfil.cdperfil == 1}">
-										<td align="center"><a href="/admin/AlteraCursoManager?codigo=${curso.cdcurso}"><img src="../images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-										<td align="center"><a href="/admin/DeleteCursoManager?codigo=${curso.cdcurso}"><img src="../images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+									<c:if test="${sessionScope.usuario.perfil.cdperfil == 1 || sessionScope.usuario.perfil.cdperfil == 3}">
+										<td width="30" align="center"><a href="${pageContext.request.contextPath}/EnviaEmail?codigo=${curso.cdcurso}"><img src="../images/Mail-32.png" alt="Mail" height="20" width="20"></a></td>
+										<td width="30" align="center"><a href="/admin/AlteraCursoManager?codigo=${curso.cdcurso}"><img src="../images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+										<td width="30" align="center"><a href="/admin/DeleteCursoManager?codigo=${curso.cdcurso}"><img src="../images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
 									</c:if>
 								</tr>
 							</c:forEach>

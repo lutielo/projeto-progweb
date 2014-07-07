@@ -29,7 +29,7 @@
 							<tr>
 								<th width="60">Código</th>
 								<th width="100%">Descrição</th>
-								<th width="60">Ações</th>
+								<th width="60" colspan="2">Ações</th>
 							</tr>
 						  </thead>
 						  <tbody>

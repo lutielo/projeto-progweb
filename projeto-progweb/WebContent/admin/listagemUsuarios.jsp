@@ -28,29 +28,29 @@
 			<div id="center">
 				<div class="col-lg-15">
 					<div class="well bs-component">
-						<h1>Lista de usuários</h1>
+						<h1 align="left">Lista de usuários</h1>
 						<hr>
 						<table class="table table-striped table-hover ">
 						  <thead>
 							<tr>
 								<th width="60">Código</th>
-								<th>Nome</th>
-								<th>Login</th>
-								<th>Email</th>
-								<th>Perfil</th>
-								<th colspan="2">Ações</th>
+								<th width="100%">Nome</th>
+								<th width="80">Login</th>
+								<th width="90">Email</th>
+								<th width="60">Perfil</th>
+								<th width="60" colspan="2">Ações</th>
 							</tr>
 						  </thead>
 						  <tbody>
 							<c:forEach var="usuario" items="${listaUsuarios}">
 								<tr>
-									<td>${usuario.cdusuario}</td>
-									<td>${usuario.nmusuario}</td>
-									<td>${usuario.delogin}</td>
-									<td>${usuario.deemail}</td>
-									<td>${usuario.perfil.deperfil}</td>
-									<td align="center"><a href="${pageContext.request.contextPath}/admin/AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="${pageContext.request.contextPath}/images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-									<td align="center"><a href="${pageContext.request.contextPath}/admin/DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="${pageContext.request.contextPath}/images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+									<td width="60">${usuario.cdusuario}</td>
+									<td width="100%">${usuario.nmusuario}</td>
+									<td width="80">${usuario.delogin}</td>
+									<td width="90">${usuario.deemail}</td>
+									<td width="60">${usuario.perfil.deperfil}</td>
+									<td align="center" width="30"><a href="${pageContext.request.contextPath}/admin/AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="${pageContext.request.contextPath}/images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+									<td align="center" width="30"><a href="${pageContext.request.contextPath}/admin/DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="${pageContext.request.contextPath}/images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
 								</tr>
 							</c:forEach>
 						  </tbody>
