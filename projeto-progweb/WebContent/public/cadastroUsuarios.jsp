@@ -28,6 +28,7 @@
 										<div class="col-lg-2">
 											<input type="text" name="codigo" class="form-control" id="inputCodigo" value="${usuarioASerEditado.cdusuario}" readonly>
 										</div>
+									<%session.setAttribute("acao", null);%>
 									</div>
 								</c:if>
 								<div class="form-group">
