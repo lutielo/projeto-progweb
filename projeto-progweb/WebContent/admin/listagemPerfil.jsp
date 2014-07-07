@@ -20,26 +20,31 @@
 		<div id="content">
 			<div id="left"></div>
 			<div id="center">
-				<h1>Lista completa de perfil</h1>
-				<hr>
-				<table class="table table-striped table-hover ">
-				  <thead>
-					<tr>
-						<th width="60">Código</th>
-						<th>Descrição</th>
-					</tr>
-				  </thead>
-				  <tbody>
-					<c:forEach var="perfil" items="${lista}">
-						<tr>
-							<td>${perfil.cdperfil}</td>
-							<td>${perfil.deperfil}</td>
-							<td align="center"><a href="${pageContext.request.contextPath}/admin/AlteraPerfilManager?codigo=${perfil.cdperfil}"><img src="${pageContext.request.contextPath}/images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-							<td align="center"><a href="${pageContext.request.contextPath}/admin/DeletePerfilManager?codigo=${perfil.cdperfil}"><img src="${pageContext.request.contextPath}/images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
-						</tr>
-					</c:forEach>
-				  </tbody>
-				</table>
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<h1 align="left">Lista completa de perfis</h1>
+						<hr>
+						<table class="table table-striped table-hover ">
+						  <thead>
+							<tr>
+								<th width="60">Código</th>
+								<th width="100%">Descrição</th>
+								<th width="60">Ações</th>
+							</tr>
+						  </thead>
+						  <tbody>
+							<c:forEach var="perfil" items="${lista}">
+								<tr>
+									<td width="60">${perfil.cdperfil}</td>
+									<td width="100%">${perfil.deperfil}</td>
+									<td align="center" width="30"><a href="${pageContext.request.contextPath}/admin/AlteraPerfilManager?codigo=${perfil.cdperfil}"><img src="${pageContext.request.contextPath}/images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+									<td align="center" width="30"><a href="${pageContext.request.contextPath}/admin/DeletePerfilManager?codigo=${perfil.cdperfil}"><img src="${pageContext.request.contextPath}/images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+								</tr>
+							</c:forEach>
+						  </tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 			<div id="right"></div>
 		</div>
