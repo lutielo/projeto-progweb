@@ -40,7 +40,8 @@ public class IniciarPesquisaAvancadaCursoJPA extends HttpServlet {
 
 		request.setAttribute("listaProfessores", listaProfessores);
 
-		((HttpServletResponse)response).sendRedirect("public/pesquisaCursoAvancada.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("public/pesquisaCursoAvancada.jsp");
+		view.forward(request, response);
 	}
 
 }

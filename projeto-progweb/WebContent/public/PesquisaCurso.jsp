@@ -27,7 +27,7 @@
 		<div id="content">
 		<div id="left"></div>
 			<div id="center">
-				 <form class="navbar-form navbar-left"  action="PesquisaCursoJPA" method="post">
+				 <form class="navbar-form navbar-left"  action="${pageContext.request.contextPath}/PesquisaCursoJPA" method="post">
 				     <fieldset>
                          <input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Qual curso você deseja?"">
 					     <div class="form-group">
