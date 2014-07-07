@@ -20,26 +20,29 @@
 		<div id="content">
 			<div id="left"></div>
 			<div id="center">
-				<h1>Meus Cursos</h1>
-				<hr>
-				<table class="table table-striped table-hover ">
-					<thead>
-						<tr>
-							<th>Descrição</th>
-							<th>Data inicial</th>
-							<th>Data final</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="curso" items="${listaCursos}">
-							<tr>
-								<td align="center"><a href="../DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
-								<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
-								<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<h1 align="left">Meus Cursos</h1>
+						<table class="table table-striped table-hover ">
+							<thead>
+								<tr>
+									<th align="left">Descrição</th>
+									<th>Data inicial</th>
+									<th>Data final</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="curso" items="${listaCursos}">
+									<tr>
+										<td align="left"><a href="../DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
+										<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
+										<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 			<div id="right"></div>
 		</div>
