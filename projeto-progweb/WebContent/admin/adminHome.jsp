@@ -7,6 +7,7 @@
 <link href="../css/style.css" type="text/css" rel="stylesheet" />
 <link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <script src="../bootstrap-3.1.1/dist/js/bootstrap.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="../images/favicon.ico" />
 <title>Projeto Unisul</title>
 </head>
 <body>
@@ -26,26 +27,30 @@
 			<div id="left"></div>
 			<div id="center">
 				<jsp:useBean id="lista" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" />
-				<h1>Cursos disponíveis</h1>
-				<hr>
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>Descrição</th>
-							<th>Data inicial</th>
-							<th>Data final</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
-							<tr>
-								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCurso?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
-								<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
-								<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<h1 align="left">Cursos disponíveis</h1>
+						<hr>
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>Descrição</th>
+									<th>Data inicial</th>
+									<th>Data final</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
+									<tr>
+										<td align="left"><a href="${pageContext.request.contextPath}/DetalhesCurso?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
+										<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
+										<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>		
 			</div>
 		<div id="right"></div>
 	</div>

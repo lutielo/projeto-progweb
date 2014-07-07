@@ -7,7 +7,7 @@
 <link href="../css/style.css" type="text/css" rel="stylesheet" />
 <link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <script src="../bootstrap-3.1.1/dist/js/bootstrap.js" type="text/javascript"></script>
-
+<link rel="icon" type="image/png" href="../images/favicon.ico" />
 <title>Projeto Unisul</title>
 </head>
 <body>

@@ -7,7 +7,8 @@
 <link href="../css/style.css" type="text/css" rel="stylesheet" />
 <link href="../bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <script src="../bootstrap-3.1.1/dist/js/bootstrap.js" type="text/javascript"></script>
-<title>Contato</title>
+<link rel="icon" type="image/png" href="../images/favicon.ico" />
+<title>Sobre</title>
 </head>
 <body>
 	<div id="container">

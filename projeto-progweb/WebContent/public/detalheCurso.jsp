@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <head>
@@ -8,6 +7,7 @@
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="bootstrap-3.1.1/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <script src="bootstrap-3.1.1/dist/js/bootstrap.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="../images/favicon.ico" />
 <title>Projeto Unisul</title>
 </head>
 <body>
