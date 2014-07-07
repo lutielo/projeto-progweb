@@ -20,33 +20,29 @@
 			</div>
 		</c:if>
 		<div id="header">
-			<img src="../images/BannerV1.jpg">
+			<img id="img_logo" src="../images/logo_ava.png">
 		</div>
 		<jsp:include page="${pageContext.request.contextPath}/../public/menuOficial.jsp" />
 		<div id="content">
 			<div id="left"></div>
 			<div id="center">
-				<jsp:useBean id="lista" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" />
-				<h1>Cursos disponíveis</h1>
-				<hr>
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>Descrição</th>
-							<th>Data inicial</th>
-							<th>Data final</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
-							<tr>
-								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
-								<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
-								<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<h3 align="left">O Ambiente Virtual de Aprendizagem</h3>
+						<div class="col-xs-15"><hr></div>
+						<p align="justify">De modo simples, o <strong>Ambiente Virtual de Aprendizagem (AVA)</strong> é um conjunto de elementos tecnológicos disponíveis na internet. É um local virtual onde são disponibilizadas ferramentas que permite o acesso a um curso ou disciplina e também permite a interação entre os alunos, professores e monitories envolvidos no processo de ensino-aprendizagem.
+
+
+O AVA possibilita a oferta de uma sala de aula virtual para o acompanhamento dos alunos e a realização de atividades de aprendizagem. Os AVAs rompem os limites da sala de aula presencial e favorecem a formação de comunidades virtuais de aprendizagem.
+
+
+No NEAD a sua principal ferramenta de apoio será o Ambiente Virtual de Aprendizagem (AVA). O aluno recebe um login e uma senha de acesso a este espaço no início do semestre letivo, e é através dele que o aluno desenvolverá as atividades do curso e manterá o contato com a instituição. O AVA pode ser usado para:<br><br>
+· Acessar conteúdos e atividades do curso/disciplina;<br>
+· Realizar diferentes atividades planejadas para propiciar sua aprendizagem ativa;<br>
+· Interagir com os colegas virtuais trocando idéias, debatendo ou colaborando com seus trabalhos; interagir com o professor tutor;<br>
+· Acompanhar sua trajetória através do relatório de atividades.
+					</div>
+				</div>
 			</div>
 		<div id="right"></div>
 	</div>
