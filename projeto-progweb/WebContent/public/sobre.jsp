@@ -22,18 +22,12 @@
 							<div class="well bs-component">
 								<h2 align="left">Sobre</h2>
 								<div class="col-xs-15"><hr></div>
-								<h2 align="left"><span>O que é Lorem Ipsum?</span></h2>
+								<h2 align="left"><span>O que é AVA?</span></h2>
 								<p align="justify">
-									<strong>Lorem Ipsum</strong> é simplesmente uma simulação de
-									texto da indústria tipográfica e de impressos, e vem sendo
-									utilizado desde o século XVI, quando um impressor desconhecido
-									pegou uma bandeja de tipos e os embaralhou para fazer um livro de
-									modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos,
-									como também ao salto para a editoração eletrônica, permanecendo
-									essencialmente inalterado. Se popularizou na década de 60, quando
-									a Letraset lançou decalques contendo passagens de Lorem Ipsum, e
-									mais recentemente quando passou a ser integrado a softwares de
-									editoração eletrônica como Aldus PageMaker.
+									O <strong>Ambiente Virtual de Aprendizagem (AVA)</strong>, por ser uma instituição com caráter filantrópico, 
+									busca sempre o ensino de qualidade e principalmente que seja acessível à maior parte da população. 
+									E é buscando a democratização do ensino que a Fundação trabalhou para trazer o EAD à Florianópolis, 
+									dando assim maior oportunidade para que mais pessoas de Florianópolis e região possam iniciar um curso superior.
 							</div>
 						</div>
 					</div>
