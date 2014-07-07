@@ -60,7 +60,7 @@
 										<div class="form-group">
 											<label for="select" class="col-lg-2 control-label">Perfil:</label>
 											<div class="col-lg-10">
-												<select class="form-control" name="perfil" id="perfil">
+												<select class="form-control" name="perfil" id="perfil" required>
 													<option value="1">Admin</option>
 													<option value="2" selected>Aluno</option>
 													<option value="3">Professor</option>

@@ -58,12 +58,12 @@
 									
 									<label for="inputDataInicio" class="col-lg-2 control-label">Data início:</label>
 									<div class="col-lg-4">
-										<input type="date" name="dataInicio" class="form-control" id="inputDataInicio" value="${curso.dtinicio}">
+										<input type="date" name="dataInicio" class="form-control" id="inputDataInicio" value="${curso.dtinicio}" required>
 									</div>
 									
 									<label for="inputDataFim" class="col-lg-2 control-label">Data fim:</label>
 									<div class="col-lg-4">
-										<input type="date" name="dataFim" class="form-control" id="inputDataFim" value="${curso.dtfim}">
+										<input type="date" name="dataFim" class="form-control" id="inputDataFim" value="${curso.dtfim}" required>
 									</div>
 								</div>
 								<div class="form-group">

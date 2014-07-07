@@ -34,7 +34,7 @@
 								<div class="form-group">
 									<label for="inputDescricao" class="col-lg-2 control-label">Descrição:</label>
 									<div class="col-lg-10">
-										<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="admin" value="${perfil.deperfil}">
+										<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="admin" value="${perfil.deperfil}" required>
 									</div>
 								</div>						
 								<div class="form-group">
