@@ -27,17 +27,28 @@
 		<div id="content">
 		<div id="left"></div>
 			<div id="center">
-				 <form class="navbar-form navbar-left"  action="${pageContext.request.contextPath}/PesquisaCursoJPA" method="post">
-				     <fieldset>
-                         <input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Qual curso você deseja?"">
-					     <div class="form-group">
-					 	    <div class="col-lg-10 col-lg-offset-2">
-							    <button type="submit" class="btn btn-primary">Pesquisar</button>
-						    </div>
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<h2 align="left">Pesquisa Curso</h2>
+						<div class="col-xs-15"><hr></div>
+		                
+		                <form class="form-horizontal" action="${pageContext.request.contextPath}/PesquisaCursoJPA" method="post">
+						<div class="form-group">
+							<label for="inputNome" class="col-lg-2 control-label">Curso:</label>
+							<div class="col-lg-10">
+								<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Qual curso você deseja?"">
+							</div>
+
+							<div class="col-lg-10 col-lg-offset-2">
+								<br>
+								<button type="reset" class="btn btn-default">Limpar</button>
+								<button type="submit" class="btn btn-primary">Pesquisar</button>
+							</div>
 						</div>
-				    </fieldset>
-                </form>
-			</div>
+					</form>
+					</div>
+				</div>
+			</div>	
 			<div id="right"></div>
 		</div>
 		<div id="footer"></div>
