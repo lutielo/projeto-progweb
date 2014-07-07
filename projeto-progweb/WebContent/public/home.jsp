@@ -20,7 +20,7 @@
 			</div>
 		</c:if>
 		<div id="header">
-			<img id="img_logo" src="../images/logo_ava.png">
+			<img src="../images/BannerV1.jpg">
 		</div>
 		<jsp:include page="${pageContext.request.contextPath}/../public/menuOficial.jsp" />
 		<div id="content">
@@ -36,7 +36,7 @@
 O AVA possibilita a oferta de uma sala de aula virtual para o acompanhamento dos alunos e a realização de atividades de aprendizagem. Os AVAs rompem os limites da sala de aula presencial e favorecem a formação de comunidades virtuais de aprendizagem.
 
 
-No NEAD a sua principal ferramenta de apoio será o Ambiente Virtual de Aprendizagem (AVA). O aluno recebe um login e uma senha de acesso a este espaço no início do semestre letivo, e é através dele que o aluno desenvolverá as atividades do curso e manterá o contato com a instituição. O AVA pode ser usado para:<br><br>
+No NEAD a sua principal ferramenta de apoio será o <strong>Ambiente Virtual de Aprendizagem (AVA)</strong>. O aluno recebe um login e uma senha de acesso a este espaço no início do semestre letivo, e é através dele que o aluno desenvolverá as atividades do curso e manterá o contato com a instituição. O AVA pode ser usado para:<br><br>
 · Acessar conteúdos e atividades do curso/disciplina;<br>
 · Realizar diferentes atividades planejadas para propiciar sua aprendizagem ativa;<br>
 · Interagir com os colegas virtuais trocando idéias, debatendo ou colaborando com seus trabalhos; interagir com o professor tutor;<br>
