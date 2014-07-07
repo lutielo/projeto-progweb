@@ -23,30 +23,34 @@
 			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
 		</div>
 		<jsp:include page="${pageContext.request.contextPath}/../public/menuOficial.jsp" />
-		<div id="content">
+				<div id="content">
 			<div id="left"></div>
 			<div id="center">
 				<jsp:useBean id="lista" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" />
-				<h1>Cursos disponíveis</h1>
-				<hr>
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>Descrição</th>
-							<th>Data inicial</th>
-							<th>Data final</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
-							<tr>
-								<td align="center"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
-								<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
-								<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<h1 align="left">Cursos disponíveis</h1>
+						<hr>
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>Descrição</th>
+									<th>Data inicial</th>
+									<th>Data final</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
+									<tr>
+										<td align="left"><a href="${pageContext.request.contextPath}/DetalhesCurso?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
+										<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
+										<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>		
 			</div>
 		<div id="right"></div>
 	</div>

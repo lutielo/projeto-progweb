@@ -23,30 +23,34 @@
 			<img src="${pageContext.request.contextPath}/images/BannerV1.jpg">
 		</div>
 		<jsp:include page="${pageContext.request.contextPath}/../public/menuOficial.jsp" />
-		<div id="content">
-			<div id="left">
-				<jsp:useBean id="lista" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" />
-				<h6 align="left">Cursos Disponiveis :</h6>
-				<ul>
-					<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
-						<li type="square"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></li>
-					</c:forEach>
-				</ul>
-				<br><br>
-				<h6 align="left">Cursos em Andamento :</h6>
-				<ul>
-					<c:forEach var="curso" items="${lista.listCursoEmAndamento}">
-						<li type="square"><a href="${pageContext.request.contextPath}/DetalhesCursoManager?codigo=${curso.cdcurso}">${curso.decurso}</a></li>
-					</c:forEach>
-				</ul>
-			</div>
+				<div id="content">
+			<div id="left"></div>
 			<div id="center">
-				Bem vindo professor ${sessionScope.usuario.nmusuario},<br>
-				Para listar os cursos ao qual você ministra no momento <a href="${pageContext.request.contextPath}/professor/CursosDoProfessorManager?usuario=${sessionScope.usuario}">clique aqui</a>
-				
-				
-				<br><br><br>
-				Para pesquisa avançada <a href="${pageContext.request.contextPath}/IniciarPesquisaAvancadaCursoJPA">clique aqui</a>
+				<jsp:useBean id="lista" class="br.unisul.progweb.controle.curso.ListaCursoPorTipoJPA" scope="request" />
+				<div class="col-lg-15">
+					<div class="well bs-component">
+						<h1 align="left">Cursos disponíveis</h1>
+						<hr>
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>Descrição</th>
+									<th>Data inicial</th>
+									<th>Data final</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="curso" items="${lista.listCursoDisponiveis}">
+									<tr>
+										<td align="left"><a href="${pageContext.request.contextPath}/DetalhesCurso?codigo=${curso.cdcurso}">${curso.decurso}</a></td>
+										<td><fmt:formatDate value="${curso.dtinicio}" pattern="dd/MM/yyyy" /></td>
+										<td><fmt:formatDate value="${curso.dtfim}" pattern="dd/MM/yyyy" /></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>		
 			</div>
 		<div id="right"></div>
 	</div>
