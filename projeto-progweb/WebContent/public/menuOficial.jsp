@@ -82,7 +82,7 @@
 		</ul>
 		
 		<c:if test="${empty sessionScope.usuario}">
-			<form name="loginForm" action="../LoginUsuario" method="POST" class="navbar-form navbar-right">
+			<form name="loginForm" action="${pageContext.request.contextPath}/LoginUsuario" method="POST" class="navbar-form navbar-right">
 				<ul class="nav navbar-nav">
 					<li>
 						<input type="text" name="login" placeholder="Login" class="form-control col-lg-8">
