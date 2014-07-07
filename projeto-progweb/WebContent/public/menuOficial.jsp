@@ -108,7 +108,7 @@
 		<c:if test="${not empty sessionScope.usuario}">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="divider">&nbsp;&nbsp;&nbsp;</li>
-				<li><a href="${pageContext.request.contextPath}/LogoutUsuario">Logout</a></li>
+				<li><a href="${pageContext.request.contextPath}/LogoutUsuario">Olá ${sessionScope.usuario.delogin}, Sair</a></li>
 				<li class="divider">&nbsp;&nbsp;&nbsp;</li>
 			</ul>
 		</c:if>

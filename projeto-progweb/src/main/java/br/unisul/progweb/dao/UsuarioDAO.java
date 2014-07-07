@@ -54,7 +54,7 @@ public class UsuarioDAO {
 
 			String query = "FROM Usuario u "
 						 + " JOIN FETCH u.perfil "
-						 + " JOIN FETCH u.cursoalunos"
+						 + " LEFT JOIN FETCH u.cursoalunos"
 						 + " WHERE UPPER(delogin) = :login";
 			Usuario resultado = null;
 			try {
