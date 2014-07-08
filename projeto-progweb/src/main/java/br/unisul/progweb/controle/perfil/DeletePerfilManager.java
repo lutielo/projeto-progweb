@@ -38,7 +38,7 @@ public class DeletePerfilManager extends HttpServlet {
 			Integer codigo = Integer.parseInt(codigoString);
 			perfil = perfilDAO.getSinglePerfil(codigo);
 			perfilDAO.delete(perfil);
-			response.sendRedirect("/admin/ListaPerfilManager");
+			response.sendRedirect("ListaPerfilManager");
 		}
 	}
 }
