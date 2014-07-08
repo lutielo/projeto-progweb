@@ -9,11 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.unisul.progweb.bean.Curso;
 import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.CursoDAO;
 import br.unisul.progweb.dao.UsuarioDAO;
+import br.unisul.progweb.filtro.AdminFilter;
 
 @WebServlet("/admin/DeleteCursoManager")
 public class DeleteCursoManager extends HttpServlet {
@@ -41,7 +43,10 @@ public class DeleteCursoManager extends HttpServlet {
 			Integer codigo = Integer.parseInt(codigoString);
 			curso = cursoDAO.getSingleCurso(codigo);
 			cursoDAO.delete(curso);
-			response.sendRedirect("ListaCursoManager");
+			HttpServletRequest req = (HttpServletRequest) request;
+			HttpSession session = req.getSession();
+			session.setAttribute("msg","Curso deletado com sucesso.");
+			response.sendRedirect("../professor/ListaCursoManager");
 		}
 	}
 }

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.unisul.progweb.bean.Usuario;
 import br.unisul.progweb.dao.UsuarioDAO;
@@ -37,6 +38,9 @@ public class DeleteUsuarioManager extends HttpServlet {
 			Integer codigo = Integer.parseInt(codigoString);
 			usuario = usuarioDAO.getSingleUsuarioById(codigo);
 			usuarioDAO.delete(usuario);
+			HttpServletRequest req = (HttpServletRequest) request;
+			HttpSession session = req.getSession();
+			session.setAttribute("msg","Usuário deletado com sucesso.");
 			response.sendRedirect("ListaUsuariosManager");
 		}
 	}

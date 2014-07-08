@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -124,7 +125,7 @@ public class Curso implements Serializable {
 		this.dtfim = dtfim;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "curso")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "curso", cascade=CascadeType.REMOVE)
 	public Set<Cursoaluno> getCursoalunos() {
 		return this.cursoalunos;
 	}
@@ -133,7 +134,7 @@ public class Curso implements Serializable {
 		this.cursoalunos = cursoalunos;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "curso")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "curso", cascade=CascadeType.REMOVE)
 	public Set<Cursoarquivo> getCursoarquivos() {
 		return this.cursoarquivos;
 	}

@@ -61,8 +61,9 @@ public class EnviaEmail extends HttpServlet {
 			view.forward(request, response);
 
 		} else {
-			String nome = request.getParameter("nome");
-			String mailFrom = request.getParameter("email");
+			Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+			String nome = usuario.getNmusuario();
+			String mailFrom = usuario.getDeemail();
 			String assunto = request.getParameter("assunto");
 			String mensagem = request.getParameter("mensagem");
 

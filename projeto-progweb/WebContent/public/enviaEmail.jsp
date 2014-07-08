@@ -33,20 +33,6 @@
 					</div>
 					<form class="form-horizontal" name="formulario" action="${pageContext.request.contextPath}/EnviaEmail" method="post">
 						<div class="form-group">
-							<label for="inputNome" class="col-lg-2 control-label">Nome:
-								*</label>
-							<div class="col-lg-10">
-								<input type=text name="nome" class="form-control" id="inputNome"
-									placeholder="Bilbo Baggins" autofocus required="required"><br>
-							</div>
-
-							<label for="inputEmail" class="col-lg-2 control-label">Email: *</label>
-							<div class="col-lg-10">
-								<input type=text name="email" class="form-control"
-									id="inputEmail" placeholder="bilbo@baggins.com.br"
-									required="required"><br>
-							</div>
-
 							<label for="inputAssunto" class="col-lg-2 control-label">Assunto: *</label>
 							<div class="col-lg-10">
 								<input type=text name="assunto" class="form-control"
@@ -61,8 +47,8 @@
 							</div>
 
 							<div class="col-lg-10 col-lg-offset-2">
-								<button type="reset" class="btn btn-default">Limpar Formulário</button>
-								<button type="submit" class="btn btn-primary">Enviar Email</button>
+								<button type="reset" class="btn btn-default">Limpar</button>
+								<button type="submit" class="btn btn-primary">Enviar</button>
 							</div>
 						</div>
 					</form>

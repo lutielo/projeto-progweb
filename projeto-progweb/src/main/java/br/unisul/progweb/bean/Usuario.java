@@ -4,6 +4,7 @@ package br.unisul.progweb.bean;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -120,7 +121,7 @@ public class Usuario implements java.io.Serializable {
 		this.deemail = deemail;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade=CascadeType.REMOVE)
 	public Set<Cursoaluno> getCursoalunos() {
 		return this.cursoalunos;
 	}
@@ -129,7 +130,7 @@ public class Usuario implements java.io.Serializable {
 		this.cursoalunos = cursoalunos;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade=CascadeType.REMOVE)
 	public Set<Curso> getCursos() {
 		return this.cursos;
 	}
