@@ -25,20 +25,20 @@
 								<legend>${acao}</legend>
 								<c:if test="${not empty curso.cdcurso}">
 									<div class="form-group">
-										<label for="inputCodigo" class="col-lg-2 control-label">Codigo:</label>
+										<label for="inputCodigo" class="col-lg-2 control-label">Codigo: *</label>
 										<div class="col-lg-2">
 											<input type="text" name="codigo" class="form-control" id="inputCodigo" value="${curso.cdcurso}" readonly>
 										</div>
 									</div>
 								</c:if>
 								<div class="form-group">
-									<label for="inputDescricao" class="col-lg-2 control-label">Descrição:</label>
+									<label for="inputDescricao" class="col-lg-2 control-label">Descrição: *</label>
 									<div class="col-lg-10">
 										<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Programação WEB" value="${curso.decurso}" required>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="select" class="col-lg-2 control-label">Professor:</label>
+									<label for="select" class="col-lg-2 control-label">Professor: *</label>
 									<div class="col-lg-10">
 										<select class="form-control" name="professor" id="professor" required>
 											<option value="" selected>-- Selecione --</option>
@@ -56,22 +56,23 @@
 								</div>
 								<div class="form-group">
 									
-									<label for="inputDataInicio" class="col-lg-2 control-label">Data início:</label>
+									<label for="inputDataInicio" class="col-lg-2 control-label">Data início: *</label>
 									<div class="col-lg-4">
 										<input type="date" name="dataInicio" class="form-control" id="inputDataInicio" value="${curso.dtinicio}" required>
 									</div>
 									
-									<label for="inputDataFim" class="col-lg-2 control-label">Data fim:</label>
+									<label for="inputDataFim" class="col-lg-2 control-label">Data fim: *</label>
 									<div class="col-lg-4">
 										<input type="date" name="dataFim" class="form-control" id="inputDataFim" value="${curso.dtfim}" required>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="textArea" class="col-lg-2 control-label">Ementa</label>
+									<label for="textArea" class="col-lg-2 control-label">Ementa: *</label>
 									<div class="col-lg-10">
 										<textarea class="form-control" name="ementa" rows="7" id="textAreaEmenta" placeholder="Introdução ao desenvolvimento de aplicações WEB com acessos a Banco de Dados empregando estruturas para manipulação dos dados. Apresentação e introdução de recursos Web através de Web Forms. Criação de controles personalizados. Conceitos de programação dinâmica." required>${curso.deementa}</textarea>
 									</div>
 								</div>
+								<h5 align="left">* campos obrigatórios</h5>
 								<div class="form-group">
 									<div class="col-lg-10 col-lg-offset-2">
 										<button class="btn btn-default"  formaction="${pageContext.request.contextPath}/ListaCursoManager">Voltar</button>

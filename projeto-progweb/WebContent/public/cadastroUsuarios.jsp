@@ -25,7 +25,7 @@
 								<legend>${sessionScope.acao}</legend>
 								<c:if test="${not empty usuarioASerEditado.cdusuario}">
 									<div class="form-group">
-										<label for="inputCodigo" class="col-lg-2 control-label">Codigo:</label>
+										<label for="inputCodigo" class="col-lg-2 control-label">Codigo: *</label>
 										<div class="col-lg-2">
 											<input type="text" name="codigo" class="form-control" id="inputCodigo" value="${usuarioASerEditado.cdusuario}" readonly>
 										</div>
@@ -33,25 +33,25 @@
 									</div>
 								</c:if>
 								<div class="form-group">
-									<label for="inputNome" class="col-lg-2 control-label">Nome:</label>
+									<label for="inputNome" class="col-lg-2 control-label">Nome: *</label>
 									<div class="col-lg-10">
 										<input type="text" name="nomecompleto" class="form-control" id="inputNome" placeholder="Fulano da Silva" value="${usuarioASerEditado.nmusuario}" autofocus required>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputEmail" class="col-lg-2 control-label">Email:</label>
+									<label for="inputEmail" class="col-lg-2 control-label">Email: *</label>
 									<div class="col-lg-10">
 										<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="${usuarioASerEditado.deemail}" required>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputLogin" class="col-lg-2 control-label">Login:</label>
+									<label for="inputLogin" class="col-lg-2 control-label">Login: *</label>
 									<div class="col-lg-10">
 										<input type="text" name="login" class="form-control" id="inputLogin" placeholder="Login" value="${usuarioASerEditado.delogin}" required>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputSenha" class="col-lg-2 control-label">Senha:</label>
+									<label for="inputSenha" class="col-lg-2 control-label">Senha: *</label>
 									<div class="col-lg-10">
 										<input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Senha" value="${usuarioASerEditado.desenha}" required>
 									</div>
@@ -59,7 +59,7 @@
 								<c:choose>
 									<c:when test="${sessionScope.usuario.perfil.deperfil == 'administrador'}">
 										<div class="form-group">
-											<label for="select" class="col-lg-2 control-label">Perfil:</label>
+											<label for="select" class="col-lg-2 control-label">Perfil: *</label>
 											<div class="col-lg-10">
 												<select class="form-control" name="perfil" id="perfil" required>
 													<option value="1">Admin</option>
@@ -72,7 +72,8 @@
 									<c:otherwise>						
 									    <input type="hidden" name="perfil" value="2"/>
 								    </c:otherwise>
-							    </c:choose>		
+							    </c:choose>
+							    <h5 align="left">* campos obrigatórios</h5>		
 								<div class="form-group">
 									<div class="col-lg-10 col-lg-offset-2">
 										<button type="reset" class="btn btn-default">Limpar</button>

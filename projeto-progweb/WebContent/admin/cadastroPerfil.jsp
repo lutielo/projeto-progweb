@@ -33,11 +33,12 @@
 									</div>
 								</c:if>
 								<div class="form-group">
-									<label for="inputDescricao" class="col-lg-2 control-label">Descrição:</label>
+									<label for="inputDescricao" class="col-lg-2 control-label">Descrição: *</label>
 									<div class="col-lg-10">
 										<input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="admin" value="${perfil.deperfil}" required>
 									</div>
-								</div>						
+								</div>	
+								<h5 align="left">* campos obrigatórios</h5>					
 								<div class="form-group">
 									<div class="col-lg-10 col-lg-offset-2">
 										<button type="reset" class="btn btn-default">Limpar</button>
