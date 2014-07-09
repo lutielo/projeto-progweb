@@ -37,7 +37,9 @@
 								<th>Login</th>
 								<th>Email</th>
 								<th>Perfil</th>
-								<th colspan="2">Ações</th>
+								<c:if test="${sessionScope.usuario.perfil.cdperfil == 1}">
+									<th colspan="2">Ações</th>
+								</c:if>
 							</tr>
 						  </thead>
 						  <tbody>
@@ -48,8 +50,10 @@
 									<td>${usuario.delogin}</td>
 									<td>${usuario.deemail}</td>
 									<td>${usuario.perfil.deperfil}</td>
-									<td align="center"><a href="/admin/AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
-									<td align="center"><a href="/admin/DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+									<c:if test="${sessionScope.usuario.perfil.cdperfil == 1}">
+										<td align="center"><a href="${pageContext.request.contextPath}/admin/AlteraUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Edit.png" alt="Editar" height="20" width="20"></a></td>
+										<td align="center"><a href="${pageContext.request.contextPath}/admin/DeleteUsuarioManager?codigo=${usuario.cdusuario}"><img src="images/Trash.png" alt="Excluir" height="20" width="20"></a></td>
+									</c:if>
 								</tr>
 							</c:forEach>
 						  </tbody>
