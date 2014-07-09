@@ -118,12 +118,10 @@
 					</c:if>
 
 					<c:if
-						test="${(sessionScope.usuario.perfil.deperfil == 'professor') or (sessionScope.usuario.perfil.deperfil == 'administrador')}">
+						test="${(sessionScope.usuario.cdusuario == professor.cdusuario) or (sessionScope.usuario.perfil.deperfil == 'administrador')}">
 						<div class="col-lg-15">
 							<div class="well bs-component">
-								<form class="form-horizontal"
-									action="Upload?codigo=${curso.cdcurso}" method="post"
-									name="form" enctype="multipart/form-data">
+								<form class="form-horizontal" action="${pageContext.request.contextPath}/Upload?codigo=${curso.cdcurso}" method="post" name="form" enctype="multipart/form-data">
 									<fieldset>
 										<legend>Uploads de arquivos para o curso</legend> Upload: 
 										<input type="file" name="arquivo" /><br/> 
@@ -135,10 +133,8 @@
 					</c:if>
 
 					<c:if
-						test="${(sessionScope.usuario.perfil.deperfil == 'professor') or (sessionScope.usuario.perfil.deperfil == 'administrador')}">
-						<form class="form-horizontal"
-							action="/admin/AlteraCursoManager?codigo=${curso.cdcurso}"
-							method="post">
+						test="${(sessionScope.usuario.perfil.deperfil == 'administrador')}">
+						<form class="form-horizontal" action="${pageContext.request.contextPath}/admin/AlteraCursoManager?codigo=${curso.cdcurso}" method="post">
 							<button class="btn btn-default" formaction="ListaCursoManager">Voltar</button>
 							<button type="submit" class="btn btn-primary">Editar</button>
 						</form>
